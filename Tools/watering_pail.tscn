@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://bxvs7fc8vrxr"]
+
+[ext_resource type="Script" uid="uid://we08ctnxknng" path="res://Tools/watering_pail.gd" id="1_k3k6m"]
+
+[sub_resource type="Gradient" id="Gradient_oo887"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_krjp8"]
+gradient = SubResource("Gradient_oo887")
+
+[sub_resource type="Gradient" id="Gradient_f2w5n"]
+offsets = PackedFloat32Array(0.56639564, 0.6314363)
+colors = PackedColorArray(0.25739998, 0.56225, 0.78, 1, 0.25739998, 0.56225, 0.78, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oo887"]
+gradient = SubResource("Gradient_f2w5n")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.48290598)
+
+[sub_resource type="Gradient" id="Gradient_461ys"]
+colors = PackedColorArray(1, 1, 1, 1, 5.0055983e-06, 0.70303285, 0.9702683, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_61gfd"]
+gradient = SubResource("Gradient_461ys")
+
+[sub_resource type="Curve" id="Curve_k3k6m"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.2753623), 0.0, 4.162055, 0, 0, Vector2(1, 1.6521739), 0.12407233, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_krjp8"]
+curve = SubResource("Curve_k3k6m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ejfg"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+initial_velocity_min = 287.91
+initial_velocity_max = 287.91
+gravity = Vector3(0, 400, 0)
+scale_curve = SubResource("CurveTexture_krjp8")
+color_ramp = SubResource("GradientTexture1D_61gfd")
+
+[sub_resource type="Curve" id="Curve_5ejfg"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0.0074441656, 0.15476203), 0.0, 2.593308, 0, 0, Vector2(1, 1.5833335), -0.04877801, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_61gfd"]
+offsets = PackedFloat32Array(0, 0.690411, 1)
+colors = PackedColorArray(0.4624663, 0.89222246, 0.9999997, 1, 0.40696925, 0.70493585, 1, 1, 0.41000003, 0.70500004, 1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpvi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61gfd"]
+size = Vector2(118.232315, 155.38797)
+
+[node name="Watering Pail" type="Node2D" unique_id=479279742]
+script = ExtResource("1_k3k6m")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=520777179]
+position = Vector2(-118.99999, 0)
+scale = Vector2(0.72265625, 155.5)
+texture = SubResource("GradientTexture1D_krjp8")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite" unique_id=53268605]
+visible = false
+position = Vector2(-261.5351, -0.46945336)
+scale = Vector2(1.3837837, 0.006430868)
+amount = 12
+texture = SubResource("GradientTexture2D_oo887")
+trail_lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_5ejfg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite" unique_id=767536039]
+position = Vector2(157.75136, -0.2122187)
+rotation = -0.004248485
+scale = Vector2(0.089743935, 74.593765)
+skew = -1.5614805
+texture = SubResource("GradientTexture1D_krjp8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite" unique_id=1812373610]
+position = Vector2(168.82161, 0.16720258)
+rotation = 0.006308438
+scale = Vector2(0.07211914, 89.00841)
+skew = 1.5610613
+texture = SubResource("GradientTexture1D_krjp8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite" unique_id=612489099]
+position = Vector2(-188.19458, -0.2636656)
+rotation = -0.0087999925
+scale = Vector2(0.12996206, 153.8372)
+skew = -1.5595447
+texture = SubResource("GradientTexture1D_krjp8")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1623831898]
+
+[node name="Line2D" type="Line2D" parent="Node2D" unique_id=655773143]
+position = Vector2(-309, -74)
+rotation = -0.4473716
+scale = Vector2(0.7226562, 155.5)
+points = PackedVector2Array(5.5351563, 0, -174.99658, 0, -356.0068, 2.3841858e-07, -595.02704, 0, -741.70807, 0)
+width = 0.815
+width_curve = SubResource("Curve_5ejfg")
+default_color = Color(0.44, 0.804, 1, 1)
+gradient = SubResource("Gradient_61gfd")
+begin_cap_mode = 2
+
+[node name="Area2D" type="Area2D" parent="Node2D" unique_id=686579616]
+position = Vector2(-211.99998, 23)
+scale = Vector2(0.9999999, 1)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=2116674121]
+position = Vector2(-485.00006, 91)
+rotation = -0.49161288
+scale = Vector2(11.277137, 9.931898)
+shape = SubResource("RectangleShape2D_vpvi2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=445370902]
+position = Vector2(-328.5224, 13.875233)
+rotation = -0.49950188
+shape = SubResource("RectangleShape2D_61gfd")

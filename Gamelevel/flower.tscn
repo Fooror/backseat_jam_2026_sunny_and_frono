@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bptnk6mbu6wn"]
+
+[ext_resource type="Texture2D" uid="uid://crgunjqlpch62" path="res://images/bud.png" id="1_q4gu7"]
+[ext_resource type="Script" uid="uid://dyk2spvdqqdor" path="res://Gamelevel/flower.gd" id="1_qld3m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ejfg"]
+radius = 17.0
+
+[node name="Flower" type="Node2D" unique_id=1320029203]
+script = ExtResource("1_qld3m")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=120186275]
+position = Vector2(2, -14)
+texture = ExtResource("1_q4gu7")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1486857697]
+offset_left = -44.0
+offset_top = 5.0
+offset_right = 44.0
+offset_bottom = 19.0
+max_value = 8.0
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2139294020]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1977966934]
+shape = SubResource("CircleShape2D_5ejfg")

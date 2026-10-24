@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cis1685cy0cmg"]
+
+[ext_resource type="Script" uid="uid://dagi0u1chii3h" path="res://Gamelevel/game_level.gd" id="1_ahwja"]
+[ext_resource type="Texture2D" uid="uid://dgyibmpbbx41e" path="res://images/pot_bottom.png" id="2_wiydr"]
+[ext_resource type="Texture2D" uid="uid://bh4ajwpo2jp4f" path="res://images/top.png" id="2_yavcv"]
+[ext_resource type="Texture2D" uid="uid://c0p2j0lcc1y2g" path="res://images/pot_top.png" id="4_jpbel"]
+
+[node name="GameLevel" type="Node2D" unique_id=1486105889 node_paths=PackedStringArray("Camera", "Plantstart", "Planttop")]
+script = ExtResource("1_ahwja")
+Camera = NodePath("Camera2D")
+Plantstart = NodePath("Plantstart")
+Planttop = NodePath("Planttop")
+
+[node name="Timer" type="Timer" parent="." unique_id=2093603075]
+autostart = true
+
+[node name="Camtarget" type="Node2D" parent="." unique_id=377437984]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1446288521]
+offset = Vector2(960, 540)
+
+[node name="Treesegments" type="Node" parent="." unique_id=307450690]
+
+[node name="Pot" type="Sprite2D" parent="." unique_id=1847660073]
+position = Vector2(1046, 776)
+texture = ExtResource("2_wiydr")
+
+[node name="Planttop" type="Node2D" parent="." unique_id=623271941]
+position = Vector2(1045, 742)
+
+[node name="PlanttopSprite" type="Sprite2D" parent="Planttop" unique_id=283708557]
+position = Vector2(1, -96)
+texture = ExtResource("2_yavcv")
+
+[node name="Plantstart" type="Marker2D" parent="." unique_id=1855167374]
+position = Vector2(1045, 749)
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=563289574]
+
+[node name="Panel" type="Panel" parent="GUI" unique_id=663650933]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -164.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="How To" type="Panel" parent="GUI" unique_id=2027415118]
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 329.0
+offset_bottom = 379.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/How To" unique_id=1058823780]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 317.0
+offset_bottom = 366.0
+bbcode_enabled = true
+text = "[font_size=24]Chat Commands[/font_size]
+
+[font_size=16]Grow branch in dirrection: left, right, straight[/font_size]
+
+[font_size=16]Grow fruiting flower: flower[/font_size]
+
+[font_size=16]Grow leaf (creates sugar): leaf[/font_size]"
+
+[node name="Toplevel" type="Node" parent="." unique_id=114134440]
+
+[node name="PotTop" type="Sprite2D" parent="Toplevel" unique_id=624908521]
+position = Vector2(1046, 789)
+texture = ExtResource("4_jpbel")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

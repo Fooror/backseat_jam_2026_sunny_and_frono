@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bwfnagv2unacs"]
+
+[ext_resource type="Script" uid="uid://tmqwvhjcxi44" path="res://Gamelevel/tree_segment.gd" id="1_ro40j"]
+[ext_resource type="Texture2D" uid="uid://bp8fwbgat72o3" path="res://images/my_nub.png" id="2_vsntk"]
+[ext_resource type="Texture2D" uid="uid://bb6yxqi1u81e0" path="res://images/trunk.png" id="3_bo2fl"]
+
+[sub_resource type="Gradient" id="Gradient_h1irs"]
+offsets = PackedFloat32Array(0.23498695, 1)
+colors = PackedColorArray(0.07450981, 0.3137255, 0.25490198, 1, 0.15686275, 0.47843137, 0.1882353, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vsntk"]
+noise_type = 3
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5ejfg"]
+width = 100
+height = 72
+noise = SubResource("FastNoiseLite_vsntk")
+color_ramp = SubResource("Gradient_h1irs")
+
+[node name="TreeSegment" type="Node2D" unique_id=765769530 node_paths=PackedStringArray("SectionTop", "Branchstartleft", "Branchstartright", "leafcontainer", "fruitcontainer")]
+script = ExtResource("1_ro40j")
+SectionTop = NodePath("Top")
+Branchstartleft = NodePath("Leftstump/Left")
+Branchstartright = NodePath("Rightstump/Right")
+leafcontainer = NodePath("Leafcontainer")
+fruitcontainer = NodePath("Fruitcontainer")
+
+[node name="Branchtopper" type="Node2D" parent="." unique_id=337895586]
+position = Vector2(-25, -57)
+
+[node name="TrunkSprite2" type="Sprite2D" parent="Branchtopper" unique_id=1129448632]
+position = Vector2(20.5, 0)
+scale = Vector2(0.42999998, 0.13749999)
+texture = SubResource("NoiseTexture2D_5ejfg")
+
+[node name="Leftstump" type="Node2D" parent="." unique_id=111134221]
+position = Vector2(-29, -53)
+
+[node name="TrunkSprite2" type="Sprite2D" parent="Leftstump" unique_id=1036881048]
+position = Vector2(-27, -9.75)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_vsntk")
+
+[node name="Left" type="Marker2D" parent="Leftstump" unique_id=40183309]
+position = Vector2(-50, -29.75)
+
+[node name="Rightstump" type="Node2D" parent="." unique_id=395081279]
+position = Vector2(-16, -173)
+
+[node name="TrunkSprite3" type="Sprite2D" parent="Rightstump" unique_id=285205595]
+position = Vector2(19, 1)
+texture = ExtResource("2_vsntk")
+
+[node name="Right" type="Marker2D" parent="Rightstump" unique_id=741312523]
+position = Vector2(42, -19)
+
+[node name="TrunkSprite" type="Sprite2D" parent="." unique_id=1465880159]
+position = Vector2(-15, -128)
+texture = ExtResource("3_bo2fl")
+
+[node name="Top" type="Marker2D" parent="." unique_id=2083131092]
+position = Vector2(0, -255)
+
+[node name="Branchcontainer" type="Node" parent="." unique_id=189312207]
+
+[node name="Leafcontainer" type="Node" parent="." unique_id=712611963]
+
+[node name="Fruitcontainer" type="Node" parent="." unique_id=59373685]
