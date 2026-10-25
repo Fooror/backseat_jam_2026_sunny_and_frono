@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://qtr5pwipprp3"]
+
+[ext_resource type="Texture2D" uid="uid://1fqhfs5awoia" path="res://images/scissors_bottom.png" id="1_uynv5"]
+[ext_resource type="Script" uid="uid://bv04angyowmcn" path="res://Tools/shears.gd" id="1_v7p5w"]
+[ext_resource type="Texture2D" uid="uid://ct117xs1tbhqo" path="res://images/scissors_top.png" id="2_v7p5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ejfg"]
+size = Vector2(99.76312, 11.304131)
+
+[node name="Shears" type="Node2D" unique_id=1541991852]
+script = ExtResource("1_v7p5w")
+
+[node name="Pivot2" type="Node2D" parent="." unique_id=1547193356]
+position = Vector2(-70, 85)
+
+[node name="ScissorsBottom" type="Sprite2D" parent="Pivot2" unique_id=818185706]
+position = Vector2(18.5, -26.5)
+texture = ExtResource("1_uynv5")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1029249656]
+position = Vector2(-70, 85)
+
+[node name="ScissorsTop" type="Sprite2D" parent="Pivot" unique_id=1052536543]
+position = Vector2(18.5, -26.5)
+texture = ExtResource("2_v7p5w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1147477701]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=878110104]
+position = Vector2(-151.31955, 173.20573)
+rotation = -0.8084673
+shape = SubResource("RectangleShape2D_5ejfg")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

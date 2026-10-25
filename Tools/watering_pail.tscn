@@ -1,15 +1,32 @@
 [gd_scene format=3 uid="uid://bxvs7fc8vrxr"]
 
 [ext_resource type="Script" uid="uid://we08ctnxknng" path="res://Tools/watering_pail.gd" id="1_k3k6m"]
+[ext_resource type="Texture2D" uid="uid://dpbnra5ofqoql" path="res://images/watering_can.png" id="2_oo887"]
 
-[sub_resource type="Gradient" id="Gradient_oo887"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3k6m"]
+radius = 151.43425
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_krjp8"]
-gradient = SubResource("Gradient_oo887")
+[sub_resource type="CircleShape2D" id="CircleShape2D_oo887"]
+radius = 107.39758
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_krjp8"]
+radius = 65.358086
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_461ys"]
+radius = 34.989044
+
+[sub_resource type="Curve" id="Curve_5ejfg"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0.0074441656, 0.15476203), 0.0, 2.593308, 0, 0, Vector2(1, 1.8690478), 0.54829836, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_61gfd"]
+offsets = PackedFloat32Array(0, 0.04255319, 0.690411, 1)
+colors = PackedColorArray(0.45999998, 0.89199984, 1, 0, 0.45999998, 0.89199984, 1, 0.7882353, 0.41000003, 0.70500004, 1, 0.6784314, 0.41000003, 0.70500004, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_f2w5n"]
 offsets = PackedFloat32Array(0.56639564, 0.6314363)
-colors = PackedColorArray(0.25739998, 0.56225, 0.78, 1, 0.25739998, 0.56225, 0.78, 0)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_oo887"]
 gradient = SubResource("Gradient_f2w5n")
@@ -17,11 +34,8 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.48290598)
 
-[sub_resource type="Gradient" id="Gradient_461ys"]
-colors = PackedColorArray(1, 1, 1, 1, 5.0055983e-06, 0.70303285, 0.9702683, 1)
-
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_61gfd"]
-gradient = SubResource("Gradient_461ys")
+gradient = SubResource("Gradient_61gfd")
 
 [sub_resource type="Curve" id="Curve_k3k6m"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -36,87 +50,96 @@ particle_flag_disable_z = true
 direction = Vector3(-1, 0, 0)
 initial_velocity_min = 287.91
 initial_velocity_max = 287.91
-gravity = Vector3(0, 400, 0)
+gravity = Vector3(0, 900, 0)
 scale_curve = SubResource("CurveTexture_krjp8")
 color_ramp = SubResource("GradientTexture1D_61gfd")
-
-[sub_resource type="Curve" id="Curve_5ejfg"]
-_limits = [0.0, 2.0, 0.0, 1.0]
-_data = [Vector2(0.0074441656, 0.15476203), 0.0, 2.593308, 0, 0, Vector2(1, 1.5833335), -0.04877801, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_61gfd"]
-offsets = PackedFloat32Array(0, 0.690411, 1)
-colors = PackedColorArray(0.4624663, 0.89222246, 0.9999997, 1, 0.40696925, 0.70493585, 1, 1, 0.41000003, 0.70500004, 1, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpvi2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_61gfd"]
-size = Vector2(118.232315, 155.38797)
 
 [node name="Watering Pail" type="Node2D" unique_id=479279742]
 script = ExtResource("1_k3k6m")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=520777179]
-position = Vector2(-118.99999, 0)
-scale = Vector2(0.72265625, 155.5)
-texture = SubResource("GradientTexture1D_krjp8")
+[node name="Timer" type="Timer" parent="." unique_id=1434744838]
+wait_time = 0.3
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite" unique_id=53268605]
-visible = false
-position = Vector2(-261.5351, -0.46945336)
-scale = Vector2(1.3837837, 0.006430868)
-amount = 12
-texture = SubResource("GradientTexture2D_oo887")
-trail_lifetime = 0.7
-process_material = SubResource("ParticleProcessMaterial_5ejfg")
+[node name="Area2D" type="Area2D" parent="." unique_id=686579616]
+top_level = true
+position = Vector2(-317, -8)
+scale = Vector2(0.9999999, 1)
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite" unique_id=767536039]
-position = Vector2(157.75136, -0.2122187)
-rotation = -0.004248485
-scale = Vector2(0.089743935, 74.593765)
-skew = -1.5614805
-texture = SubResource("GradientTexture1D_krjp8")
+[node name="4" type="CollisionShape2D" parent="Area2D" unique_id=2116674121]
+top_level = true
+position = Vector2(282, 271.09436)
+rotation = -0.44670376
+shape = SubResource("CircleShape2D_k3k6m")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Sprite" unique_id=1812373610]
-position = Vector2(168.82161, 0.16720258)
-rotation = 0.006308438
-scale = Vector2(0.07211914, 89.00841)
-skew = 1.5610613
-texture = SubResource("GradientTexture1D_krjp8")
+[node name="3" type="CollisionShape2D" parent="Area2D" unique_id=445370902]
+top_level = true
+position = Vector2(430.9338, 198.00002)
+rotation = -0.44729972
+shape = SubResource("CircleShape2D_oo887")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Sprite" unique_id=612489099]
-position = Vector2(-188.19458, -0.2636656)
-rotation = -0.0087999925
-scale = Vector2(0.12996206, 153.8372)
-skew = -1.5595447
-texture = SubResource("GradientTexture1D_krjp8")
+[node name="2" type="CollisionShape2D" parent="Area2D" unique_id=1030532911]
+top_level = true
+position = Vector2(549.9339, 140.00003)
+rotation = -0.44672388
+shape = SubResource("CircleShape2D_krjp8")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1623831898]
+[node name="1" type="CollisionShape2D" parent="Area2D" unique_id=1444208032]
+top_level = true
+position = Vector2(625.93396, 104)
+rotation = -0.44672388
+shape = SubResource("CircleShape2D_461ys")
 
-[node name="Line2D" type="Line2D" parent="Node2D" unique_id=655773143]
-position = Vector2(-309, -74)
-rotation = -0.4473716
+[node name="Water" type="Node2D" parent="." unique_id=1623831898]
+position = Vector2(-317, -8)
+
+[node name="Line2D" type="Line2D" parent="Water" unique_id=655773143]
+top_level = true
+position = Vector2(-0.08312988, -0.106170654)
+rotation = -1.3196384
 scale = Vector2(0.7226562, 155.5)
-points = PackedVector2Array(5.5351563, 0, -174.99658, 0, -356.0068, 2.3841858e-07, -595.02704, 0, -741.70807, 0)
-width = 0.815
+points = PackedVector2Array(5.5351563, 0, -58.18405, -0.0013513565, -174.99658, 0, -357.1382, -0.0046237707, -586.7302, 0.0041148663, -741.70807, 0)
+width = 1.2
 width_curve = SubResource("Curve_5ejfg")
 default_color = Color(0.44, 0.804, 1, 1)
 gradient = SubResource("Gradient_61gfd")
 begin_cap_mode = 2
 
-[node name="Area2D" type="Area2D" parent="Node2D" unique_id=686579616]
-position = Vector2(-211.99998, 23)
-scale = Vector2(0.9999999, 1)
-monitoring = false
+[node name="Waterskeleton" type="Node2D" parent="." unique_id=1369416734]
+top_level = true
+position = Vector2(-317, -8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=2116674121]
-position = Vector2(-485.00006, 91)
-rotation = -0.49161288
-scale = Vector2(11.277137, 9.931898)
-shape = SubResource("RectangleShape2D_vpvi2")
+[node name="1" type="Marker2D" parent="Waterskeleton" unique_id=162255532]
+position = Vector2(-11, 39)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=445370902]
-position = Vector2(-328.5224, 13.875233)
-rotation = -0.49950188
-shape = SubResource("RectangleShape2D_61gfd")
+[node name="2" type="Marker2D" parent="Waterskeleton" unique_id=309515243]
+position = Vector2(-31, 121)
+
+[node name="3" type="Marker2D" parent="Waterskeleton" unique_id=1342103234]
+position = Vector2(-64, 245)
+
+[node name="4" type="Marker2D" parent="Waterskeleton" unique_id=1985093250]
+position = Vector2(-101, 407)
+
+[node name="5" type="Marker2D" parent="Waterskeleton" unique_id=1824256772]
+position = Vector2(-123, 501)
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=779401910]
+position = Vector2(-152, 56)
+texture = ExtResource("2_oo887")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite" unique_id=53268605]
+visible = false
+position = Vector2(-155.99997, -129)
+scale = Vector2(0.99999994, 1)
+amount = 12
+texture = SubResource("GradientTexture2D_oo887")
+lifetime = 0.6
+trail_lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_5ejfg")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dgyibmpbbx41e" path="res://images/pot_bottom.png" id="2_wiydr"]
 [ext_resource type="Texture2D" uid="uid://bh4ajwpo2jp4f" path="res://images/top.png" id="2_yavcv"]
 [ext_resource type="Texture2D" uid="uid://c0p2j0lcc1y2g" path="res://images/pot_top.png" id="4_jpbel"]
+[ext_resource type="PackedScene" uid="uid://dnloj36jl2bi0" path="res://Gamelevel/toolroster.tscn" id="4_ldrrc"]
+[ext_resource type="PackedScene" uid="uid://caf4mplusgbar" path="res://Gamelevel/big beef.tscn" id="5_ldrrc"]
 
 [node name="GameLevel" type="Node2D" unique_id=1486105889 node_paths=PackedStringArray("Camera", "Plantstart", "Planttop")]
 script = ExtResource("1_ahwja")
@@ -48,6 +50,18 @@ offset_top = -164.0
 offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Toolroster" parent="GUI" unique_id=1343463447 instance=ExtResource("4_ldrrc")]
+offset_left = 346.0
+offset_top = 10.0
+offset_right = 824.0
+offset_bottom = 100.0
+
+[node name="BigBeef" parent="GUI" unique_id=1798475938 instance=ExtResource("5_ldrrc")]
+offset_left = 24.0
+offset_top = 567.0
+offset_right = 474.0
+offset_bottom = 960.0
 
 [node name="How To" type="Panel" parent="GUI" unique_id=2027415118]
 offset_left = 9.0

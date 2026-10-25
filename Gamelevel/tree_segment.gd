@@ -33,10 +33,7 @@ const Growthpatterns = ["left","right","straight"]
 const Growthdirrection = [-40,40,0]
 
 const Growthprompts = ["leaf","flower"]
-var Growthdict = {
-	"leaf" = ["res://Gamelevel/leaf.tscn",leafcontainer],
-	"flower" = ["res://Gamelevel/flower.tscn",fruitcontainer]
-}
+
 const GrowthnodesPaths = ["res://Gamelevel/leaf.tscn","res://Gamelevel/flower.tscn"]
 
 var debounce:bool = false
@@ -130,6 +127,8 @@ func grownode(growth:String,growstring:String):
 	match growstring:
 		"leaf":
 			leafcontainer.add_child(loadedgrowth)
+		"flower":
+			fruitcontainer.add_child(loadedgrowth)
 	loadedgrowth.global_position = node.global_position
 	var scale = randf_range(0.9,1.1)
 	loadedgrowth.scale = Vector2(scale,scale)

@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	
 func chat_message_recieved(user:String,message:String):
 	for i:TreeSegment in treesegments.get_children():
-		if i.User == user.to_lower():
+		if i.User == user:
 			i.messaged(message)
 			return
 	print("new user:"+user)

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://caf4mplusgbar"]
+
+[sub_resource type="Gradient" id="Gradient_emq2r"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.2575414, 0.14431965, 0.48668343, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ejfg"]
+gradient = SubResource("Gradient_emq2r")
+
+[sub_resource type="Gradient" id="Gradient_j444x"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.9383595, 0.7117323, 0.8240778, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vpvi2"]
+gradient = SubResource("Gradient_j444x")
+
+[node name="BigBeef" type="Control" unique_id=1798475938]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -353.0
+offset_right = 450.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1365575368]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -377.0
+offset_right = 73.0
+grow_vertical = 0
+max_value = 20.0
+value = 15.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_5ejfg")
+texture_progress = SubResource("GradientTexture1D_vpvi2")
+
+[node name="Beefarea" type="Panel" parent="." unique_id=918347535]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -245.0
+offset_right = 342.0
+grow_vertical = 0

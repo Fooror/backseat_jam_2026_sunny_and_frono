@@ -6,22 +6,27 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ejfg"]
 radius = 17.0
 
-[node name="Flower" type="Node2D" unique_id=1320029203]
+[node name="Flower" type="Node2D" unique_id=1320029203 node_paths=PackedStringArray("timer")]
 script = ExtResource("1_qld3m")
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=120186275]
-position = Vector2(2, -14)
-texture = ExtResource("1_q4gu7")
+timer = NodePath("")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1486857697]
 offset_left = -44.0
 offset_top = 5.0
 offset_right = 44.0
 offset_bottom = 19.0
+pivot_offset = Vector2(44, -5)
 max_value = 8.0
+step = 1.0
+value = 1.0
 show_percentage = false
 
+[node name="Sprite" type="Sprite2D" parent="." unique_id=120186275]
+position = Vector2(2, -14)
+texture = ExtResource("1_q4gu7")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=2139294020]
+collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1977966934]
