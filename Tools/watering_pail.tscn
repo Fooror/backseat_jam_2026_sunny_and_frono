@@ -22,7 +22,7 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_61gfd"]
 offsets = PackedFloat32Array(0, 0.04255319, 0.690411, 1)
-colors = PackedColorArray(0.45999998, 0.89199984, 1, 0, 0.45999998, 0.89199984, 1, 0.7882353, 0.41000003, 0.70500004, 1, 0.6784314, 0.41000003, 0.70500004, 1, 0)
+colors = PackedColorArray(0.45999998, 0.89199984, 1, 0, 0.45999998, 0.89199984, 1, 0.5372549, 0.41000003, 0.70500004, 1, 0.4627451, 0.41000003, 0.70500004, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_f2w5n"]
 offsets = PackedFloat32Array(0.56639564, 0.6314363)
@@ -62,35 +62,25 @@ wait_time = 0.3
 
 [node name="Area2D" type="Area2D" parent="." unique_id=686579616]
 top_level = true
-position = Vector2(-317, -8)
 scale = Vector2(0.9999999, 1)
 collision_layer = 0
 collision_mask = 2
-monitoring = false
 monitorable = false
 
 [node name="4" type="CollisionShape2D" parent="Area2D" unique_id=2116674121]
 top_level = true
-position = Vector2(282, 271.09436)
-rotation = -0.44670376
 shape = SubResource("CircleShape2D_k3k6m")
 
 [node name="3" type="CollisionShape2D" parent="Area2D" unique_id=445370902]
 top_level = true
-position = Vector2(430.9338, 198.00002)
-rotation = -0.44729972
 shape = SubResource("CircleShape2D_oo887")
 
 [node name="2" type="CollisionShape2D" parent="Area2D" unique_id=1030532911]
 top_level = true
-position = Vector2(549.9339, 140.00003)
-rotation = -0.44672388
 shape = SubResource("CircleShape2D_krjp8")
 
 [node name="1" type="CollisionShape2D" parent="Area2D" unique_id=1444208032]
 top_level = true
-position = Vector2(625.93396, 104)
-rotation = -0.44672388
 shape = SubResource("CircleShape2D_461ys")
 
 [node name="Water" type="Node2D" parent="." unique_id=1623831898]
@@ -128,7 +118,7 @@ position = Vector2(-101, 407)
 position = Vector2(-123, 501)
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=779401910]
-position = Vector2(-152, 56)
+position = Vector2(-140, 59)
 texture = ExtResource("2_oo887")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite" unique_id=53268605]
@@ -141,5 +131,6 @@ lifetime = 0.6
 trail_lifetime = 0.7
 process_material = SubResource("ParticleProcessMaterial_5ejfg")
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

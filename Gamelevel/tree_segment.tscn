@@ -20,7 +20,6 @@ color_ramp = SubResource("Gradient_h1irs")
 
 [node name="TreeSegment" type="Node2D" unique_id=765769530 node_paths=PackedStringArray("SectionTop", "Branchstartleft", "Branchstartright", "leafcontainer", "fruitcontainer")]
 script = ExtResource("1_ro40j")
-User = null
 SectionTop = NodePath("Top")
 Branchstartleft = NodePath("Leftstump/Left")
 Branchstartright = NodePath("Rightstump/Right")

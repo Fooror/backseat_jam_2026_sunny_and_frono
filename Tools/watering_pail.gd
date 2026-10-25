@@ -1,10 +1,11 @@
 extends Node2D
 
+const Waterdrop:float = 1.0
+
 @onready var sprite: Sprite2D = $Sprite
 @onready var particles: GPUParticles2D = $Sprite/GPUParticles2D
 @onready var water: Node2D = $Water
 @onready var line_2d: Line2D = $Water/Line2D
-@onready var area_2d: Area2D = $Area2D
 
 @onready var waterskeleton: Node2D = $Waterskeleton
 @onready var _4: CollisionShape2D = $"Area2D/4"
@@ -20,13 +21,13 @@ extends Node2D
 
 @onready var timer: Timer = $Timer
 
-var Wateringplants:Array[Node2D] = []
+var Wateringplants:Array = []
 
 func _ready() -> void:
 	line_2d.width = 0
 	line_2d.hide()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("use"):
 		IsUsing(true)
 	if event.is_action_released("use"):
@@ -50,23 +51,31 @@ func _physics_process(delta: float) -> void:
 func IsUsing(b:bool):
 	var tweentime = 0.14
 	particles.emitting = b
-	area_2d.monitoring = b
 	var pailtween = get_tree().create_tween()
 	pailtween.set_ease(Tween.EASE_OUT)
 	var waterthictween = get_tree().create_tween()
 	waterthictween.set_ease(Tween.EASE_OUT)
 	if b == true:
+		timer.start(0.3)
 		line_2d.show()
 		pailtween.tween_property(self,"rotation",deg_to_rad(-60),tweentime)
 		waterthictween.tween_property(line_2d,"width",1.2,tweentime)
 	else:
+		timer.stop()
 		pailtween.tween_property(self,"rotation",deg_to_rad(0),tweentime)
 		await waterthictween.tween_property(line_2d,"width",0,tweentime).finished
 		line_2d.hide()
 
+func _on_timer_timeout() -> void:
+	for i in Wateringplants:
+		if i.has_method("Water"):
+			if i.Water(Waterdrop) == true:
+				Wateringplants.erase(i)
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("entered")
-	area.get_parent().timer.start(0.3)
+	Wateringplants.append(area.get_parent())
+	print(Wateringplants)
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	area.get_parent().timer.stop()
+	Wateringplants.erase(area.get_parent())
+	print(Wateringplants)

@@ -29,8 +29,8 @@ var GrowingOnSide:GrowingOnSideEnums = 0
 
 const Startgrowing = ["sprout"]
 
-const Growthpatterns = ["left","right","straight"]
-const Growthdirrection = [-40,40,0]
+const Growthpatterns = ["left","right","up","down","straight"]
+const Growthdirrection = [-180.0,0.0,-90.0,90.0,0.0]
 
 const Growthprompts = ["leaf","flower"]
 
@@ -100,7 +100,7 @@ func growsegment(dirrection:float):
 	branchcontainer.add_child(branch)
 	branch.global_position = NextBranchNode.global_position
 	if GrowingOnSide == GrowingOnSideEnums.leftly:
-		branch.scale.x = -1
+		branch.branch.scale.x = -1
 	if PrevBranch:
 		branch.rotation = PrevBranch.rotation
 	branch.rotation += deg_to_rad(dirrection)

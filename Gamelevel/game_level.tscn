@@ -39,6 +39,12 @@ position = Vector2(1045, 749)
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=563289574]
 
+[node name="Toolroster" parent="GUI" unique_id=1343463447 instance=ExtResource("4_ldrrc")]
+offset_left = 385.0
+offset_top = 10.0
+offset_right = 1023.0
+offset_bottom = 100.0
+
 [node name="Panel" type="Panel" parent="GUI" unique_id=663650933]
 anchors_preset = 7
 anchor_left = 0.5
@@ -50,12 +56,6 @@ offset_top = -164.0
 offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="Toolroster" parent="GUI" unique_id=1343463447 instance=ExtResource("4_ldrrc")]
-offset_left = 346.0
-offset_top = 10.0
-offset_right = 824.0
-offset_bottom = 100.0
 
 [node name="BigBeef" parent="GUI" unique_id=1798475938 instance=ExtResource("5_ldrrc")]
 offset_left = 24.0

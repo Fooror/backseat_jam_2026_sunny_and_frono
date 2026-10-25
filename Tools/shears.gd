@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 	var mousepos = get_viewport().get_mouse_position()
 	global_position = mousepos
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if debounce == true:return
 	if event.is_action_pressed("use"):
 		IsUsing(false)

@@ -6,9 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ejfg"]
 radius = 17.0
 
-[node name="Flower" type="Node2D" unique_id=1320029203 node_paths=PackedStringArray("timer")]
+[node name="Flower" type="Node2D" unique_id=1320029203]
 script = ExtResource("1_qld3m")
-timer = NodePath("")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1486857697]
 offset_left = -44.0
@@ -17,8 +16,7 @@ offset_right = 44.0
 offset_bottom = 19.0
 pivot_offset = Vector2(44, -5)
 max_value = 8.0
-step = 1.0
-value = 1.0
+step = 0.1
 show_percentage = false
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=120186275]

@@ -11,8 +11,15 @@ const FLOWER = preload("uid://7llkqrw6nh1o")
 @export var Waterammount:float = 0.0
 var Watermax:float = 16.0
 
+func Water(val:float) -> bool:
+	Waterammount +=val
+	SetBar()
+	if Waterammount >= Watermax:
+		Bloom()
+		return true
+	return false
+
 func Bloom():
-	timer.stop()
 	area_2d.set_collision_layer_value(2,false)
 	area_2d.set_collision_layer_value(3,true)
 	sprite.texture = FLOWER
@@ -22,8 +29,8 @@ func _ready() -> void:
 	progress_bar.max_value = Watermax
 	progress_bar.value = 0.0
 
-func _on_timer_timeout() -> void:
-	Waterammount += 1.0
+func SetBar() -> void:
+	print (Waterammount)
 	print(Waterammount)
 	progress_bar.value = Waterammount
 	if progress_bar.value >= Watermax:

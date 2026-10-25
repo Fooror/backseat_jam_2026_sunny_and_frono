@@ -5,22 +5,24 @@
 
 [node name="Branch" type="Node2D" unique_id=1495901802 node_paths=PackedStringArray("Branchend", "Branchnodes")]
 script = ExtResource("1_tn7ad")
-Branchend = NodePath("Branchend")
-Branchnodes = [NodePath("Node"), NodePath("Node2"), NodePath("Node3")]
+Branchend = NodePath("Branch/Branchend")
+Branchnodes = [NodePath("Branch/Node"), NodePath("Branch/Node2"), NodePath("Branch/Node3")]
 
-[node name="TrunkSprite" type="Sprite2D" parent="." unique_id=1226361012]
+[node name="Branch" type="Node2D" parent="." unique_id=1035349671]
+
+[node name="TrunkSprite" type="Sprite2D" parent="Branch" unique_id=1226361012]
 position = Vector2(43, 1.0000014)
 texture = ExtResource("2_qpvbw")
 
-[node name="Branchend" type="Marker2D" parent="." unique_id=1088173381]
+[node name="Branchend" type="Marker2D" parent="Branch" unique_id=1088173381]
 position = Vector2(83, 3)
 
-[node name="Node" type="Marker2D" parent="." unique_id=1739094244]
+[node name="Node" type="Marker2D" parent="Branch" unique_id=1739094244]
 position = Vector2(12, -9)
 
-[node name="Node2" type="Marker2D" parent="." unique_id=1658735825]
+[node name="Node2" type="Marker2D" parent="Branch" unique_id=1658735825]
 position = Vector2(37, 12)
-rotation = -3.1415927
+rotation = 3.1415925
 
-[node name="Node3" type="Marker2D" parent="." unique_id=767678656]
+[node name="Node3" type="Marker2D" parent="Branch" unique_id=767678656]
 position = Vector2(69, -4)
