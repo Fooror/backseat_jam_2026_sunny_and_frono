@@ -1,4 +1,4 @@
-extends Panel
+extends Control
 class_name ToolRoster
 
 const WATERING_PAIL = preload("uid://bxvs7fc8vrxr")

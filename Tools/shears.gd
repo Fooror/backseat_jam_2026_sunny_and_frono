@@ -10,7 +10,7 @@ func _ready() -> void:
 	IsUsing(true)
 
 func _process(delta: float) -> void:
-	global_position = get_viewport().get_mouse_position() + get_parent().position
+	global_position = get_parent().get_global_mouse_position()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if debounce == true:return

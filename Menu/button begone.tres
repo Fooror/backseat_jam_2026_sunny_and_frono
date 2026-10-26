@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://cpdbdtvjmkue0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_61gfd"]
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_61gfd")
+Button/styles/focus = SubResource("StyleBoxEmpty_61gfd")
+Button/styles/hover = SubResource("StyleBoxEmpty_61gfd")
+Button/styles/normal = SubResource("StyleBoxEmpty_61gfd")
+Button/styles/pressed = SubResource("StyleBoxEmpty_61gfd")

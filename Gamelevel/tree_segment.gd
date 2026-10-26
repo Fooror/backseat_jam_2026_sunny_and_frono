@@ -1,7 +1,7 @@
 extends Node2D
 class_name TreeSegment
 
-signal Infoupdate(sugar,leafcount,nodeavailable)
+signal Infoupdate(availablenodes:int,currentsugar:float,rot:float)
 
 @onready var leftstump: Node2D = $Leftstump
 @onready var rightstump: Node2D = $Rightstump
@@ -112,7 +112,8 @@ func growsegment(dir):
 				branch.rotation = wrapf(dir,0.0,TAU)
 	else:
 		branch.rotation = wrapf(dir,0.0,TAU)
-	 
+	Infoupdate.emit(Availablenodes.size(),Sugar,branch.rotation)
+	
 	print (branch.rotation)
 	NextBranchNode.queue_free()
 	Availablenodes.append_array(branch.Branchnodes)

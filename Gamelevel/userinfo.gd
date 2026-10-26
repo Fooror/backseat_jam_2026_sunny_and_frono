@@ -2,13 +2,15 @@ extends Control
 class_name Userinfoplate
 
 @onready var username: Label = $Panel/Username
+@onready var arrow: TextureRect = $Arrow
+@onready var nodes: Label = $Panel/Nodes
+@onready var sugar: Label = $Panel/Sugar
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 func setup(user:String):
 	username.text = user
 
-func OnInfoUpdated():
-	pass
+func OnInfoUpdated(availablenodes:int,currentsugar:float,rot:float):
+	arrow.rotation = rot
+	sugar.text = str(currentsugar)
+	

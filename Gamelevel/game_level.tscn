@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c0p2j0lcc1y2g" path="res://images/pot_top.png" id="4_jpbel"]
 [ext_resource type="PackedScene" uid="uid://dnloj36jl2bi0" path="res://Gamelevel/toolroster.tscn" id="4_ldrrc"]
 [ext_resource type="PackedScene" uid="uid://caf4mplusgbar" path="res://Gamelevel/big beef.tscn" id="5_ldrrc"]
+[ext_resource type="Script" uid="uid://b0265sqsqk6bt" path="res://Gamelevel/timer.gd" id="6_n55e7"]
+[ext_resource type="Texture2D" uid="uid://j1logbgi0c55" path="res://images/ui/clock_body.png" id="6_n815c"]
+[ext_resource type="Texture2D" uid="uid://bd08do8t3y6qn" path="res://images/ui/clock_needle.png" id="7_n55e7"]
 
 [node name="GameLevel" type="Node2D" unique_id=1486105889 node_paths=PackedStringArray("world", "Plantstart", "Planttop", "Camera")]
 script = ExtResource("1_ahwja")
@@ -37,8 +40,6 @@ texture = ExtResource("2_yavcv")
 [node name="Plantstart" type="Marker2D" parent="World" unique_id=1855167374]
 position = Vector2(1045, 749)
 
-[node name="Tools" type="Node2D" parent="World" unique_id=580671892]
-
 [node name="Timer" type="Timer" parent="." unique_id=2093603075]
 autostart = true
 
@@ -50,7 +51,7 @@ offset_top = 10.0
 offset_right = 808.0
 offset_bottom = 100.0
 Camera = NodePath("../../Camera2D")
-Toolcontainernode = NodePath("../../World/Tools")
+Toolcontainernode = NodePath("../../Tools")
 
 [node name="Panel" type="Panel" parent="GUI" unique_id=663650933]
 anchors_preset = 7
@@ -105,18 +106,19 @@ grow_horizontal = 2
 grow_vertical = 0
 columns = 9
 
-[node name="Control" type="Control" parent="GUI" unique_id=2030159770]
+[node name="Timer" type="Control" parent="GUI" unique_id=2030159770]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -284.0
+offset_left = -394.0
 offset_top = 10.0
 offset_right = -10.0
-offset_bottom = 284.0
+offset_bottom = 475.0
 grow_horizontal = 0
+script = ExtResource("6_n55e7")
 
-[node name="TextureRect" type="TextureRect" parent="GUI/Control" unique_id=793289743]
+[node name="TextureRect" type="TextureRect" parent="GUI/Timer" unique_id=793289743]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -124,23 +126,49 @@ anchor_right = 1.0
 offset_left = -274.0
 offset_bottom = 274.0
 grow_horizontal = 0
+texture = ExtResource("6_n815c")
 
-[node name="Label" type="Label" parent="GUI/Control" unique_id=1113139419]
+[node name="Needle" type="TextureRect" parent="GUI/Timer" unique_id=217502145]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 35.0
+offset_right = 264.0
+offset_bottom = 201.0
+pivot_offset = Vector2(36.625, 144.075)
+texture = ExtResource("7_n55e7")
+
+[node name="Label" type="Label" parent="GUI/Timer" unique_id=1113139419]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -123.5
-offset_top = 11.0
-offset_right = 123.5
-offset_bottom = 72.0
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -21.5
+offset_right = 137.0
+offset_bottom = 2.5
 grow_horizontal = 2
-grow_vertical = 0
-text = "TIME REMAINING
-time:time"
+grow_vertical = 2
+text = "DINNER TIME"
 horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="GUI/Timer" unique_id=1020811471]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 4.5
+offset_right = 137.0
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="Tools" type="Node2D" parent="." unique_id=580671892]
 
 [node name="Toplevel" type="Node" parent="." unique_id=1215457989]
 
