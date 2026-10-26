@@ -12,8 +12,12 @@ const WATERING_CAN = preload("uid://dpbnra5ofqoql")
 @onready var slap: Button = $slap
 @onready var shear: Button = $shear
 
+@export var Camera:Camera2D
+
 enum ToolEnums {none,pail,slap,shear}
 var Currenttool:ToolEnums = ToolEnums.none
+
+var Toolobject
 
 @export var Toolcontainernode:Node
 
@@ -22,9 +26,10 @@ func _on_pail_pressed() -> void:
 	if Currenttool == ToolEnums.pail:
 		Currenttool = ToolEnums.none
 		return
+	Toolobject = WATERING_PAIL.instantiate()
 	Currenttool = ToolEnums.pail
 	pail.icon = null
-	Toolcontainernode.add_child(WATERING_PAIL.instantiate())
+	Camera.add_child(Toolobject)
 
 func _on_slap_pressed() -> void:
 	unequipall()
@@ -37,13 +42,14 @@ func _on_shear_pressed() -> void:
 	if Currenttool == ToolEnums.shear:
 		Currenttool = ToolEnums.none
 		return
+	Toolobject = SHEARS.instantiate()
 	Currenttool = ToolEnums.shear
 	shear.icon = null
-	Toolcontainernode.add_child(SHEARS.instantiate())
+	Toolcontainernode.add_child(Toolobject)
 
 func unequipall():
 	shear.icon = SCISSORS_FULL
 	slap.icon = SWATTA
 	pail.icon = WATERING_CAN
-	for i in Toolcontainernode.get_children():
-		i.queue_free()
+	if Toolobject:
+		Toolobject.queue_free()

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dn3g0n4mxk8cb"]
+
+[ext_resource type="Script" uid="uid://d4iqqg0td5cd2" path="res://Gamelevel/userinfo.gd" id="1_gpok4"]
+
+[node name="User" type="Control" unique_id=1066405154]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 222.0
+offset_bottom = 60.0
+script = ExtResource("1_gpok4")
+
+[node name="Panel" type="Panel" parent="." unique_id=245901466]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 60.0
+
+[node name="Username" type="Label" parent="Panel" unique_id=1735756579]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 84.0
+offset_bottom = 27.0
+text = "Username"
+
+[node name="Username2" type="Label" parent="Panel" unique_id=1586390811]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 84.0
+offset_bottom = 56.0
+text = "AVN | LEAVES | "

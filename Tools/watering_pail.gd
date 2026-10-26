@@ -8,10 +8,6 @@ const Waterdrop:float = 1.0
 @onready var line_2d: Line2D = $Water/Line2D
 
 @onready var waterskeleton: Node2D = $Waterskeleton
-@onready var _4: CollisionShape2D = $"Area2D/4"
-@onready var _3: CollisionShape2D = $"Area2D/3"
-@onready var _2: CollisionShape2D = $"Area2D/2"
-@onready var _1: CollisionShape2D = $"Area2D/1"
 
 @onready var mark_5: Marker2D = $"Waterskeleton/5"
 @onready var mark_4: Marker2D = $"Waterskeleton/4"
@@ -19,14 +15,23 @@ const Waterdrop:float = 1.0
 @onready var mark_2: Marker2D = $"Waterskeleton/2"
 @onready var mark_1: Marker2D = $"Waterskeleton/1"
 
+@onready var _4: CollisionShape2D = $"Area2D/4"
+@onready var _3: CollisionShape2D = $"Area2D/3"
+@onready var _2: CollisionShape2D = $"Area2D/2"
+@onready var _1: CollisionShape2D = $"Area2D/1"
+
 @onready var timer: Timer = $Timer
+@onready var area_2d: Area2D = $Area2D
 
 var Wateringplants:Array = []
 
 func _ready() -> void:
 	line_2d.width = 0
 	line_2d.hide()
-
+	_4.position = mark_4.position
+	_3.position = mark_3.position
+	_2.position = mark_2.position
+	_1.position = mark_1.position
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("use"):
 		IsUsing(true)
@@ -35,12 +40,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	waterskeleton.position = water.global_position
-	global_position = get_viewport().get_mouse_position()
-	_4.global_position = _4.global_position.lerp(mark_4.global_position,delta *6)
-	_3.global_position = _3.global_position.lerp(mark_3.global_position,delta *12)
-	_2.global_position = _2.global_position.lerp(mark_2.global_position,delta *24)
-	_1.global_position = _1.global_position.lerp(mark_1.global_position,delta *80)
-	
+	area_2d.position = water.global_position
+	global_position = get_parent().get_global_mouse_position()
 	line_2d.set_point_position(0,line_2d.to_local(water.global_position))
 	line_2d.set_point_position(1,line_2d.get_point_position(1).lerp(line_2d.to_local(mark_1.global_position),delta *80))
 	line_2d.set_point_position(2,line_2d.get_point_position(2).lerp(line_2d.to_local(mark_2.global_position),delta *24))
@@ -63,8 +64,7 @@ func IsUsing(b:bool):
 	else:
 		timer.stop()
 		pailtween.tween_property(self,"rotation",deg_to_rad(0),tweentime)
-		await waterthictween.tween_property(line_2d,"width",0,tweentime).finished
-		line_2d.hide()
+		waterthictween.tween_property(line_2d,"width",0,tweentime)
 
 func _on_timer_timeout() -> void:
 	for i in Wateringplants:

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ct117xs1tbhqo" path="res://images/scissors_top.png" id="2_v7p5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ejfg"]
-size = Vector2(99.76312, 11.304131)
+size = Vector2(58.65793, 11.304131)
 
 [node name="Shears" type="Node2D" unique_id=1541991852]
 script = ExtResource("1_v7p5w")
@@ -29,7 +29,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=878110104]
-position = Vector2(-151.31955, 173.20573)
+position = Vector2(-157.19507, 179.3588)
 rotation = -0.8084673
 shape = SubResource("RectangleShape2D_5ejfg")
 

@@ -1,6 +1,8 @@
 extends Node2D
 class_name Flower
 
+signal Sheered
+
 const FLOWER = preload("uid://7llkqrw6nh1o")
 @onready var sprite: Sprite2D = $Sprite
 @onready var progress_bar: ProgressBar = $ProgressBar
@@ -35,3 +37,6 @@ func SetBar() -> void:
 	progress_bar.value = Waterammount
 	if progress_bar.value >= Watermax:
 		Bloom()
+
+func Sheer():
+	pass

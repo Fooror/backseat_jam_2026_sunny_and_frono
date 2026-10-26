@@ -62,8 +62,8 @@ texture = ExtResource("3_bo2fl")
 [node name="Top" type="Marker2D" parent="." unique_id=2083131092]
 position = Vector2(0, -255)
 
-[node name="Branchcontainer" type="Node" parent="." unique_id=189312207]
+[node name="Branchcontainer" type="Node2D" parent="." unique_id=1805798379]
 
-[node name="Leafcontainer" type="Node" parent="." unique_id=712611963]
+[node name="Leafcontainer" type="Node2D" parent="." unique_id=1987764922]
 
-[node name="Fruitcontainer" type="Node" parent="." unique_id=59373685]
+[node name="Fruitcontainer" type="Node2D" parent="." unique_id=951740042]

@@ -3,11 +3,14 @@ class_name Sheers
 
 @onready var pivot: Node2D = $Pivot
 @onready var pivot_2: Node2D = $Pivot2
+
 var debounce:bool = false
 
+func _ready() -> void:
+	IsUsing(true)
+
 func _process(delta: float) -> void:
-	var mousepos = get_viewport().get_mouse_position()
-	global_position = mousepos
+	global_position = get_viewport().get_mouse_position() + get_parent().position
 
 func _unhandled_input(event: InputEvent) -> void:
 	if debounce == true:return

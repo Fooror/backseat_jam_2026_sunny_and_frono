@@ -7,43 +7,50 @@
 [ext_resource type="PackedScene" uid="uid://dnloj36jl2bi0" path="res://Gamelevel/toolroster.tscn" id="4_ldrrc"]
 [ext_resource type="PackedScene" uid="uid://caf4mplusgbar" path="res://Gamelevel/big beef.tscn" id="5_ldrrc"]
 
-[node name="GameLevel" type="Node2D" unique_id=1486105889 node_paths=PackedStringArray("Camera", "Plantstart", "Planttop")]
+[node name="GameLevel" type="Node2D" unique_id=1486105889 node_paths=PackedStringArray("world", "Plantstart", "Planttop", "Camera")]
 script = ExtResource("1_ahwja")
+world = NodePath("World")
+Plantstart = NodePath("World/Plantstart")
+Planttop = NodePath("World/Planttop")
 Camera = NodePath("Camera2D")
-Plantstart = NodePath("Plantstart")
-Planttop = NodePath("Planttop")
-
-[node name="Timer" type="Timer" parent="." unique_id=2093603075]
-autostart = true
-
-[node name="Camtarget" type="Node2D" parent="." unique_id=377437984]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1446288521]
 offset = Vector2(960, 540)
 
-[node name="Treesegments" type="Node" parent="." unique_id=307450690]
+[node name="Camtarget" type="Node2D" parent="." unique_id=377437984]
 
-[node name="Pot" type="Sprite2D" parent="." unique_id=1847660073]
+[node name="World" type="Node2D" parent="." unique_id=1500829226]
+
+[node name="Pot" type="Sprite2D" parent="World" unique_id=1847660073]
 position = Vector2(1046, 776)
 texture = ExtResource("2_wiydr")
 
-[node name="Planttop" type="Node2D" parent="." unique_id=623271941]
+[node name="Treesegments" type="Node2D" parent="World" unique_id=881424539]
+
+[node name="Planttop" type="Node2D" parent="World" unique_id=623271941]
 position = Vector2(1045, 742)
 
-[node name="PlanttopSprite" type="Sprite2D" parent="Planttop" unique_id=283708557]
+[node name="PlanttopSprite" type="Sprite2D" parent="World/Planttop" unique_id=283708557]
 position = Vector2(1, -96)
 texture = ExtResource("2_yavcv")
 
-[node name="Plantstart" type="Marker2D" parent="." unique_id=1855167374]
+[node name="Plantstart" type="Marker2D" parent="World" unique_id=1855167374]
 position = Vector2(1045, 749)
+
+[node name="Tools" type="Node2D" parent="World" unique_id=580671892]
+
+[node name="Timer" type="Timer" parent="." unique_id=2093603075]
+autostart = true
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=563289574]
 
-[node name="Toolroster" parent="GUI" unique_id=1343463447 instance=ExtResource("4_ldrrc")]
-offset_left = 385.0
+[node name="Toolroster" parent="GUI" unique_id=1343463447 node_paths=PackedStringArray("Camera", "Toolcontainernode") instance=ExtResource("4_ldrrc")]
+offset_left = 294.0
 offset_top = 10.0
-offset_right = 1023.0
+offset_right = 808.0
 offset_bottom = 100.0
+Camera = NodePath("../../Camera2D")
+Toolcontainernode = NodePath("../../World/Tools")
 
 [node name="Panel" type="Panel" parent="GUI" unique_id=663650933]
 anchors_preset = 7
@@ -52,39 +59,90 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -960.0
-offset_top = -164.0
+offset_top = -217.0
 offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="BigBeef" parent="GUI" unique_id=1798475938 instance=ExtResource("5_ldrrc")]
-offset_left = 24.0
-offset_top = 567.0
-offset_right = 474.0
-offset_bottom = 960.0
+offset_left = 13.0
+offset_top = 535.0
+offset_right = 463.0
+offset_bottom = 928.0
 
 [node name="How To" type="Panel" parent="GUI" unique_id=2027415118]
 offset_left = 9.0
 offset_top = 10.0
-offset_right = 329.0
-offset_bottom = 379.0
+offset_right = 267.0
+offset_bottom = 228.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GUI/How To" unique_id=1058823780]
 layout_mode = 0
-offset_left = 4.0
+offset_left = 7.0
 offset_top = 4.0
-offset_right = 317.0
-offset_bottom = 366.0
+offset_right = 250.0
+offset_bottom = 212.0
 bbcode_enabled = true
 text = "[font_size=24]Chat Commands[/font_size]
 
-[font_size=16]Grow branch in dirrection: left, right, straight[/font_size]
+[font_size=16]Grow branch in dirrection: up, down, left, right, straight[/font_size]
 
 [font_size=16]Grow fruiting flower: flower[/font_size]
 
 [font_size=16]Grow leaf (creates sugar): leaf[/font_size]"
 
-[node name="Toplevel" type="Node" parent="." unique_id=114134440]
+[node name="Container" type="GridContainer" parent="GUI" unique_id=546922332]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -902.0
+offset_top = -140.0
+offset_right = 902.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 9
+
+[node name="Control" type="Control" parent="GUI" unique_id=2030159770]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -284.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 284.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control" unique_id=793289743]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -274.0
+offset_bottom = 274.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="GUI/Control" unique_id=1113139419]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.5
+offset_top = 11.0
+offset_right = 123.5
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "TIME REMAINING
+time:time"
+horizontal_alignment = 1
+
+[node name="Toplevel" type="Node" parent="." unique_id=1215457989]
 
 [node name="PotTop" type="Sprite2D" parent="Toplevel" unique_id=624908521]
 position = Vector2(1046, 789)
