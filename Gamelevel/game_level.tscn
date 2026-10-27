@@ -17,6 +17,12 @@ Plantstart = NodePath("World/Plantstart")
 Planttop = NodePath("World/Planttop")
 Camera = NodePath("Camera2D")
 
+[node name="Round" type="Timer" parent="." unique_id=648564463]
+wait_time = 300.0
+
+[node name="Timer" type="Timer" parent="." unique_id=2093603075]
+autostart = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1446288521]
 offset = Vector2(960, 540)
 
@@ -39,9 +45,6 @@ texture = ExtResource("2_yavcv")
 
 [node name="Plantstart" type="Marker2D" parent="World" unique_id=1855167374]
 position = Vector2(1045, 749)
-
-[node name="Timer" type="Timer" parent="." unique_id=2093603075]
-autostart = true
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=563289574]
 
@@ -176,4 +179,5 @@ horizontal_alignment = 1
 position = Vector2(1046, 789)
 texture = ExtResource("4_jpbel")
 
+[connection signal="timeout" from="Round" to="." method="_on_round_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

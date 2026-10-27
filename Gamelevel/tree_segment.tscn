@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://tmqwvhjcxi44" path="res://Gamelevel/tree_segment.gd" id="1_ro40j"]
 [ext_resource type="Texture2D" uid="uid://bp8fwbgat72o3" path="res://images/my_nub.png" id="2_vsntk"]
 [ext_resource type="Texture2D" uid="uid://bb6yxqi1u81e0" path="res://images/trunk.png" id="3_bo2fl"]
+[ext_resource type="Texture2D" uid="uid://dos5wl6id66f6" path="res://images/ui/nametitle.png" id="4_1w58y"]
+[ext_resource type="Texture2D" uid="uid://cb0p2odnurnw6" path="res://images/ui/nametagropeback.png" id="5_gdama"]
+[ext_resource type="Texture2D" uid="uid://bwvfdcj3rbnqj" path="res://images/ui/nametagropefront.png" id="6_ppjmq"]
 
 [sub_resource type="Gradient" id="Gradient_h1irs"]
 offsets = PackedFloat32Array(0.23498695, 1)
@@ -18,13 +21,14 @@ height = 72
 noise = SubResource("FastNoiseLite_vsntk")
 color_ramp = SubResource("Gradient_h1irs")
 
-[node name="TreeSegment" type="Node2D" unique_id=765769530 node_paths=PackedStringArray("SectionTop", "Branchstartleft", "Branchstartright", "leafcontainer", "fruitcontainer")]
+[node name="TreeSegment" type="Node2D" unique_id=765769530 node_paths=PackedStringArray("SectionTop", "Branchstartleft", "Branchstartright", "leafcontainer", "fruitcontainer", "flowercontainer")]
 script = ExtResource("1_ro40j")
 SectionTop = NodePath("Top")
 Branchstartleft = NodePath("Leftstump/Left")
 Branchstartright = NodePath("Rightstump/Right")
 leafcontainer = NodePath("Leafcontainer")
 fruitcontainer = NodePath("Fruitcontainer")
+flowercontainer = NodePath("Flowercontainer")
 
 [node name="Branchtopper" type="Node2D" parent="." unique_id=337895586]
 position = Vector2(-25, -57)
@@ -67,3 +71,55 @@ position = Vector2(0, -255)
 [node name="Leafcontainer" type="Node2D" parent="." unique_id=1987764922]
 
 [node name="Fruitcontainer" type="Node2D" parent="." unique_id=951740042]
+
+[node name="Flowercontainer" type="Node2D" parent="." unique_id=879272661]
+
+[node name="Sign" type="Control" parent="." unique_id=204556617]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -79.0
+offset_top = -83.0
+offset_right = -79.0
+offset_bottom = -83.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Sign" unique_id=1654171160]
+layout_mode = 0
+offset_left = -53.0
+offset_top = 7.0
+offset_right = 55.0
+offset_bottom = 47.0
+texture = ExtResource("4_1w58y")
+patch_margin_left = 18
+patch_margin_right = 18
+
+[node name="Label" type="Label" parent="Sign" unique_id=164398354]
+layout_mode = 0
+offset_left = -39.0
+offset_top = 14.0
+offset_right = 40.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.30897492, 0.07903985, 0.040722296, 1)
+text = "username"
+horizontal_alignment = 1
+
+[node name="Signhandle" type="Control" parent="Sign" unique_id=1605069958]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Sign/Signhandle" unique_id=550454160]
+z_index = -1
+layout_mode = 0
+offset_left = -37.0
+offset_top = -25.0
+offset_right = 39.0
+offset_bottom = 19.0
+texture = ExtResource("5_gdama")
+
+[node name="TextureRect2" type="TextureRect" parent="Sign/Signhandle" unique_id=1874361123]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -25.0
+offset_right = 39.0
+offset_bottom = 19.0
+texture = ExtResource("6_ppjmq")

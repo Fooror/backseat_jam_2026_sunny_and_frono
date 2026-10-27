@@ -2,13 +2,16 @@ extends Node2D
 class_name Flower
 
 signal Sheered
+signal Fruited
 
 const FLOWER = preload("uid://7llkqrw6nh1o")
 @onready var sprite: Sprite2D = $Sprite
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var area_2d: Area2D = $Area2D
 
-@export var timer: Timer
+@export var Currentgrowth:float = 0
+
+const Maxgrowth:float = 16
 
 @export var Waterammount:float = 0.0
 var Watermax:float = 16.0
@@ -32,11 +35,11 @@ func _ready() -> void:
 	progress_bar.value = 0.0
 
 func SetBar() -> void:
-	print (Waterammount)
-	print(Waterammount)
 	progress_bar.value = Waterammount
 	if progress_bar.value >= Watermax:
 		Bloom()
 
 func Sheer():
+	area_2d.set_collision_mask_value(3,false)
+	
 	pass

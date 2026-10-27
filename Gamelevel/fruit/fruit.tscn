@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cmq1tq1cmh5l3"]
+
+[ext_resource type="Texture2D" uid="uid://ce48ohqn0faqs" path="res://images/tomato.png" id="1_wlblg"]
+
+[node name="Fruit" type="Node2D" unique_id=1527859944]
+
+[node name="Tomato" type="Sprite2D" parent="." unique_id=2049729341]
+position = Vector2(2, 65)
+texture = ExtResource("1_wlblg")

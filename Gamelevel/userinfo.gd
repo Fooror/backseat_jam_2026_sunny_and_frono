@@ -12,5 +12,6 @@ func setup(user:String):
 
 func OnInfoUpdated(availablenodes:int,currentsugar:float,rot:float):
 	arrow.rotation = rot
+	nodes.text = str(availablenodes)
 	sugar.text = str(currentsugar)
 	
