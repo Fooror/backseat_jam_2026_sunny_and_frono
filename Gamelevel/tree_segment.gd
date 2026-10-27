@@ -9,6 +9,8 @@ signal Infoupdate(availablenodes:int,currentsugar:float,rot:float)
 @onready var branchcontainer: Node = $Branchcontainer
 @onready var sign: Control = $Sign
 @onready var signhandle: Control = $Sign/Signhandle
+@onready var username_backboard: NinePatchRect = $Sign/UsernameBackboard
+@onready var username_label: Label = $Sign/UsernameLabel
 
 @export var User:String = "User"
 const BRANCH = preload("uid://b0htp8reeoaqb")
@@ -95,14 +97,6 @@ func messaged(message:String):
 
 func makestartbranch(message:String):
 	var startmarker:Marker2D
-	if message == "left":
-		startleftly()
-		growsegment(Growthdirrection[5])
-		return
-	if message == "right":
-		startrightly()
-		growsegment(Growthdirrection[6])
-		return
 	if randi_range(0,1) == 0:
 		startleftly()
 		growsegment(Growthdirrection[5])
@@ -160,6 +154,15 @@ func growfruit(fruit):
 	var newfruit = FRUITS[randi_range(0,FRUITS.size()-1)].instantiate()
 	fruitcontainer.add_child(newfruit)
 	newfruit.position = position
+
+func setsign(username:String):
+	var padding:float = 60.0
+	username_label.text = username
+	await get_tree().process_frame
+	username_label.position = Vector2(-username_label.size.x/2,username_label.position.y)
+	username_backboard.size.x = username_label.size.x + padding
+	username_backboard.position = Vector2(-username_backboard.size.x/2,username_backboard.position.y)
+	
 
 func grownode(growth:String,growstring:String):
 	var node = findavailablenode()

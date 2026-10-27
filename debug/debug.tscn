@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dtodf2p0rv7a4"]
+
+[ext_resource type="Script" uid="uid://c15vg8h612h15" path="res://debug/debug.gd" id="1_ikwhb"]
+
+[node name="debug" type="CanvasLayer" unique_id=718917516]
+script = ExtResource("1_ikwhb")
+
+[node name="Button" type="Button" parent="." unique_id=144898969]
+offset_left = 1808.0
+offset_top = 591.0
+offset_right = 1894.0
+offset_bottom = 637.0
+text = "send"
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=947839626]
+offset_left = 1386.0
+offset_top = 575.0
+offset_right = 1793.0
+offset_bottom = 651.0
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=503791787]
+offset_left = 1169.0
+offset_top = 575.0
+offset_right = 1365.0
+offset_bottom = 651.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

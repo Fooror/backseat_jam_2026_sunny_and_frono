@@ -41,7 +41,8 @@ func chat_message_recieved(user:String,message:String):
 		if i.User == user:
 			i.messaged(message)
 			return
-	setupnewuser(user,message)
+	if message.to_lower() == "sprout":
+		setupnewuser(user,message)
 
 func setupnewuser(user:String,message:String):
 	print("new user:"+user)
@@ -50,12 +51,12 @@ func setupnewuser(user:String,message:String):
 	newsegment.global_position = Planttop.global_position
 	Planttop.global_position = newsegment.SectionTop.global_position
 	newsegment.setup(user,message)
+	newsegment.setsign(user)
 	Timeticked.connect(newsegment.ontimertick)
 	var newuserinfo = USERINFO.instantiate()
 	container.add_child(newuserinfo)
 	newuserinfo.setup(user)
 	newsegment.Infoupdate.connect(newuserinfo.OnInfoUpdated)
-	newuserinfo.setup(user)
 
 func NewRound():
 	pass
