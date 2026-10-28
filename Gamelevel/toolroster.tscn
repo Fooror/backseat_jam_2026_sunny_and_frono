@@ -8,14 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://dpbnra5ofqoql" path="res://images/watering_can.png" id="5_8ic2n"]
 [ext_resource type="Texture2D" uid="uid://dum2hp28hnnrw" path="res://images/ui/peg.png" id="6_q1ggd"]
 
-[node name="Toolroster" type="Control" unique_id=742084325 node_paths=PackedStringArray("Toolcontainernode")]
+[node name="Toolroster" type="Control" unique_id=742084325]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 514.0
 offset_bottom = 110.0
 theme = ExtResource("1_q1ggd")
 script = ExtResource("1_ap2ff")
-Toolcontainernode = NodePath("")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=642877353]
 layout_mode = 0

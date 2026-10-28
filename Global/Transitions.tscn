@@ -1,0 +1,288 @@
+[gd_scene format=3 uid="uid://dnpn8gchcaylg"]
+
+[ext_resource type="Texture2D" uid="uid://jt5j88dvblgd" path="res://images/fruits/egg_plant.png" id="1_mvtr5"]
+[ext_resource type="Texture2D" uid="uid://bhq3ean17y88m" path="res://images/fruits/corn.png" id="2_febsi"]
+[ext_resource type="Texture2D" uid="uid://btblxo7x1lbdj" path="res://images/fruits/pepper.png" id="3_4sk1c"]
+[ext_resource type="Texture2D" uid="uid://be3j7a11jb6qp" path="res://images/fruits/watermelon.png" id="4_icjic"]
+[ext_resource type="Texture2D" uid="uid://bw0dutqpyokb3" path="res://images/fruits/blueberry.png" id="5_vmsxp"]
+[ext_resource type="Texture2D" uid="uid://ce48ohqn0faqs" path="res://images/fruits/tomato.png" id="6_fmedr"]
+[ext_resource type="Texture2D" uid="uid://ce00ndexbx2kl" path="res://images/fruits/peach.png" id="7_q4knv"]
+[ext_resource type="Texture2D" uid="uid://udb38xhj5dvb" path="res://images/fruits/pumpkin.png" id="8_ov7bg"]
+[ext_resource type="Texture2D" uid="uid://d1qnufn4evt1s" path="res://images/fruits/pea.png" id="9_tlf0o"]
+[ext_resource type="Texture2D" uid="uid://dkjvlqjek477k" path="res://images/fruits/cherry.png" id="10_xcoar"]
+[ext_resource type="Texture2D" uid="uid://dlh2j01drf3hl" path="res://images/fruits/strawberry.png" id="11_hrife"]
+[ext_resource type="Texture2D" uid="uid://dekekqmp6q762" path="res://images/fruits/carrot.png" id="12_88v04"]
+[ext_resource type="Texture2D" uid="uid://be55i1xo31q31" path="res://images/fruits/pear.png" id="13_23bss"]
+[ext_resource type="Texture2D" uid="uid://8fnpyyg2bx4m" path="res://images/fruits/banana.png" id="14_iif0k"]
+[ext_resource type="Texture2D" uid="uid://b3hehdo2rpjk8" path="res://images/fruits/dragon_fruit.png" id="15_u5cwj"]
+[ext_resource type="Texture2D" uid="uid://dtb4stvlxdigj" path="res://images/fruits/apple.png" id="16_5uefn"]
+[ext_resource type="Texture2D" uid="uid://cnpupj01ydqgc" path="res://images/fruits/pom.png" id="17_n3h8c"]
+[ext_resource type="Texture2D" uid="uid://bpg7gno0viljl" path="res://images/fruits/mangosteen.png" id="18_xvrcf"]
+[ext_resource type="Texture2D" uid="uid://7g2ed3hwy0rg" path="res://images/fruits/jackfruit.png" id="19_qglyl"]
+[ext_resource type="Texture2D" uid="uid://d2euv54urwauc" path="res://images/fruits/orange.png" id="20_000my"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=449316142]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=14262298]
+
+[node name="SceneTransition" type="Control" parent="." unique_id=81876683]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EggPlant" type="TextureRect" parent="SceneTransition" unique_id=610715530]
+layout_mode = 0
+offset_left = 1427.0
+offset_top = -8.999939
+offset_right = 1575.0
+offset_bottom = 197.00006
+rotation = -0.5235988
+scale = Vector2(3.1656623, 3.165662)
+texture = ExtResource("1_mvtr5")
+
+[node name="Corn" type="TextureRect" parent="SceneTransition" unique_id=1791945534]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 9.999992
+offset_right = 919.0
+offset_bottom = 194.0
+rotation = 2.0943952
+scale = Vector2(4.0471497, 4.0471487)
+texture = ExtResource("2_febsi")
+
+[node name="Pepper2" type="TextureRect" parent="SceneTransition" unique_id=811727047]
+layout_mode = 0
+offset_left = 1223.0
+offset_top = -179.00002
+offset_right = 1365.0
+offset_bottom = -19.000015
+rotation = 0.7853982
+scale = Vector2(3.0024881, 3.0024881)
+texture = ExtResource("3_4sk1c")
+
+[node name="TextureRect10" type="TextureRect" parent="SceneTransition" unique_id=554281437]
+layout_mode = 0
+offset_left = 978.99994
+offset_top = -248.0
+offset_right = 1555.2095
+offset_bottom = 381.02856
+rotation = 1.0471976
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("4_icjic")
+
+[node name="Blueberry2" type="TextureRect" parent="SceneTransition" unique_id=1447856921]
+layout_mode = 0
+offset_left = 330.2841
+offset_top = 420.05362
+offset_right = 330.2841
+offset_bottom = 420.05362
+rotation = -2.6179938
+scale = Vector2(3.7598138, 3.7598138)
+texture = ExtResource("5_vmsxp")
+
+[node name="TextureRect9" type="TextureRect" parent="SceneTransition" unique_id=1971381737]
+layout_mode = 0
+offset_left = 1208.0
+offset_top = -45.99994
+offset_right = 1681.921
+offset_bottom = 389.49515
+rotation = -0.5235988
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("6_fmedr")
+
+[node name="TextureRect8" type="TextureRect" parent="SceneTransition" unique_id=1890771652]
+layout_mode = 0
+offset_left = -254.99997
+offset_top = 21.999924
+offset_right = 101.73984
+offset_bottom = 401.03595
+rotation = -0.7853982
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("7_q4knv")
+
+[node name="TextureRect7" type="TextureRect" parent="SceneTransition" unique_id=102994709]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 216.0
+offset_right = 1648.9592
+offset_bottom = 779.0
+rotation = -0.5235988
+scale = Vector2(1.0932134, 1.0932134)
+texture = ExtResource("8_ov7bg")
+
+[node name="Pea" type="TextureRect" parent="SceneTransition" unique_id=1961497028]
+layout_mode = 0
+offset_left = 1713.0
+offset_top = 351.00006
+offset_right = 1809.0
+offset_bottom = 471.00006
+scale = Vector2(2.7763875, 2.7763875)
+texture = ExtResource("9_tlf0o")
+
+[node name="Cherry" type="TextureRect" parent="SceneTransition" unique_id=779616272]
+layout_mode = 0
+offset_left = 1734.0001
+offset_top = 353.0001
+offset_right = 1734.0001
+offset_bottom = 353.0001
+rotation = 0.7853982
+scale = Vector2(2.1592731, 2.1592734)
+texture = ExtResource("10_xcoar")
+
+[node name="Pepper" type="TextureRect" parent="SceneTransition" unique_id=1784595131]
+layout_mode = 0
+offset_left = 1353.0001
+offset_top = 550.0
+offset_right = 1495.0001
+offset_bottom = 710.0
+rotation = -0.5235988
+scale = Vector2(3.0024881, 3.0024881)
+texture = ExtResource("3_4sk1c")
+
+[node name="Strawberry" type="TextureRect" parent="SceneTransition" unique_id=193699152]
+layout_mode = 0
+offset_left = 1268.7717
+offset_top = 460.22845
+offset_right = 1337.6472
+offset_bottom = 545.30994
+rotation = 2.3561945
+scale = Vector2(2.8616476, 2.8616476)
+texture = ExtResource("11_hrife")
+
+[node name="Carrot" type="TextureRect" parent="SceneTransition" unique_id=1771100297]
+layout_mode = 0
+offset_left = 1052.0
+offset_top = 610.0
+offset_right = 1158.0
+offset_bottom = 896.0
+rotation = -0.7853982
+scale = Vector2(2.5902162, 2.5902162)
+texture = ExtResource("12_88v04")
+
+[node name="Blueberry" type="TextureRect" parent="SceneTransition" unique_id=896700608]
+layout_mode = 0
+offset_left = 963.0
+offset_top = 551.0
+offset_right = 963.0
+offset_bottom = 551.0
+scale = Vector2(3.4287155, 3.4287155)
+texture = ExtResource("5_vmsxp")
+
+[node name="Pear" type="TextureRect" parent="SceneTransition" unique_id=1884851069]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -119.0
+offset_right = 370.0289
+offset_bottom = 392.82083
+rotation = 0.2617994
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("13_23bss")
+
+[node name="Banana" type="TextureRect" parent="SceneTransition" unique_id=713608641]
+layout_mode = 0
+offset_left = 869.0
+offset_top = 204.0
+offset_right = 1076.4314
+offset_bottom = 351.50668
+rotation = 0.2617994
+scale = Vector2(2.8696856, 2.8696856)
+texture = ExtResource("14_iif0k")
+
+[node name="DragonFruit" type="TextureRect" parent="SceneTransition" unique_id=1378893530]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 371.0
+offset_right = 880.0
+offset_bottom = 599.0
+rotation = 2.3561945
+scale = Vector2(2.461645, 2.4616444)
+texture = ExtResource("15_u5cwj")
+
+[node name="TextureRect" type="TextureRect" parent="SceneTransition" unique_id=286293849]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 391.0
+offset_right = 912.0
+offset_bottom = 772.7113
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("16_5uefn")
+
+[node name="Pom" type="TextureRect" parent="SceneTransition" unique_id=1768323752]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 682.0
+offset_right = 501.0
+offset_bottom = 840.0
+rotation = 2.8797934
+scale = Vector2(2.6722987, 2.6722987)
+texture = ExtResource("17_n3h8c")
+
+[node name="TextureRect6" type="TextureRect" parent="SceneTransition" unique_id=68012800]
+layout_mode = 0
+offset_left = 126.11003
+offset_top = 502.138
+offset_right = 501.60083
+offset_bottom = 901.09686
+rotation = -0.5235988
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("7_q4knv")
+
+[node name="TextureRect2" type="TextureRect" parent="SceneTransition" unique_id=271291825]
+layout_mode = 0
+offset_left = -207.7935
+offset_top = 826.7894
+offset_right = 228.34868
+offset_bottom = 1302.9111
+rotation = -0.6482502
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("4_icjic")
+
+[node name="Mangosteen" type="TextureRect" parent="SceneTransition" unique_id=205199958]
+layout_mode = 0
+offset_left = 1739.0
+offset_top = 568.00006
+offset_right = 1878.0
+offset_bottom = 742.00006
+scale = Vector2(2.1193473, 2.1193473)
+texture = ExtResource("18_xvrcf")
+
+[node name="TextureRect3" type="TextureRect" parent="SceneTransition" unique_id=585716273]
+layout_mode = 0
+offset_left = 766.00006
+offset_top = 522.00006
+offset_right = 1260.0
+offset_bottom = 1131.9387
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("19_qglyl")
+
+[node name="TextureRect4" type="TextureRect" parent="SceneTransition" unique_id=1031298119]
+layout_mode = 0
+offset_left = 1270.9998
+offset_top = 724.0
+offset_right = 1659.4998
+offset_bottom = 1081.0
+rotation = 0.2617994
+scale = Vector2(1.0932136, 1.0932136)
+texture = ExtResource("6_fmedr")
+
+[node name="TextureRect5" type="TextureRect" parent="SceneTransition" unique_id=1930977959]
+layout_mode = 0
+offset_left = 337.9999
+offset_top = 527.0
+offset_right = 946.9591
+offset_bottom = 1090.0
+rotation = 0.2617994
+scale = Vector2(1.0932134, 1.0932134)
+texture = ExtResource("8_ov7bg")
+
+[node name="Orange" type="TextureRect" parent="SceneTransition" unique_id=2056237250]
+layout_mode = 0
+offset_left = 1565.9999
+offset_top = 740.99994
+offset_right = 1724.0
+offset_bottom = 906.99994
+scale = Vector2(2.763687, 2.7636871)
+texture = ExtResource("20_000my")

@@ -1,25 +1,12 @@
 [gd_scene format=3 uid="uid://bwfnagv2unacs"]
 
 [ext_resource type="Script" uid="uid://tmqwvhjcxi44" path="res://Gamelevel/tree_segment.gd" id="1_ro40j"]
+[ext_resource type="Texture2D" uid="uid://dvfhqluxvr2v4" path="res://images/nub_end_leaf.png" id="2_gdama"]
 [ext_resource type="Texture2D" uid="uid://bp8fwbgat72o3" path="res://images/my_nub.png" id="2_vsntk"]
 [ext_resource type="Texture2D" uid="uid://bb6yxqi1u81e0" path="res://images/trunk.png" id="3_bo2fl"]
 [ext_resource type="Texture2D" uid="uid://dos5wl6id66f6" path="res://images/ui/nametitle.png" id="4_1w58y"]
 [ext_resource type="Texture2D" uid="uid://cb0p2odnurnw6" path="res://images/ui/nametagropeback.png" id="5_gdama"]
 [ext_resource type="Texture2D" uid="uid://bwvfdcj3rbnqj" path="res://images/ui/nametagropefront.png" id="6_ppjmq"]
-
-[sub_resource type="Gradient" id="Gradient_h1irs"]
-offsets = PackedFloat32Array(0.23498695, 1)
-colors = PackedColorArray(0.07450981, 0.3137255, 0.25490198, 1, 0.15686275, 0.47843137, 0.1882353, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_vsntk"]
-noise_type = 3
-fractal_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5ejfg"]
-width = 100
-height = 72
-noise = SubResource("FastNoiseLite_vsntk")
-color_ramp = SubResource("Gradient_h1irs")
 
 [node name="TreeSegment" type="Node2D" unique_id=765769530 node_paths=PackedStringArray("SectionTop", "Branchstartleft", "Branchstartright", "leafcontainer", "fruitcontainer", "flowercontainer")]
 script = ExtResource("1_ro40j")
@@ -31,12 +18,12 @@ fruitcontainer = NodePath("Fruitcontainer")
 flowercontainer = NodePath("Flowercontainer")
 
 [node name="Branchtopper" type="Node2D" parent="." unique_id=337895586]
-position = Vector2(-25, -57)
 
-[node name="TrunkSprite2" type="Sprite2D" parent="Branchtopper" unique_id=1129448632]
-position = Vector2(20.5, 0)
-scale = Vector2(0.42999998, 0.13749999)
-texture = SubResource("NoiseTexture2D_5ejfg")
+[node name="Pivot" type="Node2D" parent="Branchtopper" unique_id=207748138]
+
+[node name="TrunkSprite2" type="Sprite2D" parent="Branchtopper/Pivot" unique_id=1129448632]
+position = Vector2(60, -5)
+texture = ExtResource("2_gdama")
 
 [node name="Leftstump" type="Node2D" parent="." unique_id=111134221]
 position = Vector2(-29, -53)

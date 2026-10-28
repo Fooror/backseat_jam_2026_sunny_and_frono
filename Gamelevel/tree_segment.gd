@@ -6,11 +6,14 @@ signal Infoupdate(availablenodes:int,currentsugar:float,rot:float)
 @onready var leftstump: Node2D = $Leftstump
 @onready var rightstump: Node2D = $Rightstump
 @onready var branchtopper: Node2D = $Branchtopper
+@onready var pivot: Node2D = $Branchtopper/Pivot
 @onready var branchcontainer: Node = $Branchcontainer
 @onready var sign: Control = $Sign
 @onready var signhandle: Control = $Sign/Signhandle
 @onready var username_backboard: NinePatchRect = $Sign/UsernameBackboard
 @onready var username_label: Label = $Sign/UsernameLabel
+
+@export var Gamenode:GameLevel
 
 @export var User:String = "User"
 const BRANCH = preload("uid://b0htp8reeoaqb")
@@ -61,6 +64,7 @@ func setdebounce():
 
 func ontimertick():
 	Sugar += 1*leafcontainer.get_child_count()
+	Sugar = sugartofruits(Sugar)
 	Sugar = sugartoflowers(Sugar)
 	Sugar = clampf(Sugar,0,999)
 	var rotation = 0.0
@@ -68,19 +72,30 @@ func ontimertick():
 		rotation = PrevBranch.rotation
 	Infoupdate.emit(Availablenodes.size(),Sugar,rotation)
 
+func sugartofruits(sugar:int):
+	var remainingsugar = sugar
+	if fruitcontainer.get_child_count() == 0:
+		return sugar
+	for i:Fruit in fruitcontainer.get_children():
+		if i.Finishedgrowing == false:
+			if remainingsugar >=2:
+				remainingsugar -=2
+				i.growthtick()
+			else:
+				return remainingsugar
+	return remainingsugar
+
 func sugartoflowers(sugar:int):
 	var remainingsugar = sugar
 	if flowercontainer.get_child_count() == 0:
 		return sugar
 	for i:Flower in flowercontainer.get_children():
-		if remainingsugar >=2:
-			remainingsugar -=2
-			i.Currentgrowth += 1
-			if i.Currentgrowth >= i.Maxgrowth:
-				growfruit(i)
-				
-		else:
-			return remainingsugar
+		if i.floweropen == true:
+			if remainingsugar >=2:
+				remainingsugar -=2
+				i.Growflower()
+			else:
+				return remainingsugar
 	return remainingsugar
 
 func messaged(message:String):
@@ -115,6 +130,7 @@ func startrightly():
 	GrowingOnSide = GrowingOnSideEnums.rightly
 	rightstump.show()
 	signhandle.scale.x =-1
+	pivot.scale.x = -1
 	sign.global_position = Branchstartright.global_position
 	
 	NextBranchNode = Branchstartright
@@ -139,7 +155,7 @@ func growsegment(dir):
 	NextBranchNode = branch.Branchend
 	PrevBranch = branch
 	branchtopper.global_position = branch.Branchend.global_position
-	branchtopper.rotation = branch.rotation
+	branchtopper.rotation = branch.global_rotation
 	Infoupdate.emit(Availablenodes.size(),Sugar,branch.rotation)
 
 func findavailablenode():
@@ -150,10 +166,13 @@ func findavailablenode():
 	Availablenodes.remove_at(randi)
 	return chosen
 
-func growfruit(fruit):
-	var newfruit = FRUITS[randi_range(0,FRUITS.size()-1)].instantiate()
+func growfruit(flower:Flower):
+	var newfruit:Fruit = FRUITS[randi_range(0,FRUITS.size()-1)].instantiate()
 	fruitcontainer.add_child(newfruit)
-	newfruit.position = position
+	newfruit.position = flower.position
+	flower.queue_free()
+	newfruit.Picked.connect(Gamenode.Pickfruit)
+	newfruit.setup()
 
 func setsign(username:String):
 	var padding:float = 60.0

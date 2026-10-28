@@ -2,9 +2,11 @@ extends Control
 
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var needle: TextureRect = $Needle
+@onready var time: Label = $Time
 
-func _ready() -> void:
-	pass # Replace with function body.
+func starttimer(time:float):
+	var timestringminute
+	pass
 
-func _process(delta: float) -> void:
+func timestring():
 	pass

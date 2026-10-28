@@ -1,47 +1,61 @@
 [gd_scene format=3 uid="uid://caf4mplusgbar"]
 
-[sub_resource type="Gradient" id="Gradient_emq2r"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.2575414, 0.14431965, 0.48668343, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ejfg"]
-gradient = SubResource("Gradient_emq2r")
-
-[sub_resource type="Gradient" id="Gradient_j444x"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.9383595, 0.7117323, 0.8240778, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vpvi2"]
-gradient = SubResource("Gradient_j444x")
+[ext_resource type="Texture2D" uid="uid://dysv730yqqoqi" path="res://images/bigbeef temp.png" id="1_bl5fk"]
+[ext_resource type="Texture2D" uid="uid://do5mtds4jkaxh" path="res://images/ui/beefo_meter_backk.png" id="1_mwuks"]
+[ext_resource type="Script" uid="uid://b3h3iv0b20mgu" path="res://Gamelevel/big_beef.gd" id="1_vf5q5"]
+[ext_resource type="Texture2D" uid="uid://blrxcjq3e5trt" path="res://images/ui/beefo_meter_topp.png" id="2_bl5fk"]
+[ext_resource type="Texture2D" uid="uid://el0fnmso3gnl" path="res://images/ui/beefo_meter_barr.png" id="3_vf5q5"]
 
 [node name="BigBeef" type="Control" unique_id=1798475938]
 layout_mode = 3
 anchors_preset = 0
 offset_top = -353.0
-offset_right = 450.0
+offset_right = 520.0
+script = ExtResource("1_vf5q5")
+
+[node name="Beefarea" type="Sprite2D" parent="." unique_id=208099951]
+position = Vector2(329.99997, 220)
+scale = Vector2(0.6557789, 0.6557789)
+texture = ExtResource("1_bl5fk")
+
+[node name="Bigbar" type="Control" parent="." unique_id=2102385764]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = -120.0
+offset_right = 143.0
+offset_bottom = 351.0
+
+[node name="TextureRect2" type="TextureRect" parent="Bigbar" unique_id=192450900]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 472.0
+texture = ExtResource("1_mwuks")
+
+[node name="Bar" type="Control" parent="Bigbar" unique_id=1060315837]
+clip_contents = true
+anchors_preset = 0
+offset_left = 22.0
+offset_right = 114.0
+offset_bottom = 420.0
+
+[node name="Barmove" type="TextureRect" parent="Bigbar/Bar" unique_id=1171491092]
+layout_mode = 0
+offset_left = -21.0
+offset_right = 115.0
+offset_bottom = 472.0
+texture = ExtResource("3_vf5q5")
+
+[node name="TextureRect" type="TextureRect" parent="Bigbar" unique_id=41873952]
+layout_mode = 0
+offset_right = 40.0
 offset_bottom = 40.0
+texture = ExtResource("2_bl5fk")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1365575368]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -377.0
-offset_right = 73.0
-grow_vertical = 0
-max_value = 20.0
-value = 15.0
-fill_mode = 3
-nine_patch_stretch = true
-texture_under = SubResource("GradientTexture1D_5ejfg")
-texture_progress = SubResource("GradientTexture1D_vpvi2")
+[node name="Feedzone" type="Control" parent="." unique_id=68519855]
+anchors_preset = 0
+offset_left = 304.0
+offset_top = 165.0
+offset_right = 374.0
+offset_bottom = 236.0
 
-[node name="Beefarea" type="Panel" parent="." unique_id=918347535]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 96.0
-offset_top = -245.0
-offset_right = 342.0
-grow_vertical = 0
+[connection signal="mouse_entered" from="Feedzone" to="." method="_on_feedzone_mouse_entered"]

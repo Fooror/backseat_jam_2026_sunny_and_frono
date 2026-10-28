@@ -1,9 +1,35 @@
 [gd_scene format=3 uid="uid://cmq1tq1cmh5l3"]
 
-[ext_resource type="Texture2D" uid="uid://ce48ohqn0faqs" path="res://images/tomato.png" id="1_wlblg"]
+[ext_resource type="Script" uid="uid://1b08ptvlrm10" path="res://Gamelevel/fruit/fruit.gd" id="1_haoy7"]
+[ext_resource type="Texture2D" uid="uid://ce48ohqn0faqs" path="res://images/fruits/tomato.png" id="1_wlblg"]
+[ext_resource type="Texture2D" uid="uid://yljam6a3kblu" path="res://images/hanging_bud_flower.png" id="3_2grb0"]
 
-[node name="Fruit" type="Node2D" unique_id=1527859944]
+[sub_resource type="CircleShape2D" id="CircleShape2D_61gfd"]
+radius = 70.256676
 
-[node name="Tomato" type="Sprite2D" parent="." unique_id=2049729341]
+[node name="Fruit" type="Node2D" unique_id=1527859944 node_paths=PackedStringArray("Fruitsprite")]
+script = ExtResource("1_haoy7")
+Fruitsprite = NodePath("Fruit/Tomato")
+
+[node name="Fruit" type="Node2D" parent="." unique_id=2070690454]
+
+[node name="Tomato" type="Sprite2D" parent="Fruit" unique_id=2049729341]
 position = Vector2(2, 65)
 texture = ExtResource("1_wlblg")
+
+[node name="Dangly" type="Node2D" parent="." unique_id=1258766237]
+scale = Vector2(0.5, 0.5)
+
+[node name="HangingBudFlower" type="Sprite2D" parent="Dangly" unique_id=118804601]
+position = Vector2(-2, 24)
+texture = ExtResource("3_2grb0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=561166186]
+collision_layer = 12
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1712093387]
+position = Vector2(2, 64)
+shape = SubResource("CircleShape2D_61gfd")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

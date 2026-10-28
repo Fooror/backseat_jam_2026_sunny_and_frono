@@ -10,3 +10,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open debug"):
 		if visible == true: hide()
 		else: show()
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if text_edit.has_focus():
+		get_viewport().set_input_as_handled()

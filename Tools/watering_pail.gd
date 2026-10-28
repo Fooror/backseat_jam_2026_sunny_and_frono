@@ -74,8 +74,6 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	Wateringplants.append(area.get_parent())
-	print(Wateringplants)
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	Wateringplants.erase(area.get_parent())
-	print(Wateringplants)

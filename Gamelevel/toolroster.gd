@@ -12,16 +12,16 @@ const WATERING_CAN = preload("uid://dpbnra5ofqoql")
 @onready var slap: Button = $slap
 @onready var shear: Button = $shear
 
-@export var Camera:Camera2D
-
 enum ToolEnums {none,pail,slap,shear}
 var Currenttool:ToolEnums = ToolEnums.none
 
 var Toolobject
 
 @export var Toolcontainernode:Node
+@export var Gamenode:GameLevel
 
 func _on_pail_pressed() -> void:
+	if Gamenode.holdingfruit == true:return
 	unequipall()
 	if Currenttool == ToolEnums.pail:
 		Currenttool = ToolEnums.none
@@ -29,15 +29,17 @@ func _on_pail_pressed() -> void:
 	Toolobject = WATERING_PAIL.instantiate()
 	Currenttool = ToolEnums.pail
 	pail.icon = null
-	Camera.add_child(Toolobject)
+	Toolcontainernode.add_child(Toolobject)
 
 func _on_slap_pressed() -> void:
+	if Gamenode.holdingfruit == true:return
 	unequipall()
 	if Currenttool == ToolEnums.slap:
 		Currenttool = ToolEnums.none
 		return
 
 func _on_shear_pressed() -> void:
+	if Gamenode.holdingfruit == true:return
 	unequipall()
 	if Currenttool == ToolEnums.shear:
 		Currenttool = ToolEnums.none

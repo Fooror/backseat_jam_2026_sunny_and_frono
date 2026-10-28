@@ -6,6 +6,13 @@ signal Timeticked
 const TREE_SEGMENT = preload("uid://bwfnagv2unacs")
 const USERINFO = preload("uid://dn3g0n4mxk8cb")
 
+var Currentround:int
+
+@onready var fruit_cursor: Node2D = $"Fruit Cursor"
+@onready var fruitsprite: Sprite2D = $"Fruit Cursor/fruitsprite"
+@export var holdingfruit:bool = false
+@export var heldfruitvalue:float
+
 @onready var treesegments: Node = $World/Treesegments
 @onready var timer: Timer = $Timer
 @onready var round: Timer = $Round
@@ -18,12 +25,16 @@ const USERINFO = preload("uid://dn3g0n4mxk8cb")
 @export var Planttop:Node2D
 @export var Camera:Camera2D
 
+@export var Bigbeef:BigBeef
+
 var zoomtarget:float = 1
 
 func _ready() -> void:
 	Twitchhandle.MessageRecieved.connect(chat_message_recieved)
+	Bigbeef.Victory.connect(Victory)
 
 func _physics_process(delta: float) -> void:
+	fruit_cursor.global_position = get_global_mouse_position()
 	var inp = (Vector2(
 		Input.get_action_strength("moveright") - Input.get_action_strength("moveleft"),
 		Input.get_action_strength("movedown") - Input.get_action_strength("moveup")
@@ -52,11 +63,18 @@ func setupnewuser(user:String,message:String):
 	Planttop.global_position = newsegment.SectionTop.global_position
 	newsegment.setup(user,message)
 	newsegment.setsign(user)
+	newsegment.Gamenode = self
 	Timeticked.connect(newsegment.ontimertick)
 	var newuserinfo = USERINFO.instantiate()
 	container.add_child(newuserinfo)
 	newuserinfo.setup(user)
 	newsegment.Infoupdate.connect(newuserinfo.OnInfoUpdated)
+
+func Pickfruit(fruit:Fruit):
+	holdingfruit = true
+	fruitsprite.texture = fruit.Fruitsprite.texture
+	heldfruitvalue = fruit.Fruitvalue
+	fruit.queue_free()
 
 func NewRound():
 	pass
@@ -74,4 +92,4 @@ func _on_timer_timeout() -> void:
 	Timeticked.emit()
 
 func _on_round_timeout() -> void:
-	pass # Replace with function body.
+	GameOver()
