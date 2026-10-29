@@ -3,6 +3,7 @@ class_name ToolRoster
 
 const WATERING_PAIL = preload("uid://bxvs7fc8vrxr")
 const SHEARS = preload("uid://qtr5pwipprp3")
+const FLYSWATTER = preload("uid://covfw5xxxfsb0")
 
 const SCISSORS_FULL = preload("uid://cyht4jijbyttm")
 const SWATTA = preload("uid://b260dccpbj8nk")
@@ -37,6 +38,10 @@ func _on_slap_pressed() -> void:
 	if Currenttool == ToolEnums.slap:
 		Currenttool = ToolEnums.none
 		return
+	Toolobject = FLYSWATTER.instantiate()
+	Currenttool = ToolEnums.slap
+	slap.icon = null
+	Toolcontainernode.add_child(Toolobject)
 
 func _on_shear_pressed() -> void:
 	if Gamenode.holdingfruit == true:return

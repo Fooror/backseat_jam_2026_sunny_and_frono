@@ -65,7 +65,6 @@ func IsUsing(b:bool):
 		timer.stop()
 		pailtween.tween_property(self,"rotation",deg_to_rad(0),tweentime)
 		waterthictween.tween_property(line_2d,"width",0,tweentime)
-
 func _on_timer_timeout() -> void:
 	for i in Wateringplants:
 		if i.has_method("Water"):

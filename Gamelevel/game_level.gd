@@ -3,19 +3,22 @@ class_name GameLevel
 
 signal Timeticked
 
+signal Emitfeeding(fruitval:float)
+
 const TREE_SEGMENT = preload("uid://bwfnagv2unacs")
 const USERINFO = preload("uid://dn3g0n4mxk8cb")
 
 var Currentround:int
 
-@onready var fruit_cursor: Node2D = $"Fruit Cursor"
-@onready var fruitsprite: Sprite2D = $"Fruit Cursor/fruitsprite"
+@export var fruit_cursor: Node2D
+@export var fruitsprite: Sprite2D
 @export var holdingfruit:bool = false
-@export var heldfruitvalue:float
+@export var heldfruitvalue:float = 0
 
 @onready var treesegments: Node = $World/Treesegments
 @onready var timer: Timer = $Timer
 @onready var round: Timer = $Round
+@onready var bug: Timer = $Bug
 @onready var container: GridContainer = $GUI/Container
 
 @onready var camtarget: Node2D = $Camtarget
@@ -31,7 +34,18 @@ var zoomtarget:float = 1
 
 func _ready() -> void:
 	Twitchhandle.MessageRecieved.connect(chat_message_recieved)
+	Bigbeef.Fed.connect(Feed)
 	Bigbeef.Victory.connect(Victory)
+	Emitfeeding.connect(Bigbeef.Feeding)
+	Bigbeef.newround(5)
+	bug.start(10.0)
+
+func bugtime():
+	if treesegments.get_child_count() > 0:
+		var timecalc = (randf_range(16,24))/treesegments.get_child_count()
+		return timecalc
+	else:
+		return 10
 
 func _physics_process(delta: float) -> void:
 	fruit_cursor.global_position = get_global_mouse_position()
@@ -55,6 +69,12 @@ func chat_message_recieved(user:String,message:String):
 	if message.to_lower() == "sprout":
 		setupnewuser(user,message)
 
+func bugspawn():
+	if treesegments.get_child_count() >0:
+		var chosen:TreeSegment = treesegments.get_children()[randi_range(0,treesegments.get_child_count()-1)]
+		chosen.spawnbug()
+	bug.start(randf_range(16,26))
+
 func setupnewuser(user:String,message:String):
 	print("new user:"+user)
 	var newsegment:TreeSegment = TREE_SEGMENT.instantiate()
@@ -72,9 +92,15 @@ func setupnewuser(user:String,message:String):
 
 func Pickfruit(fruit:Fruit):
 	holdingfruit = true
+	fruit_cursor.show()
 	fruitsprite.texture = fruit.Fruitsprite.texture
 	heldfruitvalue = fruit.Fruitvalue
 	fruit.queue_free()
+
+func Feed():
+	holdingfruit = false
+	fruit_cursor.hide()
+	Emitfeeding.emit(heldfruitvalue)
 
 func NewRound():
 	pass
@@ -93,3 +119,6 @@ func _on_timer_timeout() -> void:
 
 func _on_round_timeout() -> void:
 	GameOver()
+
+func _on_bug_timeout() -> void:
+	bugspawn()

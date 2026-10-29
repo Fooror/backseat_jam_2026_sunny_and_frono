@@ -1,28 +1,88 @@
 [gd_scene format=3 uid="uid://cis1685cy0cmg"]
 
 [ext_resource type="Script" uid="uid://dagi0u1chii3h" path="res://Gamelevel/game_level.gd" id="1_ahwja"]
+[ext_resource type="Texture2D" uid="uid://170x8tsjg37o" path="res://images/cloud6.png" id="2_t0b4w"]
 [ext_resource type="Texture2D" uid="uid://dgyibmpbbx41e" path="res://images/pot_bottom.png" id="2_wiydr"]
 [ext_resource type="Texture2D" uid="uid://bh4ajwpo2jp4f" path="res://images/top.png" id="2_yavcv"]
+[ext_resource type="Texture2D" uid="uid://i37x2ebhim80" path="res://images/cloud1.png" id="3_m2te1"]
 [ext_resource type="Texture2D" uid="uid://dqegcgtytr14d" path="res://images/ui/desk_top.png" id="4_b3uul"]
 [ext_resource type="Texture2D" uid="uid://c0p2j0lcc1y2g" path="res://images/pot_top.png" id="4_jpbel"]
 [ext_resource type="PackedScene" uid="uid://dnloj36jl2bi0" path="res://Gamelevel/toolroster.tscn" id="4_ldrrc"]
+[ext_resource type="Texture2D" uid="uid://cyhoittbgwjfh" path="res://images/cloud3.png" id="4_v5lwd"]
 [ext_resource type="PackedScene" uid="uid://caf4mplusgbar" path="res://Gamelevel/big beef.tscn" id="5_ldrrc"]
+[ext_resource type="Texture2D" uid="uid://dgag5qjigbag6" path="res://images/cloud4.png" id="5_lpost"]
+[ext_resource type="Texture2D" uid="uid://bi1u701u6r545" path="res://images/cloud5.png" id="6_ae4ko"]
 [ext_resource type="Texture2D" uid="uid://bvcbuqxtkvas3" path="res://images/ui/desk.png" id="6_ho0q3"]
 [ext_resource type="Script" uid="uid://b0265sqsqk6bt" path="res://Gamelevel/timer.gd" id="6_n55e7"]
 [ext_resource type="Texture2D" uid="uid://j1logbgi0c55" path="res://images/ui/clock_body.png" id="6_n815c"]
 [ext_resource type="Texture2D" uid="uid://bd08do8t3y6qn" path="res://images/ui/clock_needle.png" id="7_n55e7"]
 [ext_resource type="Texture2D" uid="uid://crtfq7nlul8g7" path="res://images/ui/paper.png" id="8_ho0q3"]
 
-[node name="GameLevel" type="Node2D" unique_id=1486105889 node_paths=PackedStringArray("world", "Plantstart", "Planttop", "Camera", "Bigbeef")]
+[node name="GameLevel" type="Node2D" unique_id=1486105889 node_paths=PackedStringArray("fruit_cursor", "fruitsprite", "world", "Plantstart", "Planttop", "Camera", "Bigbeef")]
 script = ExtResource("1_ahwja")
+fruit_cursor = NodePath("HoldingLayer/Fruit Cursor")
+fruitsprite = NodePath("HoldingLayer/Fruit Cursor/fruitsprite")
 world = NodePath("World")
 Plantstart = NodePath("World/Plantstart")
 Planttop = NodePath("World/Planttop")
 Camera = NodePath("Camera2D")
 Bigbeef = NodePath("GUI/BigBeef")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=217574246]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground" unique_id=665100869]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/Parallax2D" unique_id=1240366356]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.99999994, 0.864566, 0.5082688, 1)
+
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground" unique_id=1987011978]
+repeat_size = Vector2(3000, 1080)
+autoscroll = Vector2(30, 0)
+
+[node name="Cloud6" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=32587735]
+position = Vector2(653, 1010)
+texture = ExtResource("2_t0b4w")
+
+[node name="Cloud7" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=1378520938]
+position = Vector2(278, 670)
+texture = ExtResource("2_t0b4w")
+
+[node name="Cloud2" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=17859636]
+position = Vector2(3195, 913)
+texture = ExtResource("3_m2te1")
+
+[node name="Cloud3" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=796790548]
+position = Vector2(1991, 924)
+texture = ExtResource("4_v5lwd")
+
+[node name="Parallax2D3" type="Parallax2D" parent="ParallaxBackground" unique_id=951316546]
+repeat_size = Vector2(3000, 1080)
+autoscroll = Vector2(45, 0)
+
+[node name="Cloud4" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=425218108]
+position = Vector2(870, 612)
+texture = ExtResource("5_lpost")
+
+[node name="Cloud1" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1260453045]
+position = Vector2(1324, 300)
+texture = ExtResource("3_m2te1")
+
+[node name="Cloud5" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1463691558]
+position = Vector2(2249, 261)
+texture = ExtResource("6_ae4ko")
+
+[node name="Cloud8" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1785867302]
+position = Vector2(2728, 519)
+texture = ExtResource("2_t0b4w")
+
 [node name="Round" type="Timer" parent="." unique_id=648564463]
 wait_time = 300.0
+
+[node name="Bug" type="Timer" parent="." unique_id=944091818]
+wait_time = 20.0
 
 [node name="Timer" type="Timer" parent="." unique_id=2093603075]
 autostart = true
@@ -62,7 +122,7 @@ offset_left = 396.0
 offset_top = 10.0
 offset_right = 910.0
 offset_bottom = 100.0
-Toolcontainernode = NodePath("../../Tools")
+Toolcontainernode = NodePath("../../HoldingLayer/Tools")
 Gamenode = NodePath("../..")
 
 [node name="Panel" type="TextureRect" parent="GUI" unique_id=1999796012]
@@ -189,7 +249,14 @@ offset_right = 540.0
 offset_bottom = 886.0
 Gamenode = NodePath("../..")
 
-[node name="Tools" type="Node2D" parent="." unique_id=580671892]
+[node name="HoldingLayer" type="CanvasLayer" parent="." unique_id=60786494]
+follow_viewport_enabled = true
+
+[node name="Tools" type="Node2D" parent="HoldingLayer" unique_id=580671892]
+
+[node name="Fruit Cursor" type="Node2D" parent="HoldingLayer" unique_id=15264925]
+
+[node name="fruitsprite" type="Sprite2D" parent="HoldingLayer/Fruit Cursor" unique_id=448061242]
 
 [node name="Toplevel" type="Node" parent="." unique_id=1215457989]
 
@@ -197,9 +264,6 @@ Gamenode = NodePath("../..")
 position = Vector2(1046, 789)
 texture = ExtResource("4_jpbel")
 
-[node name="Fruit Cursor" type="Node2D" parent="." unique_id=15264925]
-
-[node name="fruitsprite" type="Sprite2D" parent="Fruit Cursor" unique_id=448061242]
-
 [connection signal="timeout" from="Round" to="." method="_on_round_timeout"]
+[connection signal="timeout" from="Bug" to="." method="_on_bug_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

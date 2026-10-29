@@ -80,6 +80,7 @@ shape = SubResource("CircleShape2D_krjp8")
 shape = SubResource("CircleShape2D_461ys")
 
 [node name="Water" type="Node2D" parent="." unique_id=1623831898]
+z_index = 1
 position = Vector2(-237, -24)
 
 [node name="Line2D" type="Line2D" parent="Water" unique_id=655773143]

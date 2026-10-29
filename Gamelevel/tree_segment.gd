@@ -16,7 +16,10 @@ signal Infoupdate(availablenodes:int,currentsugar:float,rot:float)
 @export var Gamenode:GameLevel
 
 @export var User:String = "User"
+
 const BRANCH = preload("uid://b0htp8reeoaqb")
+const FRUITS = [preload("uid://cmq1tq1cmh5l3")]
+const LEAFY = preload("uid://ctte7lxe6exo0")
 
 @export var SectionTop:Marker2D
 @export var Branchstartleft:Marker2D
@@ -25,8 +28,7 @@ const BRANCH = preload("uid://b0htp8reeoaqb")
 @export var leafcontainer: Node
 @export var fruitcontainer: Node
 @export var flowercontainer: Node2D
-
-const FRUITS = [preload("uid://cmq1tq1cmh5l3")]
+@export var bugcontainer: Node2D
 
 var PrevBranch:Branch
 var NextBranchNode:Marker2D
@@ -64,6 +66,7 @@ func setdebounce():
 
 func ontimertick():
 	Sugar += 1*leafcontainer.get_child_count()
+	Sugar = sugartobug(Sugar)
 	Sugar = sugartofruits(Sugar)
 	Sugar = sugartoflowers(Sugar)
 	Sugar = clampf(Sugar,0,999)
@@ -71,6 +74,18 @@ func ontimertick():
 	if PrevBranch:
 		rotation = PrevBranch.rotation
 	Infoupdate.emit(Availablenodes.size(),Sugar,rotation)
+
+func sugartobug(sugar:int):
+	var remainingsugar = sugar
+	if bugcontainer.get_child_count() == 0:
+		return sugar
+	for i:Leafy in bugcontainer.get_children():
+		if i.Squished == false:
+			if remainingsugar >=2:
+				remainingsugar -=2
+			else:
+				return remainingsugar
+	return remainingsugar
 
 func sugartofruits(sugar:int):
 	var remainingsugar = sugar
@@ -181,7 +196,26 @@ func setsign(username:String):
 	username_label.position = Vector2(-username_label.size.x/2,username_label.position.y)
 	username_backboard.size.x = username_label.size.x + padding
 	username_backboard.position = Vector2(-username_backboard.size.x/2,username_backboard.position.y)
-	
+
+func spawnbug():
+	if Availablenodes.size() <= 0: return
+	var chosennode = findavailablenode()
+	var newbug:Leafy = LEAFY.instantiate()
+	bugcontainer.add_child(newbug)
+	newbug.global_position = chosennode.global_position
+	newbug.global_rotation = chosennode.global_rotation + rad_to_deg(randf_range(-45,45))
+	newbug.PrevRotation = chosennode.global_rotation
+	chosennode.queue_free()
+	newbug.Smashsignal.connect(replenishnodefrombug)
+	Infoupdate.emit(Availablenodes.size(),Sugar,PrevBranch.rotation)
+
+func replenishnodefrombug(bug:Leafy):
+	var newnode2d = Marker2D.new()
+	branchcontainer.add_child(newnode2d)
+	newnode2d.global_position = bug.global_position
+	newnode2d.global_rotation = bug.PrevRotation
+	Availablenodes.append(newnode2d)
+	Infoupdate.emit(Availablenodes.size(),Sugar,PrevBranch.rotation)
 
 func grownode(growth:String,growstring:String):
 	var node = findavailablenode()

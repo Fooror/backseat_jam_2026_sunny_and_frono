@@ -6,22 +6,40 @@
 script = ExtResource("1_ikwhb")
 
 [node name="Button" type="Button" parent="." unique_id=144898969]
-offset_left = 1808.0
-offset_top = 591.0
-offset_right = 1894.0
-offset_bottom = 637.0
+offset_left = 1802.0
+offset_top = 575.0
+offset_right = 1882.0
+offset_bottom = 606.0
 text = "send"
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=947839626]
+[node name="TextEdit" type="LineEdit" parent="." unique_id=316251054]
 offset_left = 1386.0
 offset_top = 575.0
 offset_right = 1793.0
-offset_bottom = 651.0
+offset_bottom = 606.0
+placeholder_text = "message"
 
 [node name="LineEdit" type="LineEdit" parent="." unique_id=503791787]
-offset_left = 1169.0
-offset_top = 575.0
-offset_right = 1365.0
-offset_bottom = 651.0
+offset_left = 1386.0
+offset_top = 538.0
+offset_right = 1582.0
+offset_bottom = 569.0
+placeholder_text = "username"
+
+[node name="Button2" type="Button" parent="." unique_id=1961700464]
+offset_left = 1386.0
+offset_top = 611.0
+offset_right = 1578.0
+offset_bottom = 642.0
+text = "toggle random user noise"
+
+[node name="Message" type="Timer" parent="." unique_id=1589046810]
+wait_time = 0.5
+autostart = true
+
+[node name="Newuser" type="Timer" parent="." unique_id=340518892]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="timeout" from="Message" to="." method="_on_message_timeout"]
+[connection signal="timeout" from="Newuser" to="." method="_on_newuser_timeout"]

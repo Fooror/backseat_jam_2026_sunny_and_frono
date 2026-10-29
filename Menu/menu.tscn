@@ -1,6 +1,58 @@
 [gd_scene format=3 uid="uid://djpu33u087nol"]
 
 [ext_resource type="Script" uid="uid://cpt5yn5dpfyf6" path="res://Menu/menu.gd" id="1_rwxi6"]
+[ext_resource type="Texture2D" uid="uid://dhcx7ymd23jxr" path="res://images/ui/start2.png" id="2_w6voe"]
+[ext_resource type="Texture2D" uid="uid://w6b4aoc6v5o6" path="res://images/ui/start.png" id="3_eafcm"]
+[ext_resource type="Texture2D" uid="uid://d0iqcwno1i1wt" path="res://images/ui/title_card.png" id="4_tf6kh"]
+[ext_resource type="Texture2D" uid="uid://bpeckqoxuq0yt" path="res://images/ui/titlevine1.png" id="5_mf1wf"]
+[ext_resource type="Texture2D" uid="uid://crsmynjmcucnf" path="res://images/ui/titlevine2.png" id="6_xuj3a"]
+[ext_resource type="Texture2D" uid="uid://170x8tsjg37o" path="res://images/cloud6.png" id="7_0k1h5"]
+[ext_resource type="Texture2D" uid="uid://i37x2ebhim80" path="res://images/cloud1.png" id="8_cotva"]
+[ext_resource type="Texture2D" uid="uid://cyhoittbgwjfh" path="res://images/cloud3.png" id="9_2p233"]
+[ext_resource type="Texture2D" uid="uid://dgag5qjigbag6" path="res://images/cloud4.png" id="10_5s5no"]
+[ext_resource type="Texture2D" uid="uid://bi1u701u6r545" path="res://images/cloud5.png" id="11_v3yle"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m2c3"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+bg_color = Color(0.6, 0.29411766, 0.22352941, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpvi2"]
+bg_color = Color(0.6, 0.29411766, 0.22352941, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ejfg"]
+texture = ExtResource("2_w6voe")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uu4eq"]
+load_path = "res://.godot/imported/start2.png-88bf831f614e2ad7fccfdc4aa3ef222f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pxa7u"]
+texture = SubResource("CompressedTexture2D_uu4eq")
+modulate_color = Color(1.4954206, 1.4954206, 1.4954206, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1wnsb"]
+load_path = "res://.godot/imported/start2.png-88bf831f614e2ad7fccfdc4aa3ef222f.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oq131"]
+texture = SubResource("CompressedTexture2D_1wnsb")
+modulate_color = Color(1.1755697, 1.1755697, 1.1755697, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_61gfd"]
+texture = ExtResource("3_eafcm")
+modulate_color = Color(0.65, 0.65, 0.65, 0.4117647)
 
 [node name="Menu" type="Control" unique_id=1353532595]
 layout_mode = 3
@@ -17,10 +69,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -337.0
-offset_top = 672.0
+offset_top = 717.0
 offset_right = 337.0
-offset_bottom = 723.0
+offset_bottom = 779.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_7m2c3")
 placeholder_text = "Type your channel name here and press Connect!"
 emoji_menu_enabled = false
 backspace_deletes_composite_character_enabled = true
@@ -31,11 +85,14 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -78.0
-offset_top = 744.0
+offset_top = 800.0
 offset_right = 78.0
-offset_bottom = 790.0
+offset_bottom = 846.0
 grow_horizontal = 2
-text = "Connect"
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpvi2")
+text = "CONNECT"
 
 [node name="Startgame" type="Button" parent="." unique_id=948460091]
 layout_mode = 1
@@ -50,8 +107,11 @@ offset_right = 126.0
 offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_5ejfg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pxa7u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oq131")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_61gfd")
 disabled = true
-text = "START GAME"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1486874881]
 layout_mode = 1
@@ -60,12 +120,93 @@ anchor_left = 0.324
 anchor_top = 0.55600005
 anchor_right = 0.6770833
 anchor_bottom = 0.619
-offset_left = -0.24798584
-offset_top = -0.4960327
-offset_bottom = 0.46398926
+offset_left = 21.919983
+offset_top = 54.503967
+offset_right = -26.0
+offset_bottom = 45.47998
 grow_horizontal = 2
+theme_override_constants/outline_size = 6
 scroll_active = false
 vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1389630313]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 44.0
+offset_right = 1760.0
+offset_bottom = 752.0
+mouse_filter = 2
+texture = ExtResource("4_tf6kh")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=300133727]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -962.0
+offset_right = 378.0
+grow_vertical = 0
+texture = ExtResource("5_mf1wf")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=686831403]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -650.0
+offset_bottom = 794.0
+grow_horizontal = 0
+texture = ExtResource("6_xuj3a")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1327661713]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground" unique_id=1140393336]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/Parallax2D" unique_id=1877048085]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.99999994, 0.864566, 0.5082688, 1)
+
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground" unique_id=365215326]
+repeat_size = Vector2(3000, 1080)
+autoscroll = Vector2(30, 0)
+
+[node name="Cloud6" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=1566541915]
+position = Vector2(653, 1010)
+texture = ExtResource("7_0k1h5")
+
+[node name="Cloud7" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=1297419132]
+position = Vector2(278, 670)
+texture = ExtResource("7_0k1h5")
+
+[node name="Cloud2" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=869466644]
+position = Vector2(3195, 913)
+texture = ExtResource("8_cotva")
+
+[node name="Cloud3" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=386411447]
+position = Vector2(1991, 924)
+texture = ExtResource("9_2p233")
+
+[node name="Parallax2D3" type="Parallax2D" parent="ParallaxBackground" unique_id=217253887]
+repeat_size = Vector2(3000, 1080)
+autoscroll = Vector2(45, 0)
+
+[node name="Cloud4" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=744736217]
+position = Vector2(870, 612)
+texture = ExtResource("10_5s5no")
+
+[node name="Cloud1" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1066552710]
+position = Vector2(1324, 300)
+texture = ExtResource("8_cotva")
+
+[node name="Cloud5" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=484328557]
+position = Vector2(2249, 261)
+texture = ExtResource("11_v3yle")
+
+[node name="Cloud8" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=2022721898]
+position = Vector2(2728, 519)
+texture = ExtResource("7_0k1h5")
 
 [connection signal="text_submitted" from="TextEdit" to="." method="_on_text_edit_text_submitted"]
 [connection signal="pressed" from="Connect" to="." method="_on_connect_pressed"]

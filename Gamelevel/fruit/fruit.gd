@@ -9,6 +9,7 @@ signal Picked(s:Fruit)
 @onready var fruit: Node2D = $Fruit
 @onready var dangly: Node2D = $Dangly
 @onready var area_2d: Area2D = $Area2D
+@onready var control: Control = $Control
 
 
 @export var Finishedgrowing:bool = false
@@ -28,6 +29,9 @@ const Growthstage:Dictionary = {
 	"4" = [Vector2(0.8,0.8),Vector2(0.5,0.5),Vector2(0.0,0.0),false,Color(1.0, 1.0, 1.0, 1.0)]
 }
 
+func _ready() -> void:
+	control.hide()
+
 func growthtick():
 	Growthvalue += Tickvalue
 	Growthvalue = snappedf(Growthvalue,0.01)
@@ -37,6 +41,7 @@ func growthtick():
 		Finishedgrowing = true
 		print ("finished growing")
 		area_2d.set_collision_layer_value(3,false)
+		control.show()
 
 func growthstage():
 	if Growthvalue >= Growthvalues[3]:
@@ -58,7 +63,7 @@ func setstage(stage:String):
 	dangly.visible = Growthstage[stage][3]
 	fruit.modulate = Growthstage[stage][4]
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_control_gui_input(event: InputEvent) -> void:
 	if Finishedgrowing == false:return
 	if event is InputEventMouse and event is not InputEventMouseMotion:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

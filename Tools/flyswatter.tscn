@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://covfw5xxxfsb0"]
+
+[ext_resource type="Texture2D" uid="uid://b260dccpbj8nk" path="res://images/swatta.png" id="1_c4l4a"]
+[ext_resource type="Script" uid="uid://b577dpana3u4s" path="res://Tools/flyswatter.gd" id="1_xnfnt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ejfg"]
+size = Vector2(100.81997, 125.4376)
+
+[node name="Flyswatter" type="Node2D" unique_id=1838002473]
+script = ExtResource("1_xnfnt")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=321976155]
+
+[node name="Swatta" type="Sprite2D" parent="Pivot" unique_id=1377918738]
+position = Vector2(13.000004, -104.99999)
+rotation = 0.13962634
+texture = ExtResource("1_c4l4a")
+
+[node name="Area2D" type="Area2D" parent="Pivot/Swatta" unique_id=1207332855]
+position = Vector2(1.1079922, -114.26627)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Swatta/Area2D" unique_id=1713703064]
+position = Vector2(0.21678162, -1.338089)
+scale = Vector2(1.0000005, 1.0000005)
+shape = SubResource("RectangleShape2D_5ejfg")
+
+[connection signal="area_entered" from="Pivot/Swatta/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Pivot/Swatta/Area2D" to="." method="_on_area_2d_area_exited"]

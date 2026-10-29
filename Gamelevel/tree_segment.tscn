@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cb0p2odnurnw6" path="res://images/ui/nametagropeback.png" id="5_gdama"]
 [ext_resource type="Texture2D" uid="uid://bwvfdcj3rbnqj" path="res://images/ui/nametagropefront.png" id="6_ppjmq"]
 
-[node name="TreeSegment" type="Node2D" unique_id=765769530 node_paths=PackedStringArray("SectionTop", "Branchstartleft", "Branchstartright", "leafcontainer", "fruitcontainer", "flowercontainer")]
+[node name="TreeSegment" type="Node2D" unique_id=765769530 node_paths=PackedStringArray("SectionTop", "Branchstartleft", "Branchstartright", "leafcontainer", "fruitcontainer", "flowercontainer", "bugcontainer")]
 script = ExtResource("1_ro40j")
 SectionTop = NodePath("Top")
 Branchstartleft = NodePath("Leftstump/Left")
@@ -16,6 +16,7 @@ Branchstartright = NodePath("Rightstump/Right")
 leafcontainer = NodePath("Leafcontainer")
 fruitcontainer = NodePath("Fruitcontainer")
 flowercontainer = NodePath("Flowercontainer")
+bugcontainer = NodePath("Bugcontainer")
 
 [node name="Branchtopper" type="Node2D" parent="." unique_id=337895586]
 
@@ -60,6 +61,8 @@ position = Vector2(0, -255)
 [node name="Fruitcontainer" type="Node2D" parent="." unique_id=951740042]
 
 [node name="Flowercontainer" type="Node2D" parent="." unique_id=879272661]
+
+[node name="Bugcontainer" type="Node2D" parent="." unique_id=810615045]
 
 [node name="Sign" type="Control" parent="." unique_id=204556617]
 layout_mode = 3
