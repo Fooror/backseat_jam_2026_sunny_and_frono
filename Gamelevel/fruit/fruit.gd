@@ -12,6 +12,7 @@ signal Picked(s:Fruit)
 @onready var control: Control = $Control
 
 
+@export var Gamenode:GameLevel
 @export var Finishedgrowing:bool = false
 
 var Tickvalue:float = 0.1
@@ -53,7 +54,8 @@ func growthstage():
 	if Growthvalue >= Growthvalues[0]:
 		return "1"
 
-func setup():
+func setup(gn:GameLevel):
+	Gamenode = gn
 	setstage("1")
 
 func setstage(stage:String):
@@ -65,7 +67,12 @@ func setstage(stage:String):
 
 func _on_control_gui_input(event: InputEvent) -> void:
 	if Finishedgrowing == false:return
+	if Gamenode.holdingfruit == true:return
 	if event is InputEventMouse and event is not InputEventMouseMotion:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			print("picked")
 			Picked.emit(self)
+
+func Sheer():
+	area_2d.set_collision_layer_value(3,false)
+	queue_free()

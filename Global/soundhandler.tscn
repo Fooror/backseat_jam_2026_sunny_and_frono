@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dt870pbulfss7"]
+
+[ext_resource type="Script" uid="uid://do0tbonqob4n5" path="res://Global/soundhandler.gd" id="1_ivaxy"]
+
+[node name="SoundhandlerAAAH" type="Node" unique_id=1727413557]
+process_mode = 3
+script = ExtResource("1_ivaxy")

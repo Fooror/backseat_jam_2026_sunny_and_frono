@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://baf1d606lqx5l"]
 
+[ext_resource type="Script" uid="uid://clu64gyi3iajo" path="res://Gamelevel/leaf.gd" id="1_065ht"]
 [ext_resource type="Texture2D" uid="uid://whlcte8kltyo" path="res://images/leaf.png" id="1_g77v1"]
 
 [node name="Leaf" type="Node2D" unique_id=1333001062]
+script = ExtResource("1_065ht")
 
 [node name="Leaf" type="Sprite2D" parent="." unique_id=1872731162]
 position = Vector2(-12, -37)

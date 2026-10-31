@@ -11,6 +11,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_top = -353.0
 offset_right = 520.0
+mouse_filter = 2
 script = ExtResource("1_vf5q5")
 
 [node name="Beefarea" type="Sprite2D" parent="." unique_id=208099951]
@@ -24,6 +25,7 @@ offset_left = 8.0
 offset_top = -120.0
 offset_right = 143.0
 offset_bottom = 351.0
+mouse_filter = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Bigbar" unique_id=192450900]
 layout_mode = 0
@@ -37,6 +39,7 @@ anchors_preset = 0
 offset_left = 22.0
 offset_right = 114.0
 offset_bottom = 420.0
+mouse_filter = 2
 
 [node name="Barmove" type="TextureRect" parent="Bigbar/Bar" unique_id=1171491092]
 layout_mode = 0

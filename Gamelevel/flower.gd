@@ -1,13 +1,14 @@
 extends Node2D
 class_name Flower
 
-signal Sheered
-signal Fruited
+signal Fruited(flower:Flower)
 
 const FLOWER = preload("uid://7llkqrw6nh1o")
 @onready var sprite: Sprite2D = $Sprite
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var area_2d: Area2D = $Area2D
+
+@export var branch:Branch
 
 @export var Currentgrowth:float = 0
 const Maxgrowth:float = 16
@@ -49,5 +50,4 @@ func SetBar() -> void:
 
 func Sheer():
 	area_2d.set_collision_layer_value(3,false)
-	
-	pass
+	queue_free()

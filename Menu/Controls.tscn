@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://c2k521cd2816n"]
+
+[ext_resource type="FontFile" uid="uid://cavfia1m86d3j" path="res://Font/LEMONMILK-Regular.otf" id="1_jp2b8"]
+[ext_resource type="Script" uid="uid://7w8fr4jsa0av" path="res://Menu/controls.gd" id="1_todmm"]
+[ext_resource type="FontFile" uid="uid://vd6k5sw8ucs7" path="res://Font/LEMONMILK-Bold.otf" id="2_todmm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ejfg"]
+bg_color = Color(0.67058825, 0.3764706, 0.29803923, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 20
+border_color = Color(0.4, 0.12156863, 0.078431375, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61gfd"]
+bg_color = Color(0.46666667, 0.13725491, 0.08235294, 1)
+border_width_left = 4
+border_width_top = 12
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4gqx"]
+bg_color = Color(0.6, 0.29411766, 0.22352941, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moevc"]
+bg_color = Color(0.35815126, 0.1602979, 0.114798225, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7m7q"]
+bg_color = Color(0.8109016, 0.4440155, 0.3581284, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[node name="Control" type="Control" unique_id=661871498]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_todmm")
+
+[node name="Panel" type="Panel" parent="." unique_id=2044587074]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -495.25
+offset_top = -361.0
+offset_right = 495.25
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ejfg")
+
+[node name="Panel3" type="Panel" parent="Panel" unique_id=2004994773]
+layout_mode = 0
+offset_left = 506.25
+offset_top = 51.0
+offset_right = 963.25
+offset_bottom = 672.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_61gfd")
+
+[node name="Label3" type="Label" parent="Panel/Panel3" unique_id=1952817660]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = -32.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_jp2b8")
+text = "Sprout : Type sprout in chat to become a branch on the vine.
+
+Up, Down, Left, RIght : Type up, down, left, or right in chat to grow your vine in that direction.
+
+Leaf: Type leaf to grow a leaf, which generates one sugar per second.
+
+Flower: Type flower to grow a flower. As a bud it will take 1 sugar per second. After being watered, it will take 2 sugar per second until it becomes a fully ripe fruit.
+
+"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Panel/Panel3" unique_id=1238830997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 29.0
+offset_right = -276.0
+offset_bottom = -570.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_todmm")
+text = "CHAT COMMANDS"
+
+[node name="Panel4" type="Panel" parent="Panel" unique_id=2011095387]
+layout_mode = 0
+offset_left = 26.25
+offset_top = 51.0
+offset_right = 483.25
+offset_bottom = 672.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_61gfd")
+
+[node name="Label" type="Label" parent="Panel/Panel4" unique_id=349395436]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 117.0
+offset_right = -22.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_jp2b8")
+text = "W A S D or arrow keys: Move the camera around.
+
+Middle Mouse Scroll: Zoom the camera in and out.
+
+Left Mouse Button: Click to interact with objects.
+
+ESC: Bring up the settings menu."
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/Panel4" unique_id=1081518539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 29.0
+offset_right = -269.0
+offset_bottom = -570.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_todmm")
+text = "PLAYER CONTROLS"
+
+[node name="Hide" type="Button" parent="." unique_id=1675028887]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 415.0
+offset_top = -382.0
+offset_right = 521.0
+offset_bottom = -276.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_jp2b8")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_k4gqx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_moevc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v7m7q")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_moevc")
+text = "X"
+
+[connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]

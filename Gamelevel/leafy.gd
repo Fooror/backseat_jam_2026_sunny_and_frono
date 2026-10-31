@@ -5,6 +5,7 @@ signal Smashsignal(leaf:Leafy)
 
 @export var Squished:bool = false
 @export var PrevRotation:float
+@export var PrevBranch:Branch
 
 @onready var bugsprite: Sprite2D = $Bugsprite
 @onready var splatsprite: Sprite2D = $Splatsprite
@@ -36,4 +37,8 @@ func splat():
 	var tween = get_tree().create_tween()
 	tween.tween_property(splatsprite,"modulate",Color(0.0, 0.0, 0.0, 0.0),2)
 	await tween.finished
+	queue_free()
+	
+func Sheer():
+	area_2d.set_collision_layer_value(5,false)
 	queue_free()

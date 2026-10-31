@@ -24,6 +24,7 @@ func IsUsing(b:bool):
 	if b == true:
 		createslap()
 		swattween.tween_property(pivot,"rotation",deg_to_rad(-8.0),tweenintime)
+		Soundhandler.playsound(Soundhandler.Soundenum.slap,global_position)
 		for i:Leafy in ToSlap:
 			i.splat()
 	else:

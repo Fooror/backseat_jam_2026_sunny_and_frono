@@ -33,13 +33,21 @@ offset_right = 1578.0
 offset_bottom = 642.0
 text = "toggle random user noise"
 
+[node name="Button3" type="Button" parent="." unique_id=1527564124]
+offset_left = 1599.0
+offset_top = 611.0
+offset_right = 1693.0
+offset_bottom = 642.0
+text = "reset users"
+
 [node name="Message" type="Timer" parent="." unique_id=1589046810]
-wait_time = 0.5
+wait_time = 0.2
 autostart = true
 
 [node name="Newuser" type="Timer" parent="." unique_id=340518892]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="timeout" from="Message" to="." method="_on_message_timeout"]
 [connection signal="timeout" from="Newuser" to="." method="_on_newuser_timeout"]

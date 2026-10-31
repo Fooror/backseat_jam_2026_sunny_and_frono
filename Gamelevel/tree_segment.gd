@@ -34,7 +34,6 @@ var PrevBranch:Branch
 var NextBranchNode:Marker2D
 var Sugar:int = 0
 var Bugcount:int = 0
-var Availablenodes:Array[Marker2D]
 
 enum GrowingOnSideEnums {leftly,rightly}
 
@@ -73,7 +72,7 @@ func ontimertick():
 	var rotation = 0.0
 	if PrevBranch:
 		rotation = PrevBranch.rotation
-	Infoupdate.emit(Availablenodes.size(),Sugar,rotation)
+	Infoupdate.emit(getavailablenodes().size(),Sugar,rotation)
 
 func sugartobug(sugar:int):
 	var remainingsugar = sugar
@@ -81,8 +80,8 @@ func sugartobug(sugar:int):
 		return sugar
 	for i:Leafy in bugcontainer.get_children():
 		if i.Squished == false:
-			if remainingsugar >=2:
-				remainingsugar -=2
+			if remainingsugar >=6:
+				remainingsugar -=6
 			else:
 				return remainingsugar
 	return remainingsugar
@@ -109,6 +108,11 @@ func sugartoflowers(sugar:int):
 			if remainingsugar >=2:
 				remainingsugar -=2
 				i.Growflower()
+			else:
+				return remainingsugar
+		else:
+			if remainingsugar >=1:
+				remainingsugar -=1
 			else:
 				return remainingsugar
 	return remainingsugar
@@ -150,7 +154,14 @@ func startrightly():
 	
 	NextBranchNode = Branchstartright
 
-func growsegment(dir):
+func growsegment(d):
+	var dir = d
+	if PrevBranch:
+		if PrevBranch.global_position.y >= 800:
+			if GrowingOnSide == GrowingOnSideEnums.leftly:
+				dir = Growthdirrection[0]
+			else:
+				dir = Growthdirrection[1]
 	var branch:Branch = BRANCH.instantiate()
 	branchcontainer.add_child(branch)
 	branch.global_position = NextBranchNode.global_position
@@ -163,22 +174,39 @@ func growsegment(dir):
 				branch.rotation = PrevBranch.rotation + add
 			else:
 				branch.rotation = wrapf(dir,0.0,TAU)
+		PrevBranch.Snipped.connect(branch.Sheer)
+		branch.Previousbranch = PrevBranch
 	else:
 		branch.rotation = wrapf(dir,0.0,TAU)
-	NextBranchNode.queue_free()
-	Availablenodes.append_array(branch.Branchnodes)
 	NextBranchNode = branch.Branchend
+	branch.Setnewnodeasend.connect(newbranchend)
 	PrevBranch = branch
 	branchtopper.global_position = branch.Branchend.global_position
 	branchtopper.rotation = branch.global_rotation
-	Infoupdate.emit(Availablenodes.size(),Sugar,branch.rotation)
+	Infoupdate.emit(getavailablenodes().size(),Sugar,branch.rotation)
+
+func newbranchend(mark:Marker2D,branch):
+	print ("prev branch set")
+	NextBranchNode = mark
+	PrevBranch = branch
+	branchtopper.global_position = NextBranchNode.global_position
+	branchtopper.global_rotation = PrevBranch.global_rotation
+	Infoupdate.emit(getavailablenodes().size(),Sugar,branch.rotation)
+
+func getavailablenodes():
+	var nodes
+	nodes = []
+	for i:Branch in branchcontainer.get_children():
+		nodes.append_array(i.getnodes())
+	return nodes
 
 func findavailablenode():
 	var randi:int
-	if Availablenodes.size() <= 0: return
-	randi = randi_range(0,Availablenodes.size()-1)
-	var chosen = Availablenodes[randi]
-	Availablenodes.remove_at(randi)
+	if branchcontainer.get_child_count() <= 0: return
+	var nodes = getavailablenodes()
+	randi = randi_range(0,nodes.size()-1)
+	var chosen = nodes[randi]
+	print (chosen)
 	return chosen
 
 func growfruit(flower:Flower):
@@ -187,7 +215,8 @@ func growfruit(flower:Flower):
 	newfruit.position = flower.position
 	flower.queue_free()
 	newfruit.Picked.connect(Gamenode.Pickfruit)
-	newfruit.setup()
+	flower.branch.Snipped.connect(newfruit.Sheer)
+	newfruit.setup(Gamenode)
 
 func setsign(username:String):
 	var padding:float = 60.0
@@ -198,24 +227,26 @@ func setsign(username:String):
 	username_backboard.position = Vector2(-username_backboard.size.x/2,username_backboard.position.y)
 
 func spawnbug():
-	if Availablenodes.size() <= 0: return
+	if getavailablenodes().size() <= 0: return
 	var chosennode = findavailablenode()
 	var newbug:Leafy = LEAFY.instantiate()
 	bugcontainer.add_child(newbug)
 	newbug.global_position = chosennode.global_position
 	newbug.global_rotation = chosennode.global_rotation + rad_to_deg(randf_range(-45,45))
 	newbug.PrevRotation = chosennode.global_rotation
+	var branch:Branch = chosennode.get_parent().get_parent().get_parent()
+	newbug.PrevBranch = branch
+	branch.Snipped.connect(newbug.Sheer)
 	chosennode.queue_free()
 	newbug.Smashsignal.connect(replenishnodefrombug)
-	Infoupdate.emit(Availablenodes.size(),Sugar,PrevBranch.rotation)
+	Infoupdate.emit(getavailablenodes().size(),Sugar,PrevBranch.rotation)
 
 func replenishnodefrombug(bug:Leafy):
 	var newnode2d = Marker2D.new()
-	branchcontainer.add_child(newnode2d)
+	bug.PrevBranch.add_child(newnode2d)
 	newnode2d.global_position = bug.global_position
 	newnode2d.global_rotation = bug.PrevRotation
-	Availablenodes.append(newnode2d)
-	Infoupdate.emit(Availablenodes.size(),Sugar,PrevBranch.rotation)
+	Infoupdate.emit(getavailablenodes().size(),Sugar,PrevBranch.rotation)
 
 func grownode(growth:String,growstring:String):
 	var node = findavailablenode()
@@ -230,10 +261,13 @@ func grownode(growth:String,growstring:String):
 			loadedgrowth.global_position = node.global_position
 			loadedgrowth.progress_bar.global_position = loadedgrowth.global_position + Vector2(-(loadedgrowth.progress_bar.size.x/2),20)
 			loadedgrowth.Fruited.connect(growfruit)
+			loadedgrowth.branch = node.get_parent().get_parent().get_parent()
+	var branch:Branch = node.get_parent().get_parent().get_parent()
+	branch.Snipped.connect(loadedgrowth.Sheer)
 	var scale = randf_range(0.9,1.1)
 	loadedgrowth.scale = Vector2(scale,scale)
 	if randi_range(0,1) == 0:
 		loadedgrowth.scale.x = -(loadedgrowth.scale.x)
 	loadedgrowth.rotation = node.rotation + node.get_parent().get_parent().rotation + deg_to_rad(randf_range(-10,10))
 	node.queue_free
-	Infoupdate.emit(Availablenodes.size(),Sugar,PrevBranch.rotation)
+	Infoupdate.emit(getavailablenodes().size(),Sugar,PrevBranch.rotation)

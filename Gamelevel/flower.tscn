@@ -3,6 +3,29 @@
 [ext_resource type="Texture2D" uid="uid://crgunjqlpch62" path="res://images/bud.png" id="1_q4gu7"]
 [ext_resource type="Script" uid="uid://dyk2spvdqqdor" path="res://Gamelevel/flower.gd" id="1_qld3m"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emm1k"]
+bg_color = Color(0.6431373, 0.34509805, 0.27058825, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.46666667, 0.13725491, 0.08235294, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iesh6"]
+bg_color = Color(0.22747365, 0.58199984, 0.95423967, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ejfg"]
 radius = 17.0
 
@@ -13,6 +36,8 @@ script = ExtResource("1_qld3m")
 top_level = true
 offset_right = 88.0
 offset_bottom = 26.0
+theme_override_styles/background = SubResource("StyleBoxFlat_emm1k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iesh6")
 max_value = 8.0
 step = 0.1
 show_percentage = false
@@ -22,7 +47,7 @@ position = Vector2(2, -14)
 texture = ExtResource("1_q4gu7")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2139294020]
-collision_layer = 6
+collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1977966934]

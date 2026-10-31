@@ -59,7 +59,6 @@ func _on_button_2_pressed() -> void:
 		print ("false")
 		message.stop()
 		newuser.stop()
-		
 
 func newusersend():
 	if Usernametable.size() <= 0:return
@@ -78,3 +77,8 @@ func _on_message_timeout() -> void:
 
 func _on_newuser_timeout() -> void:
 	newusersend()
+
+
+func _on_button_3_pressed() -> void:
+	Usernametable.append_array(Activeusers)
+	Activeusers = []

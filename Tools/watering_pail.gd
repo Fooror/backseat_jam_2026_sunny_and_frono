@@ -1,6 +1,6 @@
 extends Node2D
 
-const Waterdrop:float = 1.0
+const Waterdrop:float = 1.2
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var particles: GPUParticles2D = $Sprite/GPUParticles2D

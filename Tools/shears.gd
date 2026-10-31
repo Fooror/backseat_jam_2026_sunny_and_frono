@@ -4,6 +4,8 @@ class_name Sheers
 @onready var pivot: Node2D = $Pivot
 @onready var pivot_2: Node2D = $Pivot2
 
+var Hovered = []
+
 var debounce:bool = false
 
 func _ready() -> void:
@@ -31,13 +33,25 @@ func IsUsing(b:bool):
 		true:
 			toptween.tween_property(pivot,"rotation",deg_to_rad(-10),tweenspeedopen)
 			bottween.tween_property(pivot_2,"rotation",deg_to_rad(10),tweenspeedopen)
+			if Hovered.size() >0:
+				Hovered[0].Sheer()
 		false:
 			toptween.tween_property(pivot,"rotation",deg_to_rad(1.4),tweenspeedclose)
 			bottween.tween_property(pivot_2,"rotation",deg_to_rad(-1.4),tweenspeedclose)
 	debounce = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	if area.get_parent().Previousbranch == null:return
+	Hovered.append(area.get_parent())
+	hovercheck()
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
+	area.get_parent().unhovered()
+	Hovered.erase(area.get_parent())
+	hovercheck()
+
+func hovercheck():
+	if Hovered.size()>0:
+		for i:Branch in Hovered:
+			i.unhovered()
+		Hovered[0].hovered()

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dt870pbulfss7"]
+
+[ext_resource type="Script" uid="uid://do0tbonqob4n5" path="res://Global/soundhandler.gd" id="1_ivaxy"]
+
+[node name="SoundhandlerAAAH" type="Node" unique_id=1727413557]
+script = ExtResource("1_ivaxy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=345707804]
+bus = &"Music"

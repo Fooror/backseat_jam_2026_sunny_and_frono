@@ -58,7 +58,7 @@ color_ramp = SubResource("GradientTexture1D_61gfd")
 script = ExtResource("1_k3k6m")
 
 [node name="Timer" type="Timer" parent="." unique_id=1434744838]
-wait_time = 0.3
+wait_time = 0.2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=686579616]
 top_level = true

@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cry155wkfyign" path="res://Global/twitchhandler.gd" id="1_iiuyf"]
 
 [node name="Twitchhandle" type="Node" unique_id=1337860375]
+process_mode = 3
 script = ExtResource("1_iiuyf")

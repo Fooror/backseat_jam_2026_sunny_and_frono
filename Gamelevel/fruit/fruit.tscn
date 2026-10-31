@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_61gfd"]
 radius = 70.256676
 
-[node name="Fruit" type="Node2D" unique_id=1527859944 node_paths=PackedStringArray("Fruitsprite")]
+[node name="Tomato" type="Node2D" unique_id=1527859944 node_paths=PackedStringArray("Fruitsprite")]
 script = ExtResource("1_haoy7")
 Fruitsprite = NodePath("Fruit/Tomato")
 Fruitvalue = 1.0
@@ -15,9 +15,9 @@ Fruitvalue = 1.0
 [node name="Control" type="Control" parent="." unique_id=480855940]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -62.0
+offset_left = -61.0
 offset_top = 22.0
-offset_right = 67.0
+offset_right = 68.0
 offset_bottom = 130.0
 
 [node name="Fruit" type="Node2D" parent="." unique_id=2070690454]
@@ -34,7 +34,7 @@ position = Vector2(-2, 24)
 texture = ExtResource("3_2grb0")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=561166186]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1712093387]

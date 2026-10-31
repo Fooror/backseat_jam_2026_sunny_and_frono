@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://cbq0m6rew4p2j"]
+
+[ext_resource type="Script" uid="uid://dbm7qbqrr326v" path="res://Menu/gameover.gd" id="1_0w34b"]
+[ext_resource type="Texture2D" uid="uid://di3n4powkk4jo" path="res://images/ui/gmae_over.png" id="1_pq57r"]
+[ext_resource type="Texture2D" uid="uid://dgag5qjigbag6" path="res://images/cloud4.png" id="2_r4hdr"]
+[ext_resource type="Texture2D" uid="uid://i37x2ebhim80" path="res://images/cloud1.png" id="3_0w34b"]
+[ext_resource type="Texture2D" uid="uid://bi1u701u6r545" path="res://images/cloud5.png" id="4_05nnf"]
+[ext_resource type="Texture2D" uid="uid://170x8tsjg37o" path="res://images/cloud6.png" id="5_36pc6"]
+[ext_resource type="Texture2D" uid="uid://cyhoittbgwjfh" path="res://images/cloud3.png" id="6_r16jb"]
+[ext_resource type="FontFile" uid="uid://cavfia1m86d3j" path="res://Font/LEMONMILK-Regular.otf" id="8_05nnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4hdr"]
+bg_color = Color(0.6, 0.29411766, 0.22352941, 1)
+border_width_bottom = 12
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0w34b"]
+bg_color = Color(0.35815126, 0.1602979, 0.114798225, 1)
+border_width_bottom = 12
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05nnf"]
+bg_color = Color(0.8109016, 0.4440155, 0.3581284, 1)
+border_width_bottom = 12
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[node name="Gameover" type="Control" unique_id=902127907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0w34b")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=332257241]
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground" unique_id=1396294899]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/Parallax2D" unique_id=2125406957]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.9999997, 0.8512274, 0.64443946, 1)
+
+[node name="Parallax2D3" type="Parallax2D" parent="ParallaxBackground" unique_id=2037732679]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(45, 0)
+repeat_times = 2
+
+[node name="Cloud4" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=733109995]
+position = Vector2(573, 180.00003)
+scale = Vector2(0.6581688, 0.6581688)
+texture = ExtResource("2_r4hdr")
+
+[node name="Cloud1" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=530641899]
+position = Vector2(954, 253)
+scale = Vector2(0.6581688, 0.6581688)
+texture = ExtResource("3_0w34b")
+
+[node name="Cloud5" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1049782307]
+position = Vector2(1634.0002, 897.99994)
+scale = Vector2(0.6581688, 0.6581688)
+texture = ExtResource("4_05nnf")
+
+[node name="Cloud8" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=678960528]
+position = Vector2(1393.0001, 145)
+scale = Vector2(0.6581688, 0.6581688)
+texture = ExtResource("5_36pc6")
+
+[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground" unique_id=863604460]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(30, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Cloud6" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=373089739]
+position = Vector2(899, 691)
+scale = Vector2(0.73961294, 0.73961294)
+texture = ExtResource("5_36pc6")
+
+[node name="Cloud7" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=1471724041]
+position = Vector2(423.99997, 958.00006)
+scale = Vector2(0.73961294, 0.73961294)
+texture = ExtResource("5_36pc6")
+
+[node name="Cloud2" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=1220093991]
+position = Vector2(3195, 913)
+scale = Vector2(0.73961294, 0.73961294)
+texture = ExtResource("3_0w34b")
+
+[node name="Cloud3" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=1777785810]
+position = Vector2(1969.9999, 305)
+scale = Vector2(0.73961294, 0.73961294)
+texture = ExtResource("6_r16jb")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=545762922]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_pq57r")
+
+[node name="Return to Menu" type="Button" parent="." unique_id=287695081]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -385.0
+offset_top = 872.0
+offset_right = -30.0
+offset_bottom = 968.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_05nnf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_r4hdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0w34b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_05nnf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0w34b")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r4hdr")
+text = "Return to Menu"
+
+[node name="Quit" type="Button" parent="." unique_id=352440845]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 31.0
+offset_top = 872.0
+offset_right = 386.0
+offset_bottom = 968.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_05nnf")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_r4hdr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0w34b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_05nnf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0w34b")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r4hdr")
+text = "Quit to Desktop"
+
+[node name="Label" type="Label" parent="." unique_id=1668524104]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -111.5
+offset_right = 287.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("8_05nnf")
+theme_override_font_sizes/font_size = 32
+text = "ENDED ON ROUND"
+horizontal_alignment = 1
+
+[node name="Bestround" type="Label" parent="." unique_id=202350057]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = 64.5
+offset_right = 287.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("8_05nnf")
+theme_override_font_sizes/font_size = 32
+text = "Best: ###"
+horizontal_alignment = 1
+
+[node name="ROUNDNUM" type="Label" parent="." unique_id=753155587]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -63.5
+offset_right = 287.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("8_05nnf")
+theme_override_font_sizes/font_size = 82
+text = "###"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Return to Menu" to="." method="_on_return_to_menu_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

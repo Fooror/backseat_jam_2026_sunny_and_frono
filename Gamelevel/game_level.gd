@@ -20,24 +20,21 @@ var Currentround:int
 @onready var round: Timer = $Round
 @onready var bug: Timer = $Bug
 @onready var container: GridContainer = $GUI/Container
+@onready var ground: Node2D = $World/Ground
 
 @onready var camtarget: Node2D = $Camtarget
+var zoomtarget:float = 1
 @onready var toplevel: Node = $Toplevel
 @export var world:Node2D
 @export var Plantstart:Marker2D
 @export var Planttop:Node2D
 @export var Camera:Camera2D
-
 @export var Bigbeef:BigBeef
-
-var zoomtarget:float = 1
 
 func _ready() -> void:
 	Twitchhandle.MessageRecieved.connect(chat_message_recieved)
 	Bigbeef.Fed.connect(Feed)
-	Bigbeef.Victory.connect(Victory)
 	Emitfeeding.connect(Bigbeef.Feeding)
-	Bigbeef.newround(5)
 	bug.start(10.0)
 
 func bugtime():
@@ -54,12 +51,15 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("movedown") - Input.get_action_strength("moveup")
 		)).normalized() * 12
 	camtarget.position += inp
+	camtarget.position.y = clampf(camtarget.position.y,-10000000,400)
 	Camera.position = Camera.position.lerp(camtarget.position,delta *6)
 	Camera.zoom = Camera.zoom.lerp(Vector2(zoomtarget,zoomtarget),delta *6)
 	if Input.is_action_just_pressed("mousescrolldown"):
-		zoomtarget = clampf(zoomtarget - 0.1,0.1,2)
+		zoomtarget = clampf(zoomtarget - 0.1,0.1,1.9)
 	if Input.is_action_just_pressed("mousescrollup"):
-		zoomtarget = clampf(zoomtarget + 0.1,0.1,2)
+		zoomtarget = clampf(zoomtarget + 0.1,0.1,1.9)
+	var Camposforground = floor(Camera.position.x/1920)
+	ground.position.x = Camposforground*1920
 
 func chat_message_recieved(user:String,message:String):
 	for i:TreeSegment in treesegments.get_children():
@@ -72,8 +72,8 @@ func chat_message_recieved(user:String,message:String):
 func bugspawn():
 	if treesegments.get_child_count() >0:
 		var chosen:TreeSegment = treesegments.get_children()[randi_range(0,treesegments.get_child_count()-1)]
-		chosen.spawnbug()
-	bug.start(randf_range(16,26))
+		chosen.spawnbug.call_deferred()
+	bug.start(clampf((randf_range(16,26))/treesegments.get_child_count(),0.3,26))
 
 func setupnewuser(user:String,message:String):
 	print("new user:"+user)
@@ -92,6 +92,7 @@ func setupnewuser(user:String,message:String):
 
 func Pickfruit(fruit:Fruit):
 	holdingfruit = true
+	Soundhandler.playsound(Soundhandler.Soundenum.pop,fruit.global_position)
 	fruit_cursor.show()
 	fruitsprite.texture = fruit.Fruitsprite.texture
 	heldfruitvalue = fruit.Fruitvalue
@@ -102,23 +103,11 @@ func Feed():
 	fruit_cursor.hide()
 	Emitfeeding.emit(heldfruitvalue)
 
-func NewRound():
-	pass
-
-func Victory():
-	pass
-
-func GameOver():
-	pass
-
-func NewGame():
-	pass
-
 func _on_timer_timeout() -> void:
 	Timeticked.emit()
 
-func _on_round_timeout() -> void:
-	GameOver()
-
 func _on_bug_timeout() -> void:
 	bugspawn()
+
+func _on_cam_center_pressed() -> void:
+	camtarget.position = Vector2(0.0,0.0)

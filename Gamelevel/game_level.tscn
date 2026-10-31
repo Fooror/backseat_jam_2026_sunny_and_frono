@@ -15,8 +15,46 @@
 [ext_resource type="Texture2D" uid="uid://bvcbuqxtkvas3" path="res://images/ui/desk.png" id="6_ho0q3"]
 [ext_resource type="Script" uid="uid://b0265sqsqk6bt" path="res://Gamelevel/timer.gd" id="6_n55e7"]
 [ext_resource type="Texture2D" uid="uid://j1logbgi0c55" path="res://images/ui/clock_body.png" id="6_n815c"]
+[ext_resource type="Texture2D" uid="uid://bmlxtrb10r1b2" path="res://images/ground.png" id="7_m2te1"]
 [ext_resource type="Texture2D" uid="uid://bd08do8t3y6qn" path="res://images/ui/clock_needle.png" id="7_n55e7"]
 [ext_resource type="Texture2D" uid="uid://crtfq7nlul8g7" path="res://images/ui/paper.png" id="8_ho0q3"]
+[ext_resource type="FontFile" uid="uid://cavfia1m86d3j" path="res://Font/LEMONMILK-Regular.otf" id="18_v5lwd"]
+
+[sub_resource type="Gradient" id="Gradient_m2te1"]
+colors = PackedColorArray(0.21522179, 0.23666382, 0.32245874, 1, 0.42352942, 0.49411765, 0.49803922, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5ejfg"]
+gradient = SubResource("Gradient_m2te1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpost"]
+bg_color = Color(0.6, 0.29411766, 0.22352941, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ae4ko"]
+bg_color = Color(0.35815126, 0.1602979, 0.114798225, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oybu1"]
+bg_color = Color(0.8109016, 0.4440155, 0.3581284, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
 
 [node name="GameLevel" type="Node2D" unique_id=1486105889 node_paths=PackedStringArray("fruit_cursor", "fruitsprite", "world", "Plantstart", "Planttop", "Camera", "Bigbeef")]
 script = ExtResource("1_ahwja")
@@ -28,61 +66,9 @@ Planttop = NodePath("World/Planttop")
 Camera = NodePath("Camera2D")
 Bigbeef = NodePath("GUI/BigBeef")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=217574246]
-
-[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground" unique_id=665100869]
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/Parallax2D" unique_id=1240366356]
-offset_right = 1920.0
-offset_bottom = 1080.0
-mouse_filter = 2
-color = Color(0.99999994, 0.864566, 0.5082688, 1)
-
-[node name="Parallax2D2" type="Parallax2D" parent="ParallaxBackground" unique_id=1987011978]
-repeat_size = Vector2(3000, 1080)
-autoscroll = Vector2(30, 0)
-
-[node name="Cloud6" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=32587735]
-position = Vector2(653, 1010)
-texture = ExtResource("2_t0b4w")
-
-[node name="Cloud7" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=1378520938]
-position = Vector2(278, 670)
-texture = ExtResource("2_t0b4w")
-
-[node name="Cloud2" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=17859636]
-position = Vector2(3195, 913)
-texture = ExtResource("3_m2te1")
-
-[node name="Cloud3" type="Sprite2D" parent="ParallaxBackground/Parallax2D2" unique_id=796790548]
-position = Vector2(1991, 924)
-texture = ExtResource("4_v5lwd")
-
-[node name="Parallax2D3" type="Parallax2D" parent="ParallaxBackground" unique_id=951316546]
-repeat_size = Vector2(3000, 1080)
-autoscroll = Vector2(45, 0)
-
-[node name="Cloud4" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=425218108]
-position = Vector2(870, 612)
-texture = ExtResource("5_lpost")
-
-[node name="Cloud1" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1260453045]
-position = Vector2(1324, 300)
-texture = ExtResource("3_m2te1")
-
-[node name="Cloud5" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1463691558]
-position = Vector2(2249, 261)
-texture = ExtResource("6_ae4ko")
-
-[node name="Cloud8" type="Sprite2D" parent="ParallaxBackground/Parallax2D3" unique_id=1785867302]
-position = Vector2(2728, 519)
-texture = ExtResource("2_t0b4w")
-
-[node name="Round" type="Timer" parent="." unique_id=648564463]
-wait_time = 300.0
-
 [node name="Bug" type="Timer" parent="." unique_id=944091818]
 wait_time = 20.0
+one_shot = true
 
 [node name="Timer" type="Timer" parent="." unique_id=2093603075]
 autostart = true
@@ -93,6 +79,85 @@ offset = Vector2(960, 540)
 [node name="Camtarget" type="Node2D" parent="." unique_id=377437984]
 
 [node name="World" type="Node2D" parent="." unique_id=1500829226]
+
+[node name="Ground" type="Node2D" parent="World" unique_id=2070526437]
+position = Vector2(0, 749)
+
+[node name="Ground" type="TextureRect" parent="World/Ground" unique_id=1307988389]
+offset_left = -10560.0
+offset_top = -81.0
+offset_right = 12479.0
+offset_bottom = 743.0
+texture = ExtResource("7_m2te1")
+stretch_mode = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="World/Ground" unique_id=1236422345]
+position = Vector2(960.0855, 2708.1638)
+rotation = -1.5707964
+scale = Vector2(15.54034, 23040.518)
+texture = SubResource("GradientTexture1D_5ejfg")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="World" unique_id=1419844171]
+
+[node name="Parallax2D" type="Parallax2D" parent="World/ParallaxBackground" unique_id=1784836119]
+
+[node name="ColorRect" type="ColorRect" parent="World/ParallaxBackground/Parallax2D" unique_id=1015957540]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(1, 0.8509804, 0.6431373, 1)
+
+[node name="Parallax2D3" type="Parallax2D" parent="World/ParallaxBackground" unique_id=2128234301]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(45, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Cloud4" type="Sprite2D" parent="World/ParallaxBackground/Parallax2D3" unique_id=277445140]
+position = Vector2(573, 180.00003)
+scale = Vector2(0.6581688, 0.6581688)
+texture = ExtResource("5_lpost")
+
+[node name="Cloud1" type="Sprite2D" parent="World/ParallaxBackground/Parallax2D3" unique_id=558799681]
+position = Vector2(954, 253)
+scale = Vector2(0.6581688, 0.6581688)
+texture = ExtResource("3_m2te1")
+
+[node name="Cloud5" type="Sprite2D" parent="World/ParallaxBackground/Parallax2D3" unique_id=1002971253]
+position = Vector2(1634.0002, 897.99994)
+scale = Vector2(0.6581688, 0.6581688)
+texture = ExtResource("6_ae4ko")
+
+[node name="Cloud8" type="Sprite2D" parent="World/ParallaxBackground/Parallax2D3" unique_id=2067994530]
+position = Vector2(1393.0001, 145)
+scale = Vector2(0.6581688, 0.6581688)
+texture = ExtResource("2_t0b4w")
+
+[node name="Parallax2D2" type="Parallax2D" parent="World/ParallaxBackground" unique_id=627028271]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(30, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="Cloud6" type="Sprite2D" parent="World/ParallaxBackground/Parallax2D2" unique_id=109451165]
+position = Vector2(899, 691)
+scale = Vector2(0.73961294, 0.73961294)
+texture = ExtResource("2_t0b4w")
+
+[node name="Cloud7" type="Sprite2D" parent="World/ParallaxBackground/Parallax2D2" unique_id=1196841124]
+position = Vector2(423.99997, 958.00006)
+scale = Vector2(0.73961294, 0.73961294)
+texture = ExtResource("2_t0b4w")
+
+[node name="Cloud2" type="Sprite2D" parent="World/ParallaxBackground/Parallax2D2" unique_id=726783737]
+position = Vector2(3195, 913)
+scale = Vector2(0.73961294, 0.73961294)
+texture = ExtResource("3_m2te1")
+
+[node name="Cloud3" type="Sprite2D" parent="World/ParallaxBackground/Parallax2D2" unique_id=2030636598]
+position = Vector2(1969.9999, 305)
+scale = Vector2(0.73961294, 0.73961294)
+texture = ExtResource("4_v5lwd")
 
 [node name="Pot" type="Sprite2D" parent="World" unique_id=1847660073]
 position = Vector2(1046, 776)
@@ -111,9 +176,10 @@ texture = ExtResource("2_yavcv")
 position = Vector2(1045, 749)
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=563289574]
+layer = 0
 
 [node name="TextureRect" type="TextureRect" parent="GUI" unique_id=1710580456]
-offset_right = 1917.0
+offset_right = 1920.0
 offset_bottom = 87.0
 texture = ExtResource("4_b3uul")
 
@@ -122,6 +188,7 @@ offset_left = 396.0
 offset_top = 10.0
 offset_right = 910.0
 offset_bottom = 100.0
+mouse_filter = 2
 Toolcontainernode = NodePath("../../HoldingLayer/Tools")
 Gamenode = NodePath("../..")
 
@@ -133,7 +200,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -960.0
 offset_top = -248.0
-offset_right = 958.0
+offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("6_ho0q3")
@@ -151,6 +218,7 @@ offset_left = 36.0
 offset_top = 24.0
 offset_right = 378.0
 offset_bottom = 391.0
+mouse_filter = 2
 bbcode_enabled = true
 text = "[color=black][font_size=24]Chat Commands[/font_size]
 
@@ -186,6 +254,7 @@ offset_top = 10.0
 offset_right = -10.0
 offset_bottom = 475.0
 grow_horizontal = 0
+mouse_filter = 2
 script = ExtResource("6_n55e7")
 
 [node name="TextureRect" type="TextureRect" parent="GUI/Timer" unique_id=793289743]
@@ -219,12 +288,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -110.0
-offset_top = -60.5
+offset_top = -54.5
 offset_right = 137.0
-offset_bottom = -37.5
+offset_bottom = -31.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "DINNER TIME"
+text = "DINNER TIME OVER IN:"
 horizontal_alignment = 1
 
 [node name="Time" type="Label" parent="GUI/Timer" unique_id=1020811471]
@@ -240,6 +309,8 @@ offset_right = 117.0
 offset_bottom = 18.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 38
+text = "4:00"
 horizontal_alignment = 1
 
 [node name="BigBeef" parent="GUI" unique_id=1798475938 node_paths=PackedStringArray("Gamenode") instance=ExtResource("5_ldrrc")]
@@ -248,6 +319,24 @@ offset_top = 533.0
 offset_right = 540.0
 offset_bottom = 886.0
 Gamenode = NodePath("../..")
+
+[node name="Cam Center" type="Button" parent="GUI" unique_id=326938325]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = 11.0
+offset_right = 201.0
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("18_v5lwd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpost")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ae4ko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oybu1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ae4ko")
+text = "Re-Center Camera"
 
 [node name="HoldingLayer" type="CanvasLayer" parent="." unique_id=60786494]
 follow_viewport_enabled = true
@@ -264,6 +353,6 @@ follow_viewport_enabled = true
 position = Vector2(1046, 789)
 texture = ExtResource("4_jpbel")
 
-[connection signal="timeout" from="Round" to="." method="_on_round_timeout"]
 [connection signal="timeout" from="Bug" to="." method="_on_bug_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="GUI/Cam Center" to="." method="_on_cam_center_pressed"]
