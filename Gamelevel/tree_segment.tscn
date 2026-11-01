@@ -22,6 +22,7 @@ bugcontainer = NodePath("Bugcontainer")
 position = Vector2(-29, -53)
 
 [node name="TrunkSprite2" type="Sprite2D" parent="Leftstump" unique_id=1036881048]
+z_index = -2
 position = Vector2(-27, -9.75)
 scale = Vector2(-1, 1)
 texture = ExtResource("2_vsntk")
@@ -33,6 +34,7 @@ position = Vector2(-50, -29.75)
 position = Vector2(-16, -173)
 
 [node name="TrunkSprite3" type="Sprite2D" parent="Rightstump" unique_id=285205595]
+z_index = -2
 position = Vector2(19, 1)
 texture = ExtResource("2_vsntk")
 
@@ -40,6 +42,7 @@ texture = ExtResource("2_vsntk")
 position = Vector2(42, -19)
 
 [node name="TrunkSprite" type="Sprite2D" parent="." unique_id=1465880159]
+z_index = -2
 position = Vector2(-15, -128)
 texture = ExtResource("3_bo2fl")
 
@@ -98,7 +101,7 @@ anchors_preset = 0
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Sign/Signhandle" unique_id=550454160]
-z_index = -1
+z_index = -2
 layout_mode = 0
 offset_left = -37.0
 offset_top = -25.0

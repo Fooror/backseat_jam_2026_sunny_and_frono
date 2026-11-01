@@ -14,7 +14,7 @@ var Soundvol:float = 0.5:
 		AudioServer.set_bus_volume_db(2,linear_to_db(val))
 		Soundvol = val
 
-const BASTA_DE_NOVO_BOBA = preload("uid://b338fba7njejm")
+const BASTA_DE_NOVO_BOBA = preload("uid://djyrhfea6611t")
 
 const CLICK = preload("uid://dmgokcuo4i0fj")
 const POP = preload("uid://d03htn3p2nhsd")
@@ -36,7 +36,7 @@ func _ready() -> void:
 	Playmusic.stream = BASTA_DE_NOVO_BOBA
 	Playmusic.volume_db = Musicvol
 	Playmusic.autoplay = true
-	#Playmusic.play(0.0)
+	Playmusic.play(0.0)
 
 func playsoundnopos(sound):
 	var Sound = AudioStreamPlayer.new()

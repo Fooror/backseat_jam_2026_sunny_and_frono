@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ut7st8hbueeg"]
+
+[ext_resource type="Script" uid="uid://1b08ptvlrm10" path="res://Gamelevel/fruit/fruit.gd" id="1_af6g3"]
+[ext_resource type="Texture2D" uid="uid://yljam6a3kblu" path="res://images/hanging_bud_flower.png" id="2_jervd"]
+[ext_resource type="Texture2D" uid="uid://bpg7gno0viljl" path="res://images/fruits/mangosteen.png" id="2_taq13"]
+
+[node name="mangosteen" type="Node2D" unique_id=1527859944 node_paths=PackedStringArray("Fruitsprite")]
+script = ExtResource("1_af6g3")
+Fruitsprite = NodePath("Fruit/Fruit")
+Fruitvalue = 0.8
+
+[node name="Control" type="Control" parent="." unique_id=480855940]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -61.0
+offset_top = 15.0
+offset_right = 47.0
+offset_bottom = 130.0
+
+[node name="Fruit" type="Node2D" parent="." unique_id=2070690454]
+scale = Vector2(0.8, 0.8)
+
+[node name="Fruit" type="Sprite2D" parent="Fruit" unique_id=2049729341]
+position = Vector2(-8, 81)
+texture = ExtResource("2_taq13")
+
+[node name="Dangly" type="Node2D" parent="." unique_id=1258766237]
+scale = Vector2(0.5, 0.5)
+
+[node name="HangingBudFlower" type="Sprite2D" parent="Dangly" unique_id=118804601]
+position = Vector2(-2, 24)
+texture = ExtResource("2_jervd")
+
+[connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]

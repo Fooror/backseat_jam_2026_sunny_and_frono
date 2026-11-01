@@ -7,6 +7,7 @@ signal Emitfeeding(fruitval:float)
 
 const TREE_SEGMENT = preload("uid://bwfnagv2unacs")
 const USERINFO = preload("uid://dn3g0n4mxk8cb")
+const CUTNUB = preload("uid://b125b63fytl7h")
 
 var Currentround:int
 
@@ -96,6 +97,11 @@ func Pickfruit(fruit:Fruit):
 	fruit_cursor.show()
 	fruitsprite.texture = fruit.Fruitsprite.texture
 	heldfruitvalue = fruit.Fruitvalue
+	var nub = CUTNUB.instantiate()
+	fruit.Prevbranch.add_child(nub)
+	nub.global_position = fruit.global_position
+	nub.global_rotation = fruit.Prevbranch.global_rotation
+	fruit.Prevbranch.Snipped.connect(nub.Sheer)
 	fruit.queue_free()
 
 func Feed():

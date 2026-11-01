@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://tup3t1hcsoqd"]
+
+[ext_resource type="Script" uid="uid://1b08ptvlrm10" path="res://Gamelevel/fruit/fruit.gd" id="1_282ry"]
+[ext_resource type="Texture2D" uid="uid://yljam6a3kblu" path="res://images/hanging_bud_flower.png" id="2_o6dvb"]
+[ext_resource type="Texture2D" uid="uid://7g2ed3hwy0rg" path="res://images/fruits/jackfruit.png" id="2_w78ye"]
+
+[node name="jackfruit" type="Node2D" unique_id=1527859944 node_paths=PackedStringArray("Fruitsprite")]
+script = ExtResource("1_282ry")
+Fruitsprite = NodePath("Fruit/Fruit")
+Fruitvalue = 3.0
+
+[node name="Control" type="Control" parent="." unique_id=480855940]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -69.0
+offset_top = 22.0
+offset_right = 75.0
+offset_bottom = 210.0
+
+[node name="Fruit" type="Node2D" parent="." unique_id=2070690454]
+
+[node name="Fruit" type="Sprite2D" parent="Fruit" unique_id=2049729341]
+position = Vector2(2, 105)
+texture = ExtResource("2_w78ye")
+
+[node name="Dangly" type="Node2D" parent="." unique_id=1258766237]
+scale = Vector2(0.5, 0.5)
+
+[node name="HangingBudFlower" type="Sprite2D" parent="Dangly" unique_id=118804601]
+position = Vector2(-2, 24)
+texture = ExtResource("2_o6dvb")
+
+[connection signal="gui_input" from="Control" to="." method="_on_control_gui_input"]

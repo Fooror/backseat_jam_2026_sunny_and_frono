@@ -8,7 +8,6 @@ signal Picked(s:Fruit)
 
 @onready var fruit: Node2D = $Fruit
 @onready var dangly: Node2D = $Dangly
-@onready var area_2d: Area2D = $Area2D
 @onready var control: Control = $Control
 
 
@@ -19,6 +18,7 @@ var Tickvalue:float = 0.1
 var Growthvalue:float = 1.0
 var Maxgrowth:float = 4.0
 
+var Prevbranch:Branch
 
 const Growthvalues = [1.0,2.0,3.0,4.0]
 
@@ -41,7 +41,6 @@ func growthtick():
 	if Growthvalue >= Maxgrowth:
 		Finishedgrowing = true
 		print ("finished growing")
-		area_2d.set_collision_layer_value(3,false)
 		control.show()
 
 func growthstage():
@@ -74,5 +73,4 @@ func _on_control_gui_input(event: InputEvent) -> void:
 			Picked.emit(self)
 
 func Sheer():
-	area_2d.set_collision_layer_value(3,false)
 	queue_free()

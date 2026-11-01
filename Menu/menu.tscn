@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dgag5qjigbag6" path="res://images/cloud4.png" id="10_5s5no"]
 [ext_resource type="Texture2D" uid="uid://bi1u701u6r545" path="res://images/cloud5.png" id="11_v3yle"]
 [ext_resource type="PackedScene" uid="uid://c2k521cd2816n" path="res://Menu/Controls.tscn" id="13_2p233"]
+[ext_resource type="PackedScene" uid="uid://djkdda8upgrv3" path="res://Menu/Instructions.tscn" id="13_5s5no"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m2c3"]
 content_margin_left = 24.0
@@ -206,7 +207,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cotva")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0k1h5")
 text = "CONNECT"
 
-[node name="Instructions" type="Button" parent="." unique_id=490541668]
+[node name="Commands" type="Button" parent="." unique_id=490541668]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -228,6 +229,29 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0k1h5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cotva")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0k1h5")
 text = "Controls and commands"
+
+[node name="Instructions" type="Button" parent="." unique_id=488323628]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 596.0
+offset_top = -245.0
+offset_right = 943.75
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_cotva")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpvi2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0k1h5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cotva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0k1h5")
+text = "Instructions"
 
 [node name="Settings" type="Button" parent="." unique_id=734387392]
 layout_mode = 1
@@ -291,12 +315,17 @@ offset_bottom = 794.0
 grow_horizontal = 0
 texture = ExtResource("6_xuj3a")
 
+[node name="Instructions2" parent="." unique_id=816042421 instance=ExtResource("13_5s5no")]
+visible = false
+layout_mode = 1
+
 [node name="Control" parent="." unique_id=661871498 instance=ExtResource("13_2p233")]
 visible = false
 layout_mode = 1
 
 [connection signal="text_submitted" from="TextEdit" to="." method="_on_text_edit_text_submitted"]
 [connection signal="pressed" from="Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="Commands" to="." method="_on_commands_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Startgame" to="." method="_on_startgame_pressed"]

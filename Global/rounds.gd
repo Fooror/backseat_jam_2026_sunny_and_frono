@@ -3,11 +3,14 @@ class_name Roundhandler
 
 signal Timerstarted(time:float)
 
+var Instructionsread:bool
+
 @export var Currentround:int = 1
 @export var Bestround:int = 0
 
 @export var Roundtime:float = 240.0
 
+const Instructions:String = "uid://djkdda8upgrv3"
 const Gamelevel:String = "res://Gamelevel/game_level.tscn"
 const Gamemenu:String = "res://Menu/menu.tscn"
 const Gameover:String = "uid://cbq0m6rew4p2j"
@@ -15,6 +18,7 @@ const Gameover:String = "uid://cbq0m6rew4p2j"
 @onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var label: Label = $CanvasLayer/Roundsign/TextureRect/Label
 @onready var scene_transition: Control = $CanvasLayer/SceneTransition
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 @onready var round: Timer = $Round
 @onready var settings: Settingswindow = $Menu/Settings
@@ -94,6 +98,10 @@ func NewGame():
 	Currentround = 1
 	await get_tree().create_timer(0.5)
 	await ToggleTransitionscreen(true)
+	if Instructionsread == false:
+		var instructions:Instructions = load(Instructions).instantiate()
+		canvas_layer.add_child(instructions)
+		await instructions.Instructionsdone
 	NewRound()
 
 func ToggleTransitionscreen(b:bool):

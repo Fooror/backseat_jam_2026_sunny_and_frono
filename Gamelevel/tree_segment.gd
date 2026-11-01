@@ -18,8 +18,31 @@ signal Infoupdate(availablenodes:int,currentsugar:float,rot:float)
 @export var User:String = "User"
 
 const BRANCH = preload("uid://b0htp8reeoaqb")
-const FRUITS = [preload("uid://cmq1tq1cmh5l3")]
 const LEAFY = preload("uid://ctte7lxe6exo0")
+
+const APPLE = [preload("uid://bfcqcn4mvnf8g"),15]
+const BANANA = [preload("uid://cehwtdjo830sg"),13]
+const BLUEBERRY = [preload("uid://6ri6ovwclibk"),10]
+const CARROT = [preload("uid://c85bhtmc5jmc1"),8]
+const CHERRY = [preload("uid://dfbc32p18tpbn"),12]
+const CORN = [preload("uid://vp8m4htsjmuo"),8]
+const DRAGONFRUIT = [preload("uid://bdi8305yba1be"),5]
+const EGGPLANT = [preload("uid://dunbhfm31gyxs"),10]
+const GOLDTOMATO = [preload("uid://djwak1w0k8uof"),3]
+const JACKFRUIT = [preload("uid://tup3t1hcsoqd"),8]
+const MANGOSTEEN = [preload("uid://ut7st8hbueeg"),12]
+const ORANGE = [preload("uid://d2tn4r4oxwhqg"),16]
+const PEA = [preload("uid://bwrc7xg45h7qj"),15]
+const PEACH = [preload("uid://ch13gwwil1cv6"),12]
+const PEAR = [preload("uid://bxvqmhjiqrabt"),12]
+const PEPPER = [preload("uid://drbju0e055di"),10]
+const POM = [preload("uid://cda1pyfmvtvxu"),6]
+const PUMPKIN = [preload("uid://c2ey8xr8furgl"),5]
+const STRAWBERRY = [preload("uid://1kxya83dy6pn"),14]
+const TOMATO = [preload("uid://cmq1tq1cmh5l3"),18]
+const WATERMELON = [preload("uid://cctuhe0rvfpnn"),5]
+
+const FRUITS = [APPLE,BANANA,BLUEBERRY,CARROT,CHERRY,CORN,DRAGONFRUIT,EGGPLANT,GOLDTOMATO,JACKFRUIT,MANGOSTEEN,ORANGE,PEA,PEACH,PEAR,PEPPER,POM,PUMPKIN,STRAWBERRY,TOMATO,WATERMELON]
 
 @export var SectionTop:Marker2D
 @export var Branchstartleft:Marker2D
@@ -204,19 +227,37 @@ func findavailablenode():
 	var randi:int
 	if branchcontainer.get_child_count() <= 0: return
 	var nodes = getavailablenodes()
+	if getavailablenodes().size() <=0: return
 	randi = randi_range(0,nodes.size()-1)
 	var chosen = nodes[randi]
 	print (chosen)
 	return chosen
 
 func growfruit(flower:Flower):
-	var newfruit:Fruit = FRUITS[randi_range(0,FRUITS.size()-1)].instantiate()
+	var newfruit:Fruit = choosefruit().instantiate()
 	fruitcontainer.add_child(newfruit)
 	newfruit.position = flower.position
 	flower.queue_free()
 	newfruit.Picked.connect(Gamenode.Pickfruit)
 	flower.branch.Snipped.connect(newfruit.Sheer)
+	newfruit.Prevbranch = flower.branch
 	newfruit.setup(Gamenode)
+
+func choosefruit():
+	var addednumber:int
+	addednumber = 0
+	for i in FRUITS:
+		addednumber += i[1]
+	var fruit
+	fruit = FRUITS[19][0]
+	var roll:int
+	roll = randi_range(0,addednumber)
+	while roll >0:
+		for i in range (FRUITS.size()):
+			fruit = FRUITS[i][0]
+			roll -= FRUITS[i][1]
+			if roll <=0 : return fruit
+	return fruit
 
 func setsign(username:String):
 	var padding:float = 60.0
@@ -269,5 +310,5 @@ func grownode(growth:String,growstring:String):
 	if randi_range(0,1) == 0:
 		loadedgrowth.scale.x = -(loadedgrowth.scale.x)
 	loadedgrowth.rotation = node.rotation + node.get_parent().get_parent().rotation + deg_to_rad(randf_range(-10,10))
-	node.queue_free
+	node.queue_free()
 	Infoupdate.emit(getavailablenodes().size(),Sugar,PrevBranch.rotation)

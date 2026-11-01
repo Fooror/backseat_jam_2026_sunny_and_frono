@@ -4,6 +4,8 @@ extends Control
 @onready var needle: TextureRect = $Needle
 @onready var time: Label = $Time
 
+const Modcolor:Color = Color(1.0, 0.5, 0.5, 1.0)
+
 const Startingrotation:float = -90.2
 const Endrotation:float = 95.5
 
@@ -12,6 +14,8 @@ func _ready() -> void:
 	Rounds.Timerstarted.connect(starttimer)
 
 func _process(delta: float) -> void:
+	if Rounds.round.time_left <60:
+		time.modulate
 	time.text = timestring()
 
 func starttimer(time:float):

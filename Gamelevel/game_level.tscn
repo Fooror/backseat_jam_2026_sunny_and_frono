@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bmlxtrb10r1b2" path="res://images/ground.png" id="7_m2te1"]
 [ext_resource type="Texture2D" uid="uid://bd08do8t3y6qn" path="res://images/ui/clock_needle.png" id="7_n55e7"]
 [ext_resource type="Texture2D" uid="uid://crtfq7nlul8g7" path="res://images/ui/paper.png" id="8_ho0q3"]
+[ext_resource type="FontFile" uid="uid://vd6k5sw8ucs7" path="res://Font/LEMONMILK-Bold.otf" id="15_lpost"]
 [ext_resource type="FontFile" uid="uid://cavfia1m86d3j" path="res://Font/LEMONMILK-Regular.otf" id="18_v5lwd"]
 
 [sub_resource type="Gradient" id="Gradient_m2te1"]
@@ -160,6 +161,7 @@ scale = Vector2(0.73961294, 0.73961294)
 texture = ExtResource("4_v5lwd")
 
 [node name="Pot" type="Sprite2D" parent="World" unique_id=1847660073]
+z_index = -2
 position = Vector2(1046, 776)
 texture = ExtResource("2_wiydr")
 
@@ -219,16 +221,18 @@ offset_top = 24.0
 offset_right = 378.0
 offset_bottom = 391.0
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("18_v5lwd")
+theme_override_fonts/bold_font = ExtResource("15_lpost")
 bbcode_enabled = true
-text = "[color=black][font_size=24]Chat Commands[/font_size]
+text = "[color=black][b][font_size=24]Chat Commands[/font_size][/b]
 
-Sprout = Start growing as a branch on the vine.
+[b]Sprout[/b] = Start growing as a branch on the vine.
 
-Up, Down, Left, Right = Grow branch in dirrection, adds 3 spaces for a flower or leaf.
+[b]Up, Down, Left, Right[/b] = Grow branch in dirrection, adds 3 spaces for a flower or leaf.
 
-Flower = Grow a flower. Once watered, takes 2 sugar per second until grown into a ripe fruit.
+[b]Flower[/b] = Grow a flower. Once watered, takes 2 sugar per second until grown into a ripe fruit.
 
-Leaf = Grow a leaf that makes 1 sugar per second"
+[b]Leaf[/b] = Grow a leaf that makes 1 sugar per second"
 
 [node name="Container" type="GridContainer" parent="GUI" unique_id=546922332]
 anchors_preset = 7

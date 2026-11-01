@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2oyetywea4sg" path="res://images/ui/toggle_on.png" id="6_wk16h"]
 [ext_resource type="Texture2D" uid="uid://c8yjs47d6a8iy" path="res://images/ui/toogle_off.png" id="7_0sgdx"]
 [ext_resource type="PackedScene" uid="uid://c2k521cd2816n" path="res://Menu/Controls.tscn" id="8_0sgdx"]
+[ext_resource type="PackedScene" uid="uid://djkdda8upgrv3" path="res://Menu/Instructions.tscn" id="8_5vcno"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ejfg"]
 bg_color = Color(0.48235294, 0.2, 0.14509805, 1)
@@ -521,6 +522,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_bcfwt")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iesh6")
 text = "No"
 
+[node name="Instructions2" parent="." unique_id=816042421 instance=ExtResource("8_5vcno")]
+visible = false
+layout_mode = 1
+
 [node name="Control" parent="." unique_id=661871498 instance=ExtResource("8_0sgdx")]
 visible = false
 layout_mode = 1
@@ -533,6 +538,7 @@ anchor_bottom = 0.5
 [connection signal="value_changed" from="Music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="SFX" to="." method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="Master" to="." method="_on_master_value_changed"]
+[connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="ExitToMenuButtton" to="." method="_on_exit_to_menu_buttton_pressed"]
 [connection signal="pressed" from="ExitToDesktopButtton" to="." method="_on_exit_to_desktop_buttton_pressed"]
