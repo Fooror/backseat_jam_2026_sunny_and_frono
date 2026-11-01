@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/basta de novo boba.ogg-286b3bfc27f3210b830d4f
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

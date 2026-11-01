@@ -41,16 +41,10 @@ func NewRound():
 	
 	animation_player.play("Sign WOBBLE")
 	var Fruitamm = int(pow(Currentround,1.8)+4.0)
-	label.text = ("You must get "+str(ceil(Fruitamm))+" fruits.")
+	label.text = ("You must get "+str(ceil(Fruitamm))+" fruit.")
 	await get_tree().create_timer(1.7).timeout
 	
-	animation_player.play("Sign WOBBLE")
-	label.text = "Ready?"
-	await get_tree().create_timer(1).timeout
-	
-	animation_player.play("Sign WOBBLE")
-	label.text = "GO!"
-	await get_tree().create_timer(0.5).timeout
+
 	
 	animation_player.play("Sign OUT")
 	get_tree().paused = false

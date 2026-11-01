@@ -7,6 +7,6 @@
 script = ExtResource("1_5d2jp")
 
 [node name="Cut" type="Sprite2D" parent="." unique_id=1212295306]
-position = Vector2(-1, 17)
+position = Vector2(0, 15)
 rotation = 3.1415927
 texture = ExtResource("1_svqrn")

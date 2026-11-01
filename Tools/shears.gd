@@ -31,6 +31,7 @@ func IsUsing(b:bool):
 	bottween.set_ease(Tween.EASE_OUT)
 	match b:
 		true:
+			Soundhandler.playsound(Soundhandler.Soundenum.clip,self.global_position)
 			toptween.tween_property(pivot,"rotation",deg_to_rad(-10),tweenspeedopen)
 			bottween.tween_property(pivot_2,"rotation",deg_to_rad(10),tweenspeedopen)
 			if Hovered.size() >0:

@@ -342,6 +342,24 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_oybu1")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ae4ko")
 text = "Re-Center Camera"
 
+[node name="Pause" type="Button" parent="GUI" unique_id=551670227]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 219.0
+offset_top = 11.0
+offset_right = 352.0
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("18_v5lwd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpost")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ae4ko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oybu1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ae4ko")
+text = "Pause"
+
 [node name="HoldingLayer" type="CanvasLayer" parent="." unique_id=60786494]
 follow_viewport_enabled = true
 
@@ -360,3 +378,4 @@ texture = ExtResource("4_jpbel")
 [connection signal="timeout" from="Bug" to="." method="_on_bug_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GUI/Cam Center" to="." method="_on_cam_center_pressed"]
+[connection signal="pressed" from="GUI/Pause" to="." method="_on_pause_pressed"]

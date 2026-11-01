@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://caf4mplusgbar"]
 
-[ext_resource type="Texture2D" uid="uid://dysv730yqqoqi" path="res://images/bigbeef temp.png" id="1_bl5fk"]
 [ext_resource type="Texture2D" uid="uid://do5mtds4jkaxh" path="res://images/ui/beefo_meter_backk.png" id="1_mwuks"]
 [ext_resource type="Script" uid="uid://b3h3iv0b20mgu" path="res://Gamelevel/big_beef.gd" id="1_vf5q5"]
 [ext_resource type="Texture2D" uid="uid://blrxcjq3e5trt" path="res://images/ui/beefo_meter_topp.png" id="2_bl5fk"]
+[ext_resource type="Texture2D" uid="uid://crfvkohobpdmx" path="res://images/beef1.png" id="2_vf5q5"]
 [ext_resource type="Texture2D" uid="uid://el0fnmso3gnl" path="res://images/ui/beefo_meter_barr.png" id="3_vf5q5"]
 
 [node name="BigBeef" type="Control" unique_id=1798475938]
@@ -14,10 +14,13 @@ offset_right = 520.0
 mouse_filter = 2
 script = ExtResource("1_vf5q5")
 
-[node name="Beefarea" type="Sprite2D" parent="." unique_id=208099951]
-position = Vector2(329.99997, 220)
+[node name="Node2D" type="Node2D" parent="." unique_id=820274534]
+position = Vector2(326, 347)
+
+[node name="Beefarea" type="Sprite2D" parent="Node2D" unique_id=208099951]
+position = Vector2(1.9999695, -140.99998)
 scale = Vector2(0.6557789, 0.6557789)
-texture = ExtResource("1_bl5fk")
+texture = ExtResource("2_vf5q5")
 
 [node name="Bigbar" type="Control" parent="." unique_id=2102385764]
 anchors_preset = 0
@@ -56,9 +59,9 @@ texture = ExtResource("2_bl5fk")
 
 [node name="Feedzone" type="Control" parent="." unique_id=68519855]
 anchors_preset = 0
-offset_left = 304.0
-offset_top = 165.0
-offset_right = 374.0
-offset_bottom = 236.0
+offset_left = 322.0
+offset_top = 111.0
+offset_right = 358.0
+offset_bottom = 197.0
 
 [connection signal="mouse_entered" from="Feedzone" to="." method="_on_feedzone_mouse_entered"]

@@ -22,6 +22,7 @@ var Toolobject
 @export var Gamenode:GameLevel
 
 func _on_pail_pressed() -> void:
+	Soundhandler.playsoundnopos(Soundhandler.Soundenum.picktool)
 	if Gamenode.holdingfruit == true:return
 	unequipall()
 	if Currenttool == ToolEnums.pail:
@@ -33,6 +34,7 @@ func _on_pail_pressed() -> void:
 	Toolcontainernode.add_child(Toolobject)
 
 func _on_slap_pressed() -> void:
+	Soundhandler.playsoundnopos(Soundhandler.Soundenum.picktool)
 	if Gamenode.holdingfruit == true:return
 	unequipall()
 	if Currenttool == ToolEnums.slap:
@@ -44,6 +46,7 @@ func _on_slap_pressed() -> void:
 	Toolcontainernode.add_child(Toolobject)
 
 func _on_shear_pressed() -> void:
+	Soundhandler.playsoundnopos(Soundhandler.Soundenum.picktool)
 	if Gamenode.holdingfruit == true:return
 	unequipall()
 	if Currenttool == ToolEnums.shear:

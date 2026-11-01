@@ -40,7 +40,6 @@ func growthtick():
 	setstage(growth)
 	if Growthvalue >= Maxgrowth:
 		Finishedgrowing = true
-		print ("finished growing")
 		control.show()
 
 func growthstage():
@@ -69,7 +68,6 @@ func _on_control_gui_input(event: InputEvent) -> void:
 	if Gamenode.holdingfruit == true:return
 	if event is InputEventMouse and event is not InputEventMouseMotion:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("picked")
 			Picked.emit(self)
 
 func Sheer():

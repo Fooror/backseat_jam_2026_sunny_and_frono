@@ -21,9 +21,11 @@ const POP = preload("uid://d03htn3p2nhsd")
 const SLAP = preload("uid://cfy3suwigcjkg")
 const BEEF_LOSS = preload("uid://cw8wlvvhn7g82")
 const BEEF_VICTORY = preload("uid://bcseiusjcs4r0")
+const CLIP_3 = preload("uid://bqki16dv48ga5")
+const PICK_2 = preload("uid://b0jo3esoj2q2d")
 
-var Sounds = [CLICK,POP,SLAP,BEEF_LOSS,BEEF_VICTORY]
-enum Soundenum {click,pop,slap,loss,victory}
+var Sounds = [CLICK,POP,SLAP,BEEF_LOSS,BEEF_VICTORY,CLIP_3,PICK_2]
+enum Soundenum {click,pop,slap,loss,victory,clip,picktool}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

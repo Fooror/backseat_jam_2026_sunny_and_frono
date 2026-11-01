@@ -3,6 +3,8 @@ class_name GameLevel
 
 signal Timeticked
 
+signal Holdingfruit
+
 signal Emitfeeding(fruitval:float)
 
 const TREE_SEGMENT = preload("uid://bwfnagv2unacs")
@@ -33,6 +35,7 @@ var zoomtarget:float = 1
 @export var Bigbeef:BigBeef
 
 func _ready() -> void:
+	Holdingfruit.connect(Bigbeef.openmouth)
 	Twitchhandle.MessageRecieved.connect(chat_message_recieved)
 	Bigbeef.Fed.connect(Feed)
 	Emitfeeding.connect(Bigbeef.Feeding)
@@ -102,6 +105,7 @@ func Pickfruit(fruit:Fruit):
 	nub.global_position = fruit.global_position
 	nub.global_rotation = fruit.Prevbranch.global_rotation
 	fruit.Prevbranch.Snipped.connect(nub.Sheer)
+	Holdingfruit.emit()
 	fruit.queue_free()
 
 func Feed():
@@ -117,3 +121,6 @@ func _on_bug_timeout() -> void:
 
 func _on_cam_center_pressed() -> void:
 	camtarget.position = Vector2(0.0,0.0)
+
+func _on_pause_pressed() -> void:
+	Rounds.settings.showandpause()

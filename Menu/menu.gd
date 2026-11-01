@@ -13,6 +13,8 @@ signal Newgame(s)
 
 func _ready() -> void:
 	Twitchhandle.ChatConnected.connect(connected)
+	if Twitchhandle.TwitchChat !=null:
+		startgamebutton.disabled = false
 
 func connected(channelname:String):
 	rich_text_label.text = ("Successfully connected to "+channelname+"!")
@@ -31,7 +33,10 @@ func _on_instructions_pressed() -> void:
 	instructions_2.showandereset()
 
 func _on_settings_pressed() -> void:
-	Rounds.settings.show()
+	Rounds.settings.showandpause()
 
 func _on_commands_pressed() -> void:
 	control.show()
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()

@@ -22,10 +22,13 @@ func _ready() -> void:
 	master.set_value_no_signal(Soundhandler.Mastervol)
 
 func showandpause():
+	menu_confirm.hide()
+	desktop_confirm.hide()
 	get_tree().paused = true
 	show()
 
 func hideandunpause():
+	
 	get_tree().paused = false
 	control.hide()
 	hide()

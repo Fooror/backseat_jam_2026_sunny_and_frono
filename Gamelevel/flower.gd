@@ -35,7 +35,6 @@ func Bloom():
 
 func Growflower():
 	Currentgrowth += 1
-	print (Currentgrowth)
 	if Currentgrowth >= Maxgrowth:
 		Fruited.emit(self)
 
