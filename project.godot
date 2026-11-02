@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Twitchgame"
+config/name="Garden Gusto"
 run/main_scene="uid://djpu33u087nol"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ce48ohqn0faqs"
 
 [audio]
 
