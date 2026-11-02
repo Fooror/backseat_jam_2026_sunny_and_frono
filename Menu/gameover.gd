@@ -4,7 +4,7 @@ extends Control
 @onready var roundnum: Label = $ROUNDNUM
 
 func _ready() -> void:
-	bestround.text = ("Best: "+str(Rounds.Bestround))
+	bestround.text = ("Best of session: "+str(Rounds.Bestround))
 	roundnum.text = str(Rounds.Currentround)
 
 func _on_return_to_menu_pressed() -> void:

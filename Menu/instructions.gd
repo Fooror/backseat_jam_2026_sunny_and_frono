@@ -21,6 +21,11 @@ Use the middle mouse scroll wheel to zoom the camera in and out.",
 Type 'sprout' to start growing, then type up, down, left, or right to grow in that direction.
 
 once you have enouch branch space, you can type 'leaf' to grow a sugar-producing leaf and 'flower' to make a flower that will eventually turn into a tasty treat.",
+"Once a chatter joins the plant, a card will appear for them at the bottom of the screen.
+
+Available nodes can be used to grow leaves and flowers, and sugar is needed to grow fruits.
+
+branch direction shows the rotation of the latest branch growth.",
 	"The watering pail can be used on flower buds to make them bloom and eventually fruit.
 	
 	Flower buds take one sugar per second, while a bloomed flower or growing fruit takes two sugar per second until ripe.
@@ -37,30 +42,30 @@ It'll grow back eventually."
 func _ready() -> void:
 	Currentpage = 0
 	text.text = Textoneachpage[0]
-	pagenum.text = str(1)+"/7"
+	pagenum.text = str(1)+"/8"
 	done.hide()
 
 
 func showandereset():
 	Currentpage = 0
 	text.text = Textoneachpage[0]
-	pagenum.text = str(1)+"/7"
+	pagenum.text = str(1)+"/8"
 	done.hide()
 	show()
 
 func Setpage(page):
 	animations.play("page"+str(page+1))
-	pagenum.text = str(page+1)+"/7"
+	pagenum.text = str(page+1)+"/8"
 	text.text = Textoneachpage[page]
-	if page == 6:
+	if page == 7:
 		done.show()
 
 func _on_back_pressed() -> void:
-	Currentpage = clampi(Currentpage -1,0,6)
+	Currentpage = clampi(Currentpage -1,0,7)
 	Setpage(Currentpage)
 
 func _on_forward_pressed() -> void:
-	Currentpage = clampi(Currentpage +1,0,6)
+	Currentpage = clampi(Currentpage +1,0,7)
 	Setpage(Currentpage)
 
 func _on_done_pressed() -> void:

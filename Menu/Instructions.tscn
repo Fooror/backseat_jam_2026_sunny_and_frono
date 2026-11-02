@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://p8qdhorfswyn" path="res://images/tutorial/water f2.png" id="10_uhfiq"]
 [ext_resource type="Texture2D" uid="uid://cnnd2nhx2vrx1" path="res://images/tutorial/water f3.png" id="11_cpxic"]
 [ext_resource type="Texture2D" uid="uid://c6tr2t2o2x1i8" path="res://images/tutorial/feed f1.png" id="12_ool8y"]
+[ext_resource type="Texture2D" uid="uid://ddqebskyd2714" path="res://images/tutorial/label.png" id="12_vifhr"]
 [ext_resource type="Texture2D" uid="uid://tw6jh7c8y8wr" path="res://images/tutorial/feed f2.png" id="13_07t7r"]
 [ext_resource type="Texture2D" uid="uid://celsbsq0cos1p" path="res://images/tutorial/splat f1.png" id="14_dcmjr"]
 [ext_resource type="Texture2D" uid="uid://l5ol6j5fk8dp" path="res://images/tutorial/splat f2.png" id="15_7uk11"]
@@ -67,6 +68,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("12_vifhr")
+}],
+"loop": 1,
+"name": &"page4",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("9_bi6i3")
 }, {
 "duration": 1.0,
@@ -76,7 +85,7 @@ animations = [{
 "texture": ExtResource("11_cpxic")
 }],
 "loop": 1,
-"name": &"page4",
+"name": &"page5",
 "speed": 1.0
 }, {
 "frames": [{
@@ -87,7 +96,7 @@ animations = [{
 "texture": ExtResource("13_07t7r")
 }],
 "loop": 1,
-"name": &"page5",
+"name": &"page6",
 "speed": 1.0
 }, {
 "frames": [{
@@ -98,7 +107,7 @@ animations = [{
 "texture": ExtResource("15_7uk11")
 }],
 "loop": 1,
-"name": &"page6",
+"name": &"page7",
 "speed": 1.0
 }, {
 "frames": [{
@@ -109,7 +118,7 @@ animations = [{
 "texture": ExtResource("18_dcmjr")
 }],
 "loop": 1,
-"name": &"page7",
+"name": &"page8",
 "speed": 1.0
 }]
 
@@ -224,9 +233,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_basdj")
 theme_override_font_sizes/font_size = 18
-text = "Use WASD or the arrow keys to move the camera around.
-
-Use the middle mouse scroll wheel to zoom the camera in and out."
 autowrap_mode = 2
 
 [node name="Pagenum" type="Label" parent="Panel" unique_id=138985280]
