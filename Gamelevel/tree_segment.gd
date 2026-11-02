@@ -140,7 +140,8 @@ func sugartoflowers(sugar:int):
 				return remainingsugar
 	return remainingsugar
 
-func messaged(message:String):
+func messaged(mes:String):
+	var message = mes.to_lower()
 	if debounce == true:return
 	setdebounce()
 	for i in Growthprompts.size():
@@ -209,7 +210,6 @@ func growsegment(d):
 	Infoupdate.emit(getavailablenodes().size(),Sugar,branch.rotation)
 
 func newbranchend(mark:Marker2D,branch):
-	print ("prev branch set")
 	NextBranchNode = mark
 	PrevBranch = branch
 	branchtopper.global_position = NextBranchNode.global_position
@@ -230,7 +230,6 @@ func findavailablenode():
 	if getavailablenodes().size() <=0: return
 	randi = randi_range(0,nodes.size()-1)
 	var chosen = nodes[randi]
-	print (chosen)
 	return chosen
 
 func growfruit(flower:Flower):

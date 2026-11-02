@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://crtfq7nlul8g7" path="res://images/ui/paper.png" id="2_q0crc"]
 [ext_resource type="Texture2D" uid="uid://dmvitbrqg3irh" path="res://images/tutorial/beef.png" id="3_i3wr8"]
 [ext_resource type="Texture2D" uid="uid://5qp72dnnt1qn" path="res://images/tutorial/chat f1.png" id="4_0i23e"]
+[ext_resource type="Texture2D" uid="uid://dyrh4piuffwpj" path="res://images/tutorial/controls.png" id="4_7uk11"]
 [ext_resource type="Texture2D" uid="uid://bd6jgqrpmuyyw" path="res://images/tutorial/chat f2.png" id="5_yjwn5"]
 [ext_resource type="Texture2D" uid="uid://dymrx17ndoycg" path="res://images/tutorial/chat f3.png" id="6_ncxgu"]
 [ext_resource type="Texture2D" uid="uid://ccmqtsicvtvf6" path="res://images/tutorial/chat f4.png" id="7_07gjw"]
@@ -46,6 +47,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_7uk11")
+}],
+"loop": 1,
+"name": &"page2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_0i23e")
 }, {
 "duration": 1.0,
@@ -64,7 +73,7 @@ animations = [{
 "texture": ExtResource("9_uhfiq")
 }],
 "loop": 1,
-"name": &"page2",
+"name": &"page3",
 "speed": 1.0
 }, {
 "frames": [{
@@ -78,7 +87,7 @@ animations = [{
 "texture": ExtResource("11_cpxic")
 }],
 "loop": 1,
-"name": &"page3",
+"name": &"page4",
 "speed": 1.0
 }, {
 "frames": [{
@@ -89,7 +98,7 @@ animations = [{
 "texture": ExtResource("13_07t7r")
 }],
 "loop": 1,
-"name": &"page4",
+"name": &"page5",
 "speed": 1.0
 }, {
 "frames": [{
@@ -100,7 +109,7 @@ animations = [{
 "texture": ExtResource("15_7uk11")
 }],
 "loop": 1,
-"name": &"page5",
+"name": &"page6",
 "speed": 1.0
 }, {
 "frames": [{
@@ -111,7 +120,7 @@ animations = [{
 "texture": ExtResource("18_dcmjr")
 }],
 "loop": 1,
-"name": &"page6",
+"name": &"page7",
 "speed": 1.0
 }]
 
@@ -193,9 +202,8 @@ texture = ExtResource("2_q0crc")
 position = Vector2(244.5, 273.5)
 scale = Vector2(0.678, 0.678)
 sprite_frames = SubResource("SpriteFrames_61gfd")
-animation = &"page6"
+animation = &"page4"
 autoplay = "page1"
-frame_progress = 0.59643286
 
 [node name="Panel" type="Panel" parent="Panel" unique_id=604526599]
 layout_mode = 1
@@ -226,9 +234,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_basdj")
 theme_override_font_sizes/font_size = 18
-text = "If one of the vine's branches are being unruly, use the scissors to sheer off any ammount of that branch.
+text = "Use WASD or the arrow keys to move the camera around.
 
-It'll grow back eventually."
+Use the middle mouse scroll wheel to zoom the camera in and out."
 autowrap_mode = 2
 
 [node name="Pagenum" type="Label" parent="Panel" unique_id=138985280]

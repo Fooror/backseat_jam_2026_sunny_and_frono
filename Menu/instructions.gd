@@ -11,12 +11,16 @@ var Currentpage:int
 @onready var done: Button = $Panel/Done
 
 const Textoneachpage = [
-	"Big Beef is hungry and wants fresh produce. It's up to you and your chatroom to grow him some delectable treats.",
-	"Use commands in chat to become a fruiting vine.
+	"Big Beef is hungry and wants fresh produce.
 
-use 'sprout' to start growing, then use up, down, left, or right to grow in that direction.
+It's up to you and your chatroom to grow him some delectable treats.","Use WASD or the arrow keys to move the camera around.
 
-once you have enouch branch space, you can use 'leaf' to grow a sugar-producing leaf and 'flower' to make a flower that will eventually turn into a tasty treat.",
+Use the middle mouse scroll wheel to zoom the camera in and out.",
+	"Chat can use commands to become a fruiting vine.
+
+Type 'sprout' to start growing, then type up, down, left, or right to grow in that direction.
+
+once you have enouch branch space, you can type 'leaf' to grow a sugar-producing leaf and 'flower' to make a flower that will eventually turn into a tasty treat.",
 	"The watering pail can be used on flower buds to make them bloom and eventually fruit.
 	
 	Flower buds take one sugar per second, while a bloomed flower or growing fruit takes two sugar per second until ripe.
@@ -33,30 +37,30 @@ It'll grow back eventually."
 func _ready() -> void:
 	Currentpage = 0
 	text.text = Textoneachpage[0]
-	pagenum.text = str(1)+"/6"
+	pagenum.text = str(1)+"/7"
 	done.hide()
 
 
 func showandereset():
 	Currentpage = 0
 	text.text = Textoneachpage[0]
-	pagenum.text = str(1)+"/6"
+	pagenum.text = str(1)+"/7"
 	done.hide()
 	show()
 
 func Setpage(page):
 	animations.play("page"+str(page+1))
-	pagenum.text = str(page+1)+"/6"
+	pagenum.text = str(page+1)+"/7"
 	text.text = Textoneachpage[page]
-	if page == 5:
+	if page == 6:
 		done.show()
 
 func _on_back_pressed() -> void:
-	Currentpage = clampi(Currentpage -1,0,5)
+	Currentpage = clampi(Currentpage -1,0,6)
 	Setpage(Currentpage)
 
 func _on_forward_pressed() -> void:
-	Currentpage = clampi(Currentpage +1,0,5)
+	Currentpage = clampi(Currentpage +1,0,6)
 	Setpage(Currentpage)
 
 func _on_done_pressed() -> void:
