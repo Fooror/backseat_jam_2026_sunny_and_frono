@@ -2,19 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://cavfia1m86d3j" path="res://Font/LEMONMILK-Regular.otf" id="1_jp2b8"]
 [ext_resource type="Script" uid="uid://7w8fr4jsa0av" path="res://Menu/controls.gd" id="1_todmm"]
+[ext_resource type="Texture2D" uid="uid://bfkxfjvxe48qt" path="res://images/ui/settings_board.png" id="2_k4gqx"]
 [ext_resource type="FontFile" uid="uid://vd6k5sw8ucs7" path="res://Font/LEMONMILK-Bold.otf" id="2_todmm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ejfg"]
-bg_color = Color(0.67058825, 0.3764706, 0.29803923, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 20
-border_color = Color(0.4, 0.12156863, 0.078431375, 1)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61gfd"]
 bg_color = Color(0.46666667, 0.13725491, 0.08235294, 1)
@@ -67,27 +56,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_todmm")
 
-[node name="Panel" type="Panel" parent="." unique_id=2044587074]
+[node name="Panel" type="TextureRect" parent="." unique_id=436894275]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -495.25
-offset_top = -361.0
-offset_right = 495.25
-offset_bottom = 361.0
+offset_left = -551.0
+offset_top = -377.0
+offset_right = 551.0
+offset_bottom = 377.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5ejfg")
+texture = ExtResource("2_k4gqx")
+expand_mode = 1
 
 [node name="Panel3" type="Panel" parent="Panel" unique_id=2004994773]
 layout_mode = 0
-offset_left = 506.25
-offset_top = 51.0
-offset_right = 963.25
-offset_bottom = 672.0
+offset_left = 554.25
+offset_top = 59.0
+offset_right = 1011.25
+offset_bottom = 680.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_61gfd")
 
 [node name="Label3" type="Label" parent="Panel/Panel3" unique_id=1952817660]
@@ -130,10 +120,10 @@ text = "CHAT COMMANDS"
 
 [node name="Panel4" type="Panel" parent="Panel" unique_id=2011095387]
 layout_mode = 0
-offset_left = 26.25
-offset_top = 51.0
-offset_right = 483.25
-offset_bottom = 672.0
+offset_left = 74.25
+offset_top = 59.0
+offset_right = 531.25
+offset_bottom = 680.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_61gfd")
 
 [node name="Label" type="Label" parent="Panel/Panel4" unique_id=349395436]
@@ -149,7 +139,7 @@ offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_jp2b8")
-text = "W A S D or arrow keys: Move the camera around.
+text = "WASD or arrow keys: Move the camera around.
 
 Middle Mouse Scroll: Zoom the camera in and out.
 
@@ -179,10 +169,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 415.0
-offset_top = -382.0
-offset_right = 521.0
-offset_bottom = -276.0
+offset_left = 471.0
+offset_top = -406.0
+offset_right = 577.0
+offset_bottom = -300.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)

@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://bi1u701u6r545" path="res://images/cloud5.png" id="11_v3yle"]
 [ext_resource type="PackedScene" uid="uid://c2k521cd2816n" path="res://Menu/Controls.tscn" id="13_2p233"]
 [ext_resource type="PackedScene" uid="uid://djkdda8upgrv3" path="res://Menu/Instructions.tscn" id="13_5s5no"]
+[ext_resource type="Texture2D" uid="uid://bfkxfjvxe48qt" path="res://images/ui/settings_board.png" id="15_pxa7u"]
+[ext_resource type="Texture2D" uid="uid://cckol100b7r5f" path="res://images/tutorial/beasts.png" id="16_1wnsb"]
+[ext_resource type="FontFile" uid="uid://vd6k5sw8ucs7" path="res://Font/LEMONMILK-Bold.otf" id="17_oq131"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m2c3"]
 content_margin_left = 24.0
@@ -76,6 +79,48 @@ modulate_color = Color(1.1755697, 1.1755697, 1.1755697, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_61gfd"]
 texture = ExtResource("3_eafcm")
 modulate_color = Color(0.65, 0.65, 0.65, 0.4117647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hksm"]
+bg_color = Color(0.46666667, 0.13725491, 0.08235294, 1)
+border_width_left = 4
+border_width_top = 12
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oj2gx"]
+bg_color = Color(0.6, 0.29411766, 0.22352941, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv5qh"]
+bg_color = Color(0.35815126, 0.1602979, 0.114798225, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm61m"]
+bg_color = Color(0.8109016, 0.4440155, 0.3581284, 1)
+border_width_bottom = 4
+border_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
 
 [node name="Menu" type="Control" unique_id=1353532595]
 layout_mode = 3
@@ -268,9 +313,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -616.0
+offset_left = -632.0
 offset_top = -1065.0
-offset_right = -429.0
+offset_right = -445.0
 offset_bottom = -999.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -283,6 +328,29 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0k1h5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cotva")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0k1h5")
 text = "settings"
+
+[node name="Credits" type="Button" parent="." unique_id=254393622]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -429.0
+offset_top = -1065.0
+offset_right = -291.0
+offset_bottom = -999.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_cotva")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpvi2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0k1h5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cotva")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0k1h5")
+text = "credits"
 
 [node name="Exit" type="Button" parent="." unique_id=2030724246]
 layout_mode = 1
@@ -354,10 +422,129 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="Credits2" type="Control" parent="." unique_id=1932973042]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsBoard" type="TextureRect" parent="Credits2" unique_id=1667487222]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -620.0
+offset_top = -413.0
+offset_right = 620.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_pxa7u")
+
+[node name="Panel4" type="Panel" parent="Credits2/SettingsBoard" unique_id=885896423]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -544.875
+offset_top = -294.0
+offset_right = 544.875
+offset_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2hksm")
+
+[node name="Beasts" type="TextureRect" parent="Credits2/SettingsBoard/Panel4" unique_id=1403639264]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.0
+offset_top = -40.0
+offset_right = 378.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_1wnsb")
+
+[node name="Label" type="Label" parent="Credits2/SettingsBoard/Panel4" unique_id=445310701]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 21.0
+offset_right = -22.0
+offset_bottom = -195.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_cotva")
+theme_override_font_sizes/font_size = 24
+text = "A game by two creatur
+(Sunny and Frono)
+
+sunny - sounds, music, art
+frono - programming, some sounds, big beef
+
+made with godot and Very Simple Twitch"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Credits2/SettingsBoard" unique_id=1468967263]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = 35.0
+offset_right = 109.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("17_oq131")
+theme_override_font_sizes/font_size = 48
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HideCredits" type="Button" parent="Credits2" unique_id=698330171]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 531.0
+offset_top = -427.0
+offset_right = 637.0
+offset_bottom = -321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.31764707, 0.09803922, 0.0627451, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_cotva")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_oj2gx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fv5qh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sm61m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fv5qh")
+text = "X"
+
 [connection signal="text_submitted" from="TextEdit" to="." method="_on_text_edit_text_submitted"]
 [connection signal="pressed" from="Connect" to="." method="_on_connect_pressed"]
 [connection signal="pressed" from="Commands" to="." method="_on_commands_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Startgame" to="." method="_on_startgame_pressed"]
+[connection signal="pressed" from="Credits2/HideCredits" to="." method="_on_hide_credits_pressed"]

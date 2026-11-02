@@ -10,6 +10,7 @@ signal Newgame(s)
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
 @onready var control: Control = $Control
 @onready var instructions_2: Control = $Instructions2
+@onready var credits_2: Control = $Credits2
 
 func _ready() -> void:
 	Twitchhandle.ChatConnected.connect(connected)
@@ -40,3 +41,10 @@ func _on_commands_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_credits_pressed() -> void:
+	credits_2.show()
+
+func _on_hide_credits_pressed() -> void:
+	credits_2.hide()
