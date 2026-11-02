@@ -274,16 +274,6 @@ grow_horizontal = 0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_n815c")
 
-[node name="Needle" type="TextureRect" parent="GUI/Timer" unique_id=217502145]
-layout_mode = 0
-offset_left = 167.0
-offset_top = 15.0
-offset_right = 263.0
-offset_bottom = 181.0
-scale = Vector2(0.9, 0.9)
-pivot_offset = Vector2(36.625, 144.075)
-texture = ExtResource("7_n55e7")
-
 [node name="Label" type="Label" parent="GUI/Timer" unique_id=1113139419]
 layout_mode = 1
 anchors_preset = 8
@@ -299,6 +289,16 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "DINNER TIME OVER IN:"
 horizontal_alignment = 1
+
+[node name="Needle" type="TextureRect" parent="GUI/Timer" unique_id=217502145]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 15.0
+offset_right = 263.0
+offset_bottom = 181.0
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(36.625, 144.075)
+texture = ExtResource("7_n55e7")
 
 [node name="Time" type="Label" parent="GUI/Timer" unique_id=1020811471]
 layout_mode = 1
